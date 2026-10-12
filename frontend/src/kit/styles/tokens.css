@@ -16,6 +16,7 @@
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
   --color-paper-3: var(--paper-3);
+  --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
@@ -56,8 +57,9 @@
   --accent: #c9502e;
   --accent-soft: color-mix(in oklab, var(--accent) 12%, white);
   --accent-ink: #ffffff;
-  --pos: #00a82d;
-  --neg: #d9342b;
+  /* Darkened from obliqq's #00A82D / #D9342B so badge text passes WCAG AA on tinted chips. */
+  --pos: #0a7a2f;
+  --neg: #c0261e;
 
   color-scheme: light;
 }

@@ -12,6 +12,7 @@ import { ErrorNote, Skeleton } from "./ui";
 type Msg = { role: "user"; text: string } | { role: "bot"; a: ChatAnswer } | { role: "error"; text: string; retry: string };
 
 const threads = new Map<string, Msg[]>(); // keeps each student's conversation across tab switches
+const consumed = { ask: 0 };
 
 const SUGGEST = [
   "In the radar example, what is P(airplane present | radar registers)?",
@@ -39,7 +40,10 @@ export function Tutor() {
     endRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [msgs, key]);
   useEffect(() => {
-    if (intent.ask) send(intent.ask);
+    if (intent.ask && intent.nonce > consumed.ask) {
+      consumed.ask = intent.nonce; // run a handed-over question once, not on every remount
+      send(intent.ask);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [intent.nonce]);
 

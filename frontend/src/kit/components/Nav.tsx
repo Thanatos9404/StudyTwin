@@ -53,9 +53,12 @@ export function Nav({
           ))}
         </ul>
         <div className="flex items-center gap-2">
-          <Button href={cta.href} size="sm" className="hidden md:inline-flex">
-            {cta.label}
-          </Button>
+          {/* wrapper: Button's own inline-flex would override `hidden` on small screens */}
+          <span className="hidden md:inline-flex">
+            <Button href={cta.href} size="sm">
+              {cta.label}
+            </Button>
+          </span>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             className="grid size-10 place-items-center rounded-full text-ink md:hidden"

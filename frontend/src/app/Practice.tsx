@@ -16,6 +16,7 @@ const HINT: Record<Mode, string> = {
   mock: "A fixed exam blueprint across the chosen topics: every question type and all three difficulty levels.",
   diagnostic: "One medium question per topic, to calibrate the learner model for a new student.",
 };
+const consumed = { n: 0 }; // an intent from another screen starts one assessment, not one per remount
 const TYPES = [
   { v: "mcq", l: "Multiple choice" },
   { v: "numerical", l: "Numerical" },
@@ -38,7 +39,8 @@ export function Practice() {
     if (topics.length && scope.size === 0) setScope(new Set(topics.map((t) => t.id)));
   }, [topics, scope.size]);
   useEffect(() => {
-    if (intent.practiceMode || intent.practiceTopics) {
+    if ((intent.practiceMode || intent.practiceTopics) && intent.nonce > consumed.n) {
+      consumed.n = intent.nonce;
       const m = (intent.practiceMode as Mode) || "quiz";
       setMode(m);
       if (intent.practiceTopics) setScope(new Set(intent.practiceTopics));

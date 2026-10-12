@@ -96,7 +96,7 @@ export function TiltFrame({ children, className }: { children: ReactNode; classN
         style={{ rotateX, scale, y, transformOrigin: "50% 0%" }}
         className="relative mx-auto max-w-[1080px]"
       >
-        <div className="rounded-[26px] border border-white/60 bg-white/40 p-2 shadow-[var(--shadow-lift)] backdrop-blur-md">
+        <div className="rounded-[26px] border border-[var(--glass-border)] bg-[var(--glass)] p-2 shadow-[var(--shadow-lift)] backdrop-blur-md">
           <div className="overflow-hidden rounded-[20px] border border-hair bg-surface">{children}</div>
         </div>
       </motion.div>
