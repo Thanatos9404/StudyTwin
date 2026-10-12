@@ -44,11 +44,15 @@ Return JSON only:
   "quotes": [{{"source": "S1", "text": "verbatim phrase"}}], "outside_knowledge": "",
   "student_signal": "neutral|misconception|confusion|understanding", "followups": ["...", "..."]}}"""
 
-OUTSIDE_ALLOWED = ('If general knowledge beyond the sources would help, put it ONLY in "outside_knowledge" '
-                   "(1-3 sentences, no citations); it will be shown to the student with a warning label.")
+OUTSIDE_ALLOWED = ('The student allowed general knowledge. If the sources do not fully answer the question, also give a '
+                   'brief general answer (1-3 sentences, no citations) ONLY in "outside_knowledge"; it is shown with a '
+                   "warning label. Never put uncited general knowledge in \"answer\".")
 OUTSIDE_FORBIDDEN = 'Leave "outside_knowledge" empty.'
-LANG_HI = ('8. Write "answer" in simple Hindi (Devanagari script) with English technical terms in brackets; '
-           "keep math notation, numbers and the [S#] citations unchanged. Quotes stay verbatim in English.")
+LANG_HI = ('8. Write "answer" in simple Hindi in Devanagari script (even if the student writes in Latin script), '
+           "with English technical terms in brackets; keep math notation, numbers and the [S#] citations unchanged. "
+           "Quotes stay verbatim in English.")
+OUTSIDE_ONLY = ("The student's course material does not cover this question. Give a brief general-knowledge answer in "
+                "2-3 sentences, without claiming it comes from their course. {lang}")
 
 
 def _norm(s: str) -> str:
@@ -94,6 +98,20 @@ def retrieve(query: str, k: int | None = None, topic_ids: list[str] | None = Non
     return get_index().search(query, k=k or settings.top_k, topic_ids=topic_ids)
 
 
+def _to_english(message: str) -> str:
+    """The embedder and course material are English: translate Devanagari questions for retrieval only."""
+    if not re.search("[ऀ-ॿ]", message) or not llm.available():
+        return message
+    try:
+        out = llm.chat(settings.fast_model, [
+            {"role": "system", "content": "Translate the student's question into English for searching course material. Reply with only the translation."},
+            {"role": "user", "content": message},
+        ], max_tokens=600, temperature=0.0).strip()
+        return out or message
+    except Exception:  # noqa: BLE001
+        return message
+
+
 def _rewrite_followup(message: str, history: list[dict[str, str]]) -> str:
     """Cheap follow-up resolution: short or pronoun-led questions borrow the previous question."""
     prev = [h["content"] for h in history if h.get("role") == "user"]
@@ -114,7 +132,7 @@ def answer(
 ) -> dict[str, Any]:
     t0 = time.perf_counter()
     history = history or []
-    query = _rewrite_followup(message, history)
+    query = _rewrite_followup(_to_english(message), history)
     hits = retrieve(query, k=k)
     support = max((h.dense for h in hits), default=0.0)
     out: dict[str, Any] = {"question": message, "retrieval_query": query, "support": round(support, 3),
@@ -125,6 +143,16 @@ def answer(
 
     if not hits or support < MIN_SUPPORT:
         out.update(_declined(hits, support))
+        if allow_outside and llm.available():
+            try:
+                lang_note = "Answer in Hindi (Devanagari script)." if lang == "hi" else ""
+                out["outside_knowledge"] = llm.chat(
+                    settings.fast_model,
+                    [{"role": "system", "content": OUTSIDE_ONLY.format(lang=lang_note)}, {"role": "user", "content": message}],
+                    max_tokens=800, temperature=0.2,
+                ).strip()
+            except Exception:  # noqa: BLE001 - outside knowledge is optional
+                pass
     elif llm.available():
         out.update(_llm_answer(message, query, pack, lang, allow_outside))
     else:
@@ -188,6 +216,8 @@ def _llm_answer(message: str, query: str, pack, lang: str, allow_outside: bool) 
     uncited = [s for s in sentences if not re.search(r"\[S\d+\]", s) and not re.search(r"[:]$", s.strip())]
     if status == "not_covered":
         cites = []
+        if not re.sub(r"\[S\d+\]", "", ans).strip():
+            ans = "Your course material does not cover this question, so I won't answer it as if it were course content."
     signal = str(data.get("student_signal") or "neutral").lower()
     return {
         "status": status if status in ("answered", "partial", "not_covered") else "answered",
