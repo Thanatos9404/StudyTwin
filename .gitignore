@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Secrets: never commit keys
+.env
+.env.*
+!.env.example
+
+# Runtime workspace (database, rendered media, caches, uploads)
+data/workspace/
+data/scratch/
+data/raw/
+*.mp4
+*.mp3
+*.wav
+*.ogv
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
