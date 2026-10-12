@@ -38,3 +38,25 @@ def test_gold_location_matching():
 def test_word_error_rate():
     assert wer("a b c d".split(), "a b c d".split()) == 0
     assert wer("a b c d".split(), "a x c".split()) == 0.5
+
+
+def test_upload_captions_creates_tagged_video_units(kb):
+    import time
+    from pathlib import Path
+
+    from studytwin.api import app
+
+    c = TestClient(app)
+    srt = Path(__file__).resolve().parent.parent / "data" / "demo" / "upload_examples" / "MIT6_041F11_lec03_300k.srt"
+    with srt.open("rb") as f:
+        job = c.post("/api/sources", files={"file": (srt.name, f, "application/x-subrip")}, data={"title": "Lecture 3"}).json()
+    for _ in range(60):
+        j = c.get(f"/api/jobs/{job['job_id']}").json()
+        if j["status"] in ("done", "error"):
+            break
+        time.sleep(0.5)
+    assert j["status"] == "done", j
+    sid = j["result"]["source_id"]
+    units = kb["store"].many("SELECT topic_id, loc FROM units WHERE source_id=?", (sid,))
+    assert len(units) > 20 and all(u["topic_id"] for u in units) and units[0]["loc"]["start"] < 5
+    assert c.post("/api/sources", files={"file": ("notes.txt", b"hi", "text/plain")}).status_code == 400

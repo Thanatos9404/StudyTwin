@@ -23,6 +23,8 @@ FILES = {
     "MIT6_041F10_L03.pdf": f"{OCW}/b200b6217af1cd5dbea8c659ebbf046a_MIT6_041F10_L03.pdf",
     "MIT6_041F11_lec02_300k.mp4": "https://archive.org/download/MIT6.041F10/MIT6_041F11_lec02_300k.mp4",
     "MIT6_041F11_lec02_300k.srt": "https://archive.org/download/MIT6.041F10/MIT6_041F11_lec02_300k.srt",
+    # Lecture 3 captions: a small file for demonstrating live upload in the Library
+    "MIT6_041F11_lec03_300k.srt": "https://archive.org/download/MIT6.041F10/MIT6_041F11_lec03_300k.srt",
     # OpenStax Introductory Statistics (CC BY 4.0): full book, chapter 3 is extracted below
     "openstax_introstats_full.pdf": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductoryStatistics-OP_i6tAI7e.pdf",
 }
@@ -80,7 +82,8 @@ def main(argv: list[str]) -> None:
             if not dst.exists():
                 dst.write_bytes(p.read_bytes())
         if name.endswith(".srt"):
-            dst = DEMO / name
+            dst = DEMO / name if "lec02" in name else DEMO / "upload_examples" / name
+            dst.parent.mkdir(parents=True, exist_ok=True)
             if not dst.exists():
                 dst.write_bytes(p.read_bytes())
     extract_chapter(RAW / "openstax_introstats_full.pdf")

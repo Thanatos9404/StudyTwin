@@ -104,9 +104,11 @@ export function MasteryBar({ p, className }: { p: number; className?: string }) 
 export function LevelBadge({ level, p }: { level: string; p: number }) {
   const tone = level === "mastered" ? "pos" : level === "developing" ? "accent" : "neutral";
   return (
-    <Badge tone={tone}>
-      {Math.round(p * 100)}% · {level}
-    </Badge>
+    <span className="shrink-0 whitespace-nowrap">
+      <Badge tone={tone}>
+        {Math.round(p * 100)}% · {level}
+      </Badge>
+    </span>
   );
 }
 
