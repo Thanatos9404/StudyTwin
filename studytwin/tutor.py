@@ -70,6 +70,8 @@ def verify_quote(quote: str, original: str) -> str:
 
 def normalize_citations(text: str) -> str:
     """Canonicalize citation styles models produce (【S1】, [S1, S2], (S1), [S1†L3]) to [S1][S2]."""
+    text = re.sub("[​‌‍⁠﻿]", "", text)  # zero-width characters some models emit
+    text = re.sub(r"\[\s*(?:source\s*)?S\s*(\d+)\s*\]", r"[S\1]", text, flags=re.I)
     text = re.sub(r"【\s*(S\d+)[^】]*】", r"[\1]", text)
     text = re.sub(r"\[(S\d+)[†:][^\]]*\]", r"[\1]", text)
     text = re.sub(r"\[\s*(S\d+(?:\s*[,;]\s*S\d+)+)\s*\]",

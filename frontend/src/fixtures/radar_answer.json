@@ -1,0 +1,94 @@
+{
+ "question": "In the radar example, what is P(airplane present | radar registers)?",
+ "support": 0.733,
+ "context_stats": {
+  "llmslim": true,
+  "tokens_before": 1614,
+  "tokens_after": 1006,
+  "budget": 1000,
+  "blocks": 8,
+  "ms": 337.8,
+  "target_ratio": 0.596,
+  "verbatim_sentences": "40/40",
+  "saved_pct": 37.7,
+  "citations_preserved": "8/8"
+ },
+ "status": "answered",
+ "answer": "Using the given conditional probabilities:\n\n- Prior probability of a plane: \\(P(A)=0.05\\) [S5]\n- Radar detects a plane when it is present: \\(P(B\\mid A)=0.99\\) [S5]\n- Radar registers a false alarm when no plane is present: \\(P(B\\mid A^{c})=0.10\\) [S1]\n\nFirst compute the overall probability that the radar registers something:\n\\[P(B)=P(B\\mid A)P(A)+P(B\\mid A^{c})P(A^{c})\n=0.99\\times0.05 + 0.10\\times0.95\n=0.0495 + 0.095 = 0.1445.\\]\n\nThen apply Bayes’ rule:\n\\[P(A\\mid B)=\\frac{P(B\\mid A)P(A)}{P(B)}\n=\\frac{0.99\\times0.05}{0.1445}\n\\approx 0.3425 \\approx 34\\% .\\]\n\nThus the probability that an airplane is present given that the radar registers something is about **34 %** [S2].",
+ "citations": [
+  {
+   "tag": "S5",
+   "unit_id": "src_b82bd2ddaa:0023",
+   "label": "6.041 Lecture 2 @ 24:25",
+   "kind": "transcript",
+   "section": "",
+   "source_kind": "video",
+   "source_title": "MIT 6.041 Lecture 2 video: Conditioning and Bayes' rule",
+   "loc": {
+    "start": 1465.1,
+    "end": 1533.0
+   },
+   "image": null,
+   "page_image": null,
+   "excerpt": "And this example is going to give you some idea of how that happens. OK. Actually, in this example, instead of starting with a probability model in terms of regular probabilities, I'm actually going t",
+   "quote": "there's 5% probability that the plane is flying above there",
+   "quote_status": "exact"
+  },
+  {
+   "tag": "S1",
+   "unit_id": "src_6e619c1d09:0006",
+   "label": "6.041 L2 slides · slide 5",
+   "kind": "slide",
+   "section": "Models based on conditional",
+   "source_kind": "slides",
+   "source_title": "MIT 6.041 Lecture 2 slides: Conditioning and Bayes' rule",
+   "loc": {
+    "page": 2,
+    "slide": 5,
+    "bbox": [
+     19.3,
+     401.0,
+     304.7,
+     769.0
+    ],
+    "page_size": [
+     612.0,
+     792.0
+    ]
+   },
+   "image": "src_6e619c1d09/slide_005.png",
+   "page_image": "src_6e619c1d09/page_002.png",
+   "excerpt": "Models based on conditional probabilities\n\n• Event A: Airplane is flying above\n  Event B: Something registers on radar screen\n\nTree diagram:\nP(A)=0.05\n  P(B | A)=0.99\n  P(B^c | A)=0.01\nP(A^c)=0.95\n  P",
+   "quote": "P(B | A^c)=0.10",
+   "quote_status": "exact"
+  },
+  {
+   "tag": "S2",
+   "unit_id": "src_b82bd2ddaa:0043",
+   "label": "6.041 Lecture 2 @ 45:49",
+   "kind": "transcript",
+   "section": "",
+   "source_kind": "video",
+   "source_title": "MIT 6.041 Lecture 2 video: Conditioning and Bayes' rule",
+   "loc": {
+    "start": 2749.4,
+    "end": 2819.3
+   },
+   "image": null,
+   "page_image": null,
+   "excerpt": "We also have a model of our measuring device that tells us under that scenario how likely is it that our radar will register something or not. So we're given, again, these conditional probabilities. W",
+   "quote": "a plane is present with probability 34%",
+   "quote_status": "exact"
+  }
+ ],
+ "outside_knowledge": "",
+ "student_signal": "neutral",
+ "followups": [
+  "Would you like to see the probability that the radar registers something (P(B))?",
+  "Do you want to explore how the false‑alarm rate affects the posterior probability?"
+ ],
+ "uncited_sentences": 6,
+ "model": "openai/gpt-oss-120b",
+ "topic_id": "T3",
+ "latency_s": 45.95
+}

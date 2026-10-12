@@ -34,7 +34,7 @@ def test_low_support_question_is_declined(kb, monkeypatch):
 
 
 def test_citation_normalization_and_quote_verification():
-    assert tutor.normalize_citations("a【S1】 b [S2, S3] c (S4) d [S5†L2]") == "a[S1] b [S2][S3] c [S4] d [S5]"
+    assert tutor.normalize_citations("a【S1】 b [S2, S3] c (S4) d [S5†L2] e [ S6 ]") == "a[S1] b [S2][S3] c [S4] d [S5] e [S6]"
     src = "Definition: Assuming P(B) != 0, P(A|B) = P(A and B)/P(B)."
     assert tutor.verify_quote("assuming P(B) != 0", src) == "exact"
     assert tutor.verify_quote("the moon is made of cheese", src) == "unverified"

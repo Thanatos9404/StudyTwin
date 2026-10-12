@@ -178,7 +178,36 @@ def ragas_metrics(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return out
 
 
+def rescore() -> None:
+    """Recompute citation-based metrics from saved answers (no model calls), e.g. after a parser fix."""
+    import re
+
+    path = OUT / "rag_eval.json"
+    result = json.loads(path.read_text(encoding="utf-8"))
+    titles = _short_titles()
+    gold_by_id = {q["id"]: q.get("gold") or [] for q in json.loads(TESTSET.read_text(encoding="utf-8"))["questions"]}
+    for cfg in result["configs"].values():
+        for r in cfg["rows"]:
+            gold = gold_by_id.get(r["id"], [])
+            tags: list[str] = []
+            for t in re.findall(r"\[S(\d+)\]", tutor.normalize_citations(r["answer"])):
+                if t not in tags and 0 < int(t) <= len(r["retrieved"]):
+                    tags.append(t)
+            units = [store.one("SELECT * FROM units WHERE id=?", (r["retrieved"][int(t) - 1],)) for t in tags]
+            ok = gold and r["status"] != "not_covered"
+            r["cite_match"] = [unit_matches(u, gold, titles) for u in units if u] if ok else []
+        new = location_metrics(cfg["rows"])
+        for k in ("citation_accuracy", "citation_precision"):
+            cfg["metrics"][k] = new[k]
+        cfg["metrics"]["rescored"] = True
+    path.write_text(json.dumps(result, indent=1, ensure_ascii=False), encoding="utf-8")
+    print({k: {m: c["metrics"][m] for m in ("citation_accuracy", "citation_precision")} for k, c in result["configs"].items()})
+
+
 def main(argv: list[str]) -> None:
+    if "--rescore" in argv:
+        rescore()
+        return
     data = json.loads(TESTSET.read_text(encoding="utf-8"))
     questions = data["questions"]
     if "--quick" in argv:

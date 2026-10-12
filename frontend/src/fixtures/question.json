@@ -1,0 +1,30 @@
+{
+ "stem": "In a class survey, 30% of students have change in their pocket or purse, 20% rode a bus within the last month, and 10% both have change and rode a bus. What is the probability that a randomly chosen student has change given that they rode a bus?",
+ "options": [
+  "0.10",
+  "0.30",
+  "0.50",
+  "0.20"
+ ],
+ "answer": "C",
+ "explanation": "P(change|bus) = P(change AND bus) / P(bus) = 0.10 / 0.20 = 0.50 [OpenStax Ch.3 p. 176].",
+ "misconceptions": {
+  "A": "Using P(change AND bus) directly as the conditional probability.",
+  "B": "Using P(change) instead of conditioning on bus.",
+  "D": "Using P(bus) as the answer."
+ },
+ "difficulty": 2,
+ "type": "mcq",
+ "topic_id": "T3",
+ "sources": [
+  "OpenStax Ch.3 p. 176"
+ ],
+ "verification": {
+  "verdict": true,
+  "method": "blind-solve",
+  "model": "openai/gpt-oss-120b",
+  "verifier_answer": "C",
+  "agree": true,
+  "issues": ""
+ }
+}

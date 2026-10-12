@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12 22:03:44",
+ "generated_at": "2026-10-13 01:15:21",
  "testset": "eval\\testset.json",
  "n_questions": 44,
  "models": {
@@ -17,27 +17,28 @@
     "mrr": 0.8775,
     "id_context_precision": 0.2868,
     "id_context_recall": 0.8971,
-    "citation_accuracy": 0.8529,
-    "citation_precision": 0.8822,
-    "quote_verified": 1.0,
-    "quote_exact": 0.92,
+    "citation_accuracy": 1.0,
+    "citation_precision": 0.8939,
+    "quote_verified": 0.9825,
+    "quote_exact": 0.8947,
     "refusal_rate": 1.0,
-    "false_refusal_rate": 0.0,
+    "false_refusal_rate": 0.0294,
     "context_tokens": 1033.9706,
     "context_tokens_before": 1658.1176,
     "prompt_tokens": 1575.6471,
-    "latency_p50": 0.08,
-    "uncited_sentences_mean": 2.1765,
-    "ragas_seconds": 717.4,
-    "ragas_n": 34,
-    "faithfulness": 0.9058,
-    "faithfulness_n": 24,
-    "answer_relevancy": 0.9265,
-    "answer_relevancy_n": 34,
-    "context_precision": 0.8284,
-    "context_precision_n": 34,
-    "context_recall": 0.9559,
-    "context_recall_n": 34
+    "latency_p50": 1.73,
+    "uncited_sentences_mean": 1.7576,
+    "ragas_seconds": 183.4,
+    "ragas_n": 33,
+    "faithfulness": 0.9718,
+    "faithfulness_n": 26,
+    "answer_relevancy": 0.9217,
+    "answer_relevancy_n": 33,
+    "context_precision": 0.8427,
+    "context_precision_n": 33,
+    "context_recall": 0.9621,
+    "context_recall_n": 33,
+    "rescored": true
    },
    "rows": [
     {
@@ -46,7 +47,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The law of large numbers states that as the number of repetitions of an experiment increases, the relative frequency observed in the experiment gets closer and closer to the theoretical probability. [S2]",
+     "answer": "The law of large numbers states that **as the number of repetitions of an experiment increases, the relative frequency obtained in the experiment tends to become closer and closer to the theoretical probability**[S2].",
      "reference": "As the number of repetitions of an experiment is increased, the relative frequency obtained in the experiment tends to become closer and closer to the theoretical probability.",
      "contexts": [
       "(omitted: low relevance to the question)",
@@ -88,10 +89,11 @@
      "context_tokens": 1095,
      "context_tokens_before": 2057,
      "prompt_tokens": 1610,
-     "latency": 168.12,
-     "uncited": 1,
+     "latency": 47.9,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
-      "faithfulness": 0.5,
+      "faithfulness": null,
       "answer_relevancy": 1.0,
       "context_precision": 0.5,
       "context_recall": 1.0
@@ -103,7 +105,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "Sampling **with replacement** makes each draw independent because the card (or other item) is put back before the next draw, so the probability of later outcomes does not change – *\"events are considered to be independent, meaning the result of the first pick will not change the probabilities for the second pick\"* [S4].\n\nIn contrast, **sampling without replacement** creates dependence between draws: once an item is taken it cannot be chosen again, so the composition of the population changes and the probabilities for subsequent draws are altered – *\"When sampling is done without replacement, each member of a population may be chosen only once\"* [S3].",
+     "answer": "When you sample **with replacement**, the card (or other item) you draw is put back before the next draw, so the composition of the population stays the same and the probability of each outcome does not change. Because the result of one draw does not affect the probabilities of later draws, the draws are **independent**[S4].\n\nWhen you sample **without replacement**, each selected item is removed from the population, so the pool of possible outcomes changes after each draw. This change means the probability of later draws depends on what has already been drawn, making the draws **dependent** (not independent)[S3].",
      "reference": "With replacement, each member is put back and can be chosen again, so the picks are independent. Without replacement, each member can be chosen only once, so the probabilities for the second pick depend on the first pick and the events are dependent.",
      "contexts": [
       "b. Sampling without replacement: Suppose you pick three cards without replacement. The first card you pick out of the 52 cards is the K of hearts.\n...\nYour picks are {K of hearts, three of diamonds, J of spades}. Because you have picked the cards without replacement, you cannot pick the same card twice.\n...\nCan you decide if the sampling was with or without replacement?",
@@ -147,12 +149,13 @@
      "context_tokens": 1184,
      "context_tokens_before": 2300,
      "prompt_tokens": 1551,
-     "latency": 0.1,
-     "uncited": 0,
+     "latency": 2.18,
+     "uncited": 2,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.95,
-      "context_precision": 0.826,
+      "answer_relevancy": 0.942,
+      "context_precision": 1.0,
       "context_recall": 1.0
      }
     },
@@ -162,7 +165,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The **addition rule** for two events A and B is\n\n$$\\displaystyle P(A\\,\\text{OR}\\,B)=P(A)+P(B)-P(A\\,\\text{AND}\\,B)$$[S1][S2]\n\nIf the events are **mutually exclusive** (they cannot occur together), then \\(P(A\\,\\text{AND}\\,B)=0\\).  Substituting this into the rule gives the simplified form\n\n$$\\displaystyle P(A\\,\\text{OR}\\,B)=P(A)+P(B)$$[S1][S2]",
+     "answer": "The **addition rule** for two events is\n\n$$P(A\\;\\text{OR}\\;B)=P(A)+P(B)-P(A\\;\\text{AND}\\;B)$$[S1][S2]\n\nIf the events are **mutually exclusive** (they cannot occur together), then \\(P(A\\;\\text{AND}\\;B)=0\\).  Substituting this into the rule gives the simplified form\n\n$$P(A\\;\\text{OR}\\;B)=P(A)+P(B)$$[S1][S2]",
      "reference": "P(A OR B) = P(A) + P(B) - P(A AND B). If A and B are mutually exclusive, P(A AND B) = 0, so P(A OR B) = P(A) + P(B).",
      "contexts": [
       "The Multiplication Rule If A and B are two events defined on a sample space, then: P(A AND B) = P(B)P(A|B). This rule may also be written as: P(A|B) = P(A AND B) P(B) (The probability of A given B equals the probability of A and B divided by the probability of B.) If A and B are independent, then P(A|B) = P(A). Then P(A AND B) = P(A|B)P(B) becomes P(A AND B) = P(A)P(B). The Addition Rule If A and B are defined on a sample space, then: P(A OR B) = P(A) + P(B) - P(A AND B). If A and B are mutually exclusive, then P(A AND B) = 0. Then P(A OR B) = P(A) + P(B) - P(A AND B) becomes P(A OR B) = P(A) + P(B). Example 3.14 Klaus is trying to choose where to go on vacation. His two choices are: A = New Zealand and B = Alaska • Klaus can only afford one vacation. The probability that he chooses A is P(A) = 0.6 and the probability that he chooses B is P(B) = 0.35.",
@@ -206,12 +209,13 @@
      "context_tokens": 1042,
      "context_tokens_before": 1644,
      "prompt_tokens": 1842,
-     "latency": 0.49,
+     "latency": 2.34,
      "uncited": 3,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.875,
-      "context_precision": 0.95,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.867,
+      "context_precision": 1.0,
       "context_recall": 1.0
      }
     },
@@ -221,7 +225,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The probability that Carlos makes both goals is\n\n$$P(A\\text{ and }B)=P(A)\\times P(B|A)=0.65\\times 0.90=0.585,$$ \n\nso there is a 58.5% chance he scores on both attempts. [S2]",
+     "answer": "The probability that Carlos makes both goals is the product of the probability he makes the first goal and the conditional probability he makes the second given the first:\n\n\\[P(A \\text{ and } B) = P(B|A) \\times P(A) = 0.90 \\times 0.65 = 0.585\\]\n\nSo the probability he scores on both attempts is **0.585** (or 58.5%).\n\n[S2]",
      "reference": "P(A AND B) = P(B|A)P(A) = (0.90)(0.65) = 0.585.",
      "contexts": [
       "b. What is the probability that Carlos makes either the first goal or the second goal? Solution 3.15 b. The problem is asking you to find P(A OR B). P(A OR B) = P(A) + P(B) - P(A AND B) = 0.65 + 0.65 - 0.585 = 0.715 Carlos makes either the first goal or the second goal with probability 0.715. c. Are A and B independent? Solution 3.15 c. No, they are not, because P(B AND A) = 0.585.",
@@ -263,12 +267,13 @@
      "context_tokens": 1038,
      "context_tokens_before": 1844,
      "prompt_tokens": 1628,
-     "latency": 0.29,
-     "uncited": 3,
+     "latency": 2.28,
+     "uncited": 2,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 0.9,
-      "context_precision": 0.81,
+      "context_precision": 0.839,
       "context_recall": 1.0
      }
     },
@@ -320,8 +325,9 @@
      "context_tokens": 1007,
      "context_tokens_before": 1741,
      "prompt_tokens": 1640,
-     "latency": 0.16,
+     "latency": 1.24,
      "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 0.975,
@@ -335,7 +341,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The contingency table contains **755 drivers** in total. The two row totals are **305** (drivers who use a cell phone while driving) and **450** (drivers who do not use a cell phone while driving)[S1].",
+     "answer": "The sample contains **755 drivers**. The two row totals are **305** (drivers who use a cell phone while driving) and **450** (drivers who do not use a cell phone while driving)[S1].",
      "reference": "The sample has 755 people; the row totals are 305 (uses cell phone while driving) and 450 (does not).",
      "contexts": [
       "3.4 | Contingency Tables A contingency table provides a way of portraying data that can facilitate calculating probabilities. The table helps in determining conditional probabilities quite easily. The table displays sample values in relation to two different variables that may be dependent or contingent on one another. Later on, we will use contingency tables again, but in another manner. Example 3.20 Suppose a study of speeding violations and drivers who use cell phones produced the following fictional data: Speeding violation in the last year No speeding violation in the last year Total Uses cell phone while driving 25 280 305 Does not use cell phone while driving 45 405 450 Total 70 685 755 Table 3.2 The total number of people in the sample is 755. The row totals are 305 and 450. The column totals are 70 and 685. Notice that 305 + 450 = 755 and 70 + 685 = 755. Calculate the following probabilities using the table. a. Find P(Driver is a cell phone user). b. Find P(driver had no violation in the last year).",
@@ -377,11 +383,12 @@
      "context_tokens": 1134,
      "context_tokens_before": 1847,
      "prompt_tokens": 1668,
-     "latency": 0.14,
+     "latency": 2.34,
      "uncited": 1,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.919,
+      "answer_relevancy": 0.858,
       "context_precision": 0.833,
       "context_recall": 1.0
      }
@@ -392,7 +399,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "A **contingency table** is a table that displays sample values for two different variables, arranging the data in rows and columns so that the relationship (or dependence) between the variables can be seen [S1][S4].\n\nIt is useful because it **facilitates calculating probabilities** and makes it easy to determine **conditional probabilities** and assess whether the variables are dependent or independent [S1][S4].",
+     "answer": "A contingency table is a table that displays the frequencies of observations for two categorical variables arranged in rows and columns, showing how the variables may be dependent or contingent on one another[S1][S4].  By organizing the data this way, it provides a convenient way to portray data and makes it easy to calculate probabilities, especially conditional probabilities[S1][S4].",
      "reference": "A contingency table portrays data as rows and columns relating two variables that may be dependent (contingent) on one another; it makes calculating probabilities, especially conditional probabilities, easy.",
      "contexts": [
       "3.4 | Contingency Tables A contingency table provides a way of portraying data that can facilitate calculating probabilities. The table helps in determining conditional probabilities quite easily. The table displays sample values in relation to two different variables that may be dependent or contingent on one another. Later on, we will use contingency tables again, but in another manner. Example 3.20 Suppose a study of speeding violations and drivers who use cell phones produced the following fictional data: Speeding violation in the last year No speeding violation in the last year Total Uses cell phone while driving 25 280 305 Does not use cell phone while driving 45 405 450 Total 70 685 755 Table 3.2 The total number of people in the sample is 755. The row totals are 305 and 450. The column totals are 70 and 685. Notice that 305 + 450 = 755 and 70 + 685 = 755. Calculate the following probabilities using the table. a. Find P(Driver is a cell phone user). b. Find P(driver had no violation in the last year).",
@@ -436,11 +443,12 @@
      "context_tokens": 1132,
      "context_tokens_before": 1906,
      "prompt_tokens": 1675,
-     "latency": 0.19,
+     "latency": 3.34,
      "uncited": 0,
+     "cached": false,
      "ragas": {
-      "faithfulness": 0.875,
-      "answer_relevancy": 1.0,
+      "faithfulness": 0.625,
+      "answer_relevancy": 0.959,
       "context_precision": 0.806,
       "context_recall": 1.0
      }
@@ -451,7 +459,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The sample space contains **121** possible ordered outcomes, since each of the 11 balls can be drawn on the first draw and again on the second draw with replacement (11 × 11 = 121)[S1].  \nThe probability of drawing two red balls in a row (RR) is \n\\[P(RR)=\\frac{3}{11}\\times\\frac{3}{11}=\\frac{9}{121}\\][S1].",
+     "answer": "The sample space contains **121** possible outcomes, since there are 11 balls and each of the two draws (with replacement) can be any of the 11 balls: \\(11 \\times 11 = 121\\) [S1].\n\nThe probability of drawing two red balls in a row (RR) is the product of the probability of drawing a red ball on each draw: \\(\\frac{3}{11} \\times \\frac{3}{11} = \\frac{9}{121}\\) [S1].",
      "reference": "There are 11 x 11 = 121 outcomes; P(RR) = (3/11)(3/11) = 9/121.",
      "contexts": [
       "In fact, we can list each red ball as R1, R2, and R3 and each blue ball as B1, B2, B3, B4, B5, B6, B7, and B8. Then the nine RR outcomes can be written as: R1R1; R1R2; R1R3; R2R1; R2R2; R2R3; R3R1; R3R2; R3R3 The other outcomes are similar. There are a total of 11 balls in the urn. Draw two balls, one at a time, with replacement. There are 11(11) = 121 outcomes, the size of the sample space. a. List the 24 BR outcomes: B1R1, B1R2, B1R3, ... Solution 3.24 a.\n...\nUsing the tree diagram, calculate P(RR). Solution 3.24 b. P(RR) = ⎛ ⎝ 3 11 ⎞ ⎠ ⎛ ⎝ 3 11 ⎞ ⎠ = 9 121",
@@ -493,12 +501,13 @@
      "context_tokens": 974,
      "context_tokens_before": 1595,
      "prompt_tokens": 1831,
-     "latency": 0.22,
-     "uncited": 1,
+     "latency": 2.21,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": null,
-      "answer_relevancy": 0.856,
-      "context_precision": 0.633,
+      "answer_relevancy": 0.866,
+      "context_precision": 0.817,
       "context_recall": 1.0
      }
     },
@@ -507,8 +516,8 @@
      "question": "Four tabby and five black kittens; two are chosen without replacement. What is the probability that both kittens are tabby?",
      "off_material": false,
      "modality": "textbook-figure",
-     "status": "answered",
-     "answer": "The litter contains **four tabby kittens and five black kittens** (total 9)[S1].  Because the kittens are chosen **without replacement**[S5], the probability that the first kitten is a tabby is 4⁄9, and after one tabby is removed there are 3 tabbies left out of 8 remaining kittens, so the probability that the second kitten is also a tabby is 3⁄8.  Multiplying these conditional probabilities (as shown in the tree‑diagram paths TT, TB, BT, BB) gives\n\n$$P(\\text{both tabby}) = \\frac{4}{9}\\times\\frac{3}{8}=\\frac{12}{72}=\\frac{1}{6}.$$[S3]\n\nThus the probability that both selected kittens are tabby is **1⁄6**.",
+     "status": "not_covered",
+     "answer": "The course material does not provide the probability that both selected kittens are tabby.",
      "reference": "(4/9)(3/8) = 12/72 = 1/6, about 0.167.",
      "contexts": [
       "Example 3.26 A litter of kittens available for adoption at the Humane Society has four tabby kittens and five black kittens. A family comes in and randomly selects two kittens (without replacement) for adoption. a. What is the probability that both kittens are tabby? a. ⎛ ⎝ 1 2 ⎞ ⎠ ⎛ ⎝ 1 2 ⎞ ⎠ b. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 4 9 ⎞ ⎠ c. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 3 8 ⎞ ⎠ d. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 9 ⎞ ⎠ b. What is the probability that one kitten of each coloring is selected? a. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 9 ⎞ ⎠ b. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 8 ⎞ ⎠ c. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 9 ⎞ ⎠ + ⎛ ⎝ 5 9 ⎞ ⎠ ⎛ ⎝ 4 9 ⎞ ⎠ d. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 8 ⎞ ⎠ + ⎛ ⎝ 5 9 ⎞ ⎠ ⎛ ⎝ 4 8 ⎞ ⎠",
@@ -541,27 +550,15 @@
       null,
       null
      ],
-     "cite_match": [
-      0,
-      null,
-      0
-     ],
-     "quote_status": [
-      "exact",
-      "exact",
-      "exact"
-     ],
+     "cite_match": [],
+     "quote_status": [],
      "context_tokens": 906,
      "context_tokens_before": 1897,
      "prompt_tokens": 1754,
-     "latency": 0.12,
-     "uncited": 2,
-     "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.966,
-      "context_precision": 0.692,
-      "context_recall": 1.0
-     }
+     "latency": 2.9,
+     "uncited": 1,
+     "cached": false,
+     "ragas": null
     },
     {
      "id": "tb10",
@@ -569,7 +566,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "A Venn diagram is a picture that represents the outcomes of an experiment. It generally consists of a rectangular box representing the sample space S, with circles or ovals inside that represent individual events. Venn diagrams are used to visualize relationships such as overlap (intersection), union, and complement between events. [S3][S3][S4]",
+     "answer": "A Venn diagram is a picture that represents the outcomes of an experiment; it usually shows the sample space as a rectangle (or box) labeled **S** and uses circles or ovals inside the rectangle to represent individual events, with overlapping regions indicating outcomes that belong to more than one event.  Venn diagrams are a visual tool that helps us see relationships among events and can be used to solve conditional‑probability problems[S3][S4].",
      "reference": "A picture that represents the outcomes of an experiment: a box represents the sample space S, and circles or ovals inside it represent events.",
      "contexts": [
       "a. Draw a Venn diagram representing the situation. b. Find the probability that the customer buys either a novel or anon-fiction book. c. In the Venn diagram, describe the overlapping area using a complete sentence. d. Suppose that some customers buy only compact disks. Draw an oval in your Venn diagram representing this event.",
@@ -613,11 +610,12 @@
      "context_tokens": 1078,
      "context_tokens_before": 1412,
      "prompt_tokens": 1555,
-     "latency": 0.18,
-     "uncited": 3,
+     "latency": 1.89,
+     "uncited": 1,
+     "cached": false,
      "ragas": {
-      "faithfulness": 0.375,
-      "answer_relevancy": 0.967,
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
       "context_precision": 0.573,
       "context_recall": 1.0
      }
@@ -628,7 +626,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "Two events are **mutually exclusive** when they cannot occur at the same time; equivalently, their intersection is empty, so the probability that both occur is zero \\(P(A\\cap B)=0\\)[S1][S3].",
+     "answer": "Two events are **mutually exclusive** when they cannot occur at the same time; that is, their intersection is empty and the probability that both occur together is zero \\(P(A \\cap B)=0\\)[S1][S3].",
      "reference": "A and B are mutually exclusive if they cannot occur at the same time: they share no outcomes and P(A AND B) = 0.",
      "contexts": [
       "QS, 7D, 6D, KS Mutually Exclusive Events A and B are mutually exclusive events if they cannot occur at the same time.\n...\nA AND B = {4, 5}. P(A AND B) = 2 10 and is not equal to zero. Therefore, A and B are not mutually exclusive. A and C do not have any numbers in common so P(A AND C) = 0. Therefore, A and C are mutually exclusive. If it is not known whether A and B are mutually exclusive, assume they are not until you can show otherwise. The following examples illustrate these definitions and terms.",
@@ -672,12 +670,13 @@
      "context_tokens": 1115,
      "context_tokens_before": 1762,
      "prompt_tokens": 1700,
-     "latency": 0.06,
+     "latency": 1.37,
      "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 0.958,
-      "context_precision": 1.0,
+      "context_precision": 0.943,
       "context_recall": 1.0
      }
     },
@@ -687,7 +686,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "Two events are independent if **any one** of the following conditions holds:\n\n- \\(P(A\\mid B) = P(A)\\)  \n- \\(P(B\\mid A) = P(B)\\)  \n- \\(P(A \\text{ AND } B) = P(A)\\,P(B)\\)  \n\nEither condition is sufficient to establish independence[S1][S2].",
+     "answer": "Two events are independent when **any one** of the following equivalent conditions holds:\n\n- The conditional probability of one event given the other equals its unconditional probability, e.g., \\(P(A\\mid B)=P(A)\\) or \\(P(B\\mid A)=P(B)\\)[S1].\n- The joint probability equals the product of the individual probabilities, e.g., \\(P(A\\cap B)=P(A)P(B)\\)[S1][S2].\n\nShowing just one of these relationships is sufficient to establish independence.\n\n---\n**Key point:** Independence means that knowing the outcome of one event does **not** affect the probability of the other.\n\n---\n*Reference:* OpenStax, *Independent and Mutually Exclusive Events* (Chapter 3).",
      "reference": "Any one of: P(A|B) = P(A), P(B|A) = P(B), or P(A AND B) = P(A)P(B). Independence means knowing one occurred does not affect the chance of the other.",
      "contexts": [
       "3.2 | Independent and Mutually Exclusive Events Independent and mutually exclusive do not mean the same thing. Independent Events Two events are independent if the following are true: • P(A|B) = P(A) • P(B|A) = P(B) • P(A AND B) = P(A)P(B) Two events A and B are independent if the knowledge that one occurred does not affect the chance the other occurs. For example, the outcomes of two roles of a fair die are independent events. The outcome of the first roll does not change the probability for the outcome of the second roll. To show two events are independent, you must show only one of the above conditions. If two events are NOT independent, then we say that they are dependent. Sampling may be done with replacement or without replacement. • With replacement: If each member of a population is replaced after it is picked, then that member has the possibility of being chosen more than once. When sampling is done with replacement, then events are considered to be independent, meaning the result of the first pick will not change the probabilities for the second pick.",
@@ -731,11 +730,12 @@
      "context_tokens": 1185,
      "context_tokens_before": 1957,
      "prompt_tokens": 1635,
-     "latency": 0.07,
-     "uncited": 1,
+     "latency": 2.15,
+     "uncited": 3,
+     "cached": false,
      "ragas": {
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.816,
+      "faithfulness": 0.875,
+      "answer_relevancy": 0.888,
       "context_precision": 0.893,
       "context_recall": 1.0
      }
@@ -746,7 +746,7 @@
      "off_material": false,
      "modality": "textbook-figure",
      "status": "answered",
-     "answer": "There are **64** outcomes where both draws are blue (BB) in the tree diagram of Figure 3.2 [​S7]​.",
+     "answer": "There are **64** outcomes where both draws are blue (BB) in the tree diagram for drawing two balls with replacement from 8 blue and 3 red balls[S1][S7].",
      "reference": "64 BB outcomes (8 x 8).",
      "contexts": [
       "Figure 3.2 Total = 64 + 24 + 24 + 9 = 121 The first set of branches represents the first draw. The second set of branches represents the second draw. Each of the outcomes is distinct. In fact, we can list each red ball as R1, R2, and R3 and each blue ball as B1, B2, B3, B4, B5, B6, B7, and B8.\n...\nThere are a total of 11 balls in the urn. Draw two balls, one at a time, with replacement.\n...\nUsing the tree diagram, calculate P(RR). Solution 3.24 b. P(RR) = ⎛ ⎝ 3 11 ⎞ ⎠ ⎛ ⎝ 3 11 ⎞ ⎠ = 9 121",
@@ -779,16 +779,23 @@
       0,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      0,
+      0
+     ],
+     "quote_status": [
+      "unverified",
+      "exact"
+     ],
      "context_tokens": 1063,
      "context_tokens_before": 1586,
      "prompt_tokens": 1811,
-     "latency": 0.06,
-     "uncited": 1,
+     "latency": 1.41,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.787,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.894,
       "context_precision": 0.793,
       "context_recall": 1.0
      }
@@ -799,7 +806,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "The probability axioms are:\n1. **Non‑negativity** – for any event \\(A\\), \\(P(A) \\ge 0\\) [S1].\n2. **Normalization** – the whole sample space has probability one, \\(P(\\Omega) = 1\\) [S1].\n3. **Additivity** – if two events are disjoint (\\(A \\cap B = \\emptyset\\)), then the probability of their union is the sum of their probabilities, \\(P(A \\cup B) = P(A) + P(B)\\) [S1].\n(An event is defined as a subset of the sample space.)",
+     "answer": "The probability axioms are:\n1. **Non‑negativity** – for any event A, \\(P(A) \\ge 0\\) [S1].\n2. **Normalization** – the whole sample space has probability one, \\(P(\\Omega) = 1\\) [S1].\n3. **Additivity** – if two events are disjoint (\\(A \\cap B = \\emptyset\\)), then \\(P(A \\cup B) = P(A) + P(B)\\) [S1].",
      "reference": "Nonnegativity: P(A) >= 0; normalization: P(Omega) = 1; additivity: if A and B are disjoint, P(A union B) = P(A) + P(B) (and countable additivity for a sequence of disjoint events).",
      "contexts": [
       "Probability axioms\n- Event: a subset of the sample space - Probability is assigned to events Axioms: 1. Nonnegativity: P(A) >= 0 2. Normalization: P(Omega) = 1 3. Additivity: If A ∩ B = Ø, then P(A ∪ B) = P(A) + P(B)\n- P({s1, s2, ..., sk}) = P({s1}) + ... + P({sk}) = P(s1) + ... + P(sk)\n- Axiom 3 needs strengthening - Do weird sets have probabilities?\nProbability law: Example with finite sample space [4x4 grid; vertical axis: Y = Second roll, values 1, 2, 3, 4; horizontal axis: X = First roll, values 1, 2, 3, 4] - Let every possible outcome have probability 1/16 - P((X,Y) is (1,1) or (1,2)) = - P({X = 1}) = - P(X + Y is odd) = - P(min(X,Y) = 2) =\n2",
@@ -841,13 +848,14 @@
      "context_tokens": 963,
      "context_tokens_before": 1500,
      "prompt_tokens": 1453,
-     "latency": 0.07,
-     "uncited": 1,
+     "latency": 1.21,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 0.991,
       "context_precision": 0.7,
-      "context_recall": 1.0
+      "context_recall": 0.75
      }
     },
     {
@@ -856,7 +864,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "Under the discrete uniform law, the probability of an event \\(A\\) is computed by counting: \\[ P(A) = \\frac{\\text{number of elements of }A}{\\text{total number of sample points}} \\] because all outcomes are equally likely. [S1]",
+     "answer": "Under the discrete uniform law, the probability of an event \\(A\\) is computed by counting:\n\n\\[ P(A) = \\frac{\\text{number of elements of } A}{\\text{total number of sample points}} \\] \n\nThis follows because all outcomes are equally likely, so the probability is just the proportion of outcomes that belong to \\(A\\). [S1]",
      "reference": "P(A) = (number of elements of A) / (total number of sample points); computing probabilities reduces to counting.",
      "contexts": [
       "Discrete uniform law\n• Let all outcomes be equally likely\n• Then,\nP(A) = number of elements of A / total number of sample points\n• Computing probabilities ≡ counting\n• Defines fair coins, fair dice, well-shuffled decks",
@@ -898,12 +906,13 @@
      "context_tokens": 1081,
      "context_tokens_before": 1274,
      "prompt_tokens": 1561,
-     "latency": 0.08,
-     "uncited": 1,
+     "latency": 2.29,
+     "uncited": 2,
+     "cached": false,
      "ragas": {
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.987,
-      "context_precision": 1.0,
+      "faithfulness": null,
+      "answer_relevancy": 0.992,
+      "context_precision": 0.643,
       "context_recall": 1.0
      }
     },
@@ -913,7 +922,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "The conditional probability of **A given B** is defined as the probability that both A and B occur divided by the probability that B occurs, provided that \\(P(B)\\neq 0\\):\n\n\\[ P(A\\mid B) = \\frac{P(A\\cap B)}{P(B)} \\]\n\nThis follows directly from the definition of conditional probability in the course material.\n\n---\n**Citations**: [S2] defines the formula, and [S6] illustrates it with a Venn‑diagram interpretation.",
+     "answer": "The conditional probability of **A given B** is defined as\n\n$$P(A\\mid B)=\\frac{P(A\\cap B)}{P(B)}$$\n\nprovided that \\(P(B)\\neq 0\\) — otherwise the ratio is undefined. This follows directly from the definition of conditional probability in the course material[S2] and is illustrated with the Venn‑diagram interpretation on the slides[S6].",
      "reference": "Assuming P(B) is not 0, P(A|B) = P(A and B) / P(B); B becomes the new universe. It is undefined if P(B) = 0.",
      "contexts": [
       "And apply your definition of conditional probabilities here. The probability of two things happening is the probability that the first happens times the conditional probability that the second happens given A and B, given that the first one happened. So this is just the definition of the conditional probability of an event given another event. That other event is a composite one, but that's not an issue, it's just an event. And then we use the definition of conditional probabilities once more to break this apart and make it p of a, p of b given a, and then finally the last term.\n...\nAnd if you wish to calculate any other probability in this diagram, for example, if you want to calculate this probability, you would still multiply the conditional probabilities along the different branches of the tree.",
@@ -951,18 +960,19 @@
       0
      ],
      "quote_status": [
-      "approx",
+      "exact",
       "exact"
      ],
      "context_tokens": 1026,
      "context_tokens_before": 1604,
      "prompt_tokens": 1365,
-     "latency": 0.06,
-     "uncited": 2,
+     "latency": 1.19,
+     "uncited": 3,
+     "cached": false,
      "ragas": {
-      "faithfulness": 0.667,
+      "faithfulness": 1.0,
       "answer_relevancy": 0.912,
-      "context_precision": 0.948,
+      "context_precision": 0.967,
       "context_recall": 1.0
      }
     },
@@ -1016,8 +1026,9 @@
      "context_tokens": 1052,
      "context_tokens_before": 1244,
      "prompt_tokens": 1758,
-     "latency": 0.07,
+     "latency": 1.81,
      "uncited": 3,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 0.923,
@@ -1031,7 +1042,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "For a partition \\(A_1, A_2, A_3\\) of the sample space \\(\\Omega\\) and any event \\(B\\), the **total probability theorem** states\n\n\\[\\displaystyle P(B)=P(A_1)\\,P(B\\mid A_1)+P(A_2)\\,P(B\\mid A_2)+P(A_3)\\,P(B\\mid A_3)\\]\n\nwhere the events \\(A_1, A_2, A_3\\) are mutually exclusive and exhaustive.  This expresses the probability of \\(B\\) as the weighted sum of its conditional probabilities on each part of the partition.  [S1]",
+     "answer": "For any event \\(B\\) and a partition \\(A_1, A_2, A_3\\) of the sample space, the total probability theorem states\n\n\\[ P(B) = P(A_1)\\,P(B\\mid A_1) + P(A_2)\\,P(B\\mid A_2) + P(A_3)\\,P(B\\mid A_3) \\] \n\nwhere the \\(A_i\\) are mutually exclusive and exhaustive. [S1]",
      "reference": "P(B) = P(A1)P(B|A1) + P(A2)P(B|A2) + P(A3)P(B|A3): a weighted average of the conditional probabilities of B under each scenario.",
      "contexts": [
       "Total probability theorem\n• Divide and conquer • Partition of sample space into A1, A2, A3 • Have P(B | Ai), for every i\n[Diagram: rectangle partitioned into regions labeled A1, A2, A3, with a shaded ellipse labeled B overlapping all three regions]\n• One way of computing P(B):\nP(B) = P(A1)P(B | A1) + P(A2)P(B | A2) + P(A3)P(B | A3)",
@@ -1073,11 +1084,12 @@
      "context_tokens": 944,
      "context_tokens_before": 1326,
      "prompt_tokens": 1545,
-     "latency": 0.11,
-     "uncited": 4,
+     "latency": 1.49,
+     "uncited": 3,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.921,
+      "answer_relevancy": 0.92,
       "context_precision": 0.768,
       "context_recall": 1.0
      }
@@ -1088,7 +1100,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "The joint probability that a plane is present **and** the radar registers a blip is the product of the plane‑presence probability and the radar‑detection probability given a plane:\n\n\\[P(A\\cap B)=P(A)\\times P(B\\mid A)\\]\n\nFrom the lecture we have:\n- \"5% probability that the plane is flying\" → \\(P(A)=0.05\\)[S4]\n- \"radar ... register something ... with probability 99%\" → \\(P(B\\mid A)=0.99\\)[S4]\n- The instructor also writes out the product: \"it’s 0.05 times 0.99\"[S6]\n\nThus\n\\[P(A\\cap B)=0.05\\times0.99=0.0495\\]\nor **4.95 %**.",
+     "answer": "The joint probability that a plane is present **and** the radar registers a blip is the product of the prior probability of a plane and the conditional probability that the radar detects it:\n\n\\[P(A\\cap B)=P(A)\\times P(B\\mid A)\\]\n\nFrom the lecture we have:\n- The prior probability a plane is overhead is **5 %** (0.05) [S4].\n- If a plane is present, the radar registers it with probability **99 %** (0.99) [S4].\n\nMultiplying these gives:\n\\[P(A\\cap B)=0.05\\times 0.99 = 0.0495\\]\n\nSo the probability that a plane is present **and** the radar registers something is **0.0495** (about **4.95 %**).  This calculation is also shown explicitly in the lecture notes [S6].\n\n---\n**Key steps**\n1. Identify \\(P(A) = 0.05\\) and \\(P(B|A) = 0.99\\) [S4].\n2. Apply the multiplication rule \\(P(A\\cap B)=P(A)P(B|A)\\) [S5].\n3. Compute \\(0.05 \\times 0.99 = 0.0495\\) [S6].",
      "reference": "P(A and B) = P(A)P(B|A) = 0.05 x 0.99 = 0.0495.",
      "contexts": [
       "There is no plane, but the radar still registers something. So to find the probability of this event, we need to add the individual probabilities of the two outcomes, of these two outcomes.",
@@ -1123,21 +1135,24 @@
      ],
      "cite_match": [
       1,
+      1,
       1
      ],
      "quote_status": [
+      "exact",
       "exact",
       "exact"
      ],
      "context_tokens": 1014,
      "context_tokens_before": 1735,
      "prompt_tokens": 1384,
-     "latency": 0.09,
-     "uncited": 2,
+     "latency": 2.16,
+     "uncited": 3,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
+      "faithfulness": 0.857,
       "answer_relevancy": 0.907,
-      "context_precision": 0.43,
+      "context_precision": 0.563,
       "context_recall": 1.0
      }
     },
@@ -1147,7 +1162,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "The radar can register something in two mutually exclusive ways:\n1. There is a plane and the radar detects it, which occurs with probability \\(P(A)P(B|A)\\).\n2. There is no plane and the radar gives a false alarm, which occurs with probability \\(P(A^c)P(B|A^c)\\).\n\nFrom the model we have \\(P(A)=0.05\\), \\(P(B|A)=0.99\\), \\(P(A^c)=0.95\\), and \\(P(B|A^c)=0.10\\) \\[S4\\].\n\nCompute each term:\n- \\(P(A)P(B|A)=0.05\\times0.99=0.0495\\) \\[S6\\]\n- \\(P(A^c)P(B|A^c)=0.95\\times0.10=0.095\\) \\[S4\\]\n\nAdd them to obtain the total probability that the radar registers something:\n\\[P(B)=0.0495+0.095=0.1445\\]\nSo \\(P(B)\\approx 0.1445\\) (about **14.5 %**). \\[S5\\]",
+     "answer": "The radar can register something in two mutually exclusive ways: (i) a plane is present and the radar detects it, or (ii) no plane is present and the radar gives a false alarm.  Using the law of total probability\n\n$$P(B)=P(A)\\,P(B\\mid A)+P(A^c)\\,P(B\\mid A^c).$$\n\nFrom the model we have \\(P(A)=0.05\\), \\(P(B\\mid A)=0.99\\), \\(P(A^c)=0.95\\) and \\(P(B\\mid A^c)=0.10\\) [S4].  The first term is \\(0.05\\times0.99=0.0495\\) [S6].  The second term is \\(0.95\\times0.10=0.095\\).  Adding the two outcomes gives\n\n$$P(B)=0.0495+0.095=0.1445,$$\n\nso the overall probability that the radar registers something is **approximately 0.1445 (14.45 %)** [S5].",
      "reference": "P(B) = 0.05 x 0.99 + 0.95 x 0.10 = 0.0495 + 0.095 = 0.1445.",
      "contexts": [
       "The radar registers something that can be caused by two things. Either there's a plane there and your radar did its job, or there was nothing, but your radar fired a false alarm.\n...\nBut instead of doing this, let's just write down the definition and just use it. It's the probability of A and B happening divided by the probability of B.",
@@ -1180,17 +1195,26 @@
       null,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      0,
+      1,
+      1
+     ],
+     "quote_status": [
+      "approx",
+      "exact",
+      "exact"
+     ],
      "context_tokens": 995,
      "context_tokens_before": 1581,
      "prompt_tokens": 1414,
-     "latency": 0.07,
-     "uncited": 7,
+     "latency": 2.28,
+     "uncited": 6,
+     "cached": false,
      "ragas": {
       "faithfulness": null,
-      "answer_relevancy": 0.92,
-      "context_precision": 0.81,
+      "answer_relevancy": 0.932,
+      "context_precision": 0.646,
       "context_recall": 1.0
      }
     },
@@ -1199,8 +1223,8 @@
      "question": "In the radar example, given that the radar registers something, what is the probability that a plane is actually there?",
      "off_material": false,
      "modality": "slides-figure",
-     "status": "answered",
-     "answer": "Let A = \"plane is present\" and B = \"radar registers a blip\".\n\n- Prior probability of a plane: \\(P(A)=5\\%\\) [S2]​.\n- Radar detects a plane when it is present: \\(P(B\\mid A)=99\\%\\) [S2]​.\n- When there is **no** plane (probability \\(95\\%\\)), the radar can still register a false alarm with probability \\(0.10\\) (10 %) [S1]​.\n\nThe total probability that the radar registers something is the sum of the two mutually exclusive ways it can happen (plane + detect, or no‑plane + false alarm):\n\n\\[P(B)=P(A)P(B\\mid A)+P(A^c)P(B\\mid A^c) = 0.05\\times0.99 + 0.95\\times0.10 = 0.0495+0.095 = 0.1445.\\]\n\nNow apply Bayes’ rule:\n\n\\[P(A\\mid B)=\\frac{P(A)P(B\\mid A)}{P(B)} = \\frac{0.05\\times0.99}{0.1445}\\approx0.3425\\approx34\\% .\\]\n\nThus, given that the radar registers a blip, the probability that a plane is actually there is about **34 %** [S5]​ (the lecture notes also note a rounded value of roughly 30 % in a later comment) [S6]​.\n\n---\n**Key steps**\n1. Identify prior and conditional probabilities (S2, S1). \n2. Compute the overall probability of a radar blip. \n3. Use Bayes’ theorem to obtain the posterior probability.\n\n**Result:** \\(P(\\text{plane}\\mid\\text{blip})\\approx34\\%\\).",
+     "status": "partial",
+     "answer": "The lecture notes give two slightly different posterior probabilities. One part of the material says that, after observing a radar blip, the probability a plane is present is **34 %**[S5]. Another segment states that the chance a plane is actually there, given the radar registered something, is only **30 %**[S6].",
      "reference": "P(A|B) = 0.0495 / 0.1445, about 0.34.",
      "contexts": [
       "There is no plane, but the radar still registers something. So to find the probability of this event, we need to add the individual probabilities of the two outcomes, of these two outcomes.\n...\nFor the second outcome, the probability that this happens is going to be this probability, 95%, times 0.10, which is the conditional probability of taking this branch, given that there was no plane out there.\n...\nOK. And now here's the interesting question. Given that your radar showed recorded something, how likely is it that there is an airplane up there?",
@@ -1235,25 +1259,22 @@
      ],
      "cite_match": [
       null,
-      null,
-      null,
       1
      ],
      "quote_status": [
-      "exact",
-      "exact",
       "exact",
       "exact"
      ],
      "context_tokens": 1020,
      "context_tokens_before": 1735,
      "prompt_tokens": 1382,
-     "latency": 0.08,
-     "uncited": 7,
+     "latency": 2.39,
+     "uncited": 1,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.926,
-      "context_precision": 0.7,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.849,
+      "context_precision": 0.817,
       "context_recall": 1.0
      }
     },
@@ -1263,7 +1284,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "In the 6.041 Lecture 3 slides, two events A and B are said to be **independent** when the occurrence of one gives no information about the other. Formally this is expressed as\n\n- \\(P(B\\mid A)=P(B)\\) [​S2​]\n\nand equivalently as the **multiplication rule for independent events**\n\n- \\(P(A\\cap B)=P(A)\\,P(B)\\) [​S2​].",
+     "answer": "In the Lecture 3 slides, two events A and B are defined to be independent when the occurrence of one gives no information about the other. Formally this is expressed as\n\n- **Conditional definition:** \\(P(B\\mid A)=P(B)\\) (and symmetrically \\(P(A\\mid B)=P(A)\\))\n- **Multiplicative definition:** \\(P(A\\cap B)=P(A)\\,P(B)\\).\n\nEither condition characterizes independence of the two events[S2].",
      "reference": "A and B are independent if P(A and B) = P(A)P(B). The definition is symmetric in A and B, applies even if P(A) = 0, and implies P(A|B) = P(A).",
      "contexts": [
       "LECTURE 3\n• Readings: Section 1.5 • Review • Independence of two events • Independence of a collection of events\nReview\nP(A | B) = P(A ∩ B) / P(B), assuming P(B) > 0\n• Multiplication rule: P(A ∩ B) = P(B) · P(A | B) = P(A) · P(B | A)\n• Total probability theorem: P(B) = P(A)P(B | A) + P(A^c)P(B | A^c)\n• Bayes rule: P(A_i | B) = P(A_i)P(B | A_i) / P(B)",
@@ -1296,16 +1317,21 @@
       null,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      0
+     ],
+     "quote_status": [
+      "exact"
+     ],
      "context_tokens": 1002,
      "context_tokens_before": 1009,
      "prompt_tokens": 1576,
-     "latency": 0.08,
-     "uncited": 5,
+     "latency": 1.27,
+     "uncited": 4,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.936,
+      "answer_relevancy": 0.851,
       "context_precision": 0.583,
       "context_recall": 1.0
      }
@@ -1316,7 +1342,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "No.  Pairwise independence of events is not sufficient to guarantee that the whole collection is independent.  The slides explicitly note that *“Pairwise independence does not imply independence”* and illustrate it with a coin‑toss example where each pair of events is independent but the three events together are not [S3][S2].",
+     "answer": "No.  Pairwise independence – the fact that every two events in the family satisfy \\(P(A_i\\cap A_j)=P(A_i)P(A_j)\\) – is **not** sufficient for the whole collection to be independent.  Full independence of a collection requires that *any* sub‑collection of events satisfy the product rule, e.g. \\(P(A_i\\cap A_j\\cap A_k)=P(A_i)P(A_j)P(A_k)\\) for all distinct indices [S1].  The lecture slides give a concrete counter‑example with three events defined from two fair‑coin tosses, showing that the three events are pairwise independent but not jointly independent, and explicitly state “Pairwise independence does not imply independence” [S3].",
      "reference": "No. With two independent fair coin tosses, A = first toss H, B = second toss H, C = both tosses give the same result are pairwise independent but not independent.",
      "contexts": [
       "Independence of a collection of events • Intuitive definition: Information on some of the events tells us nothing about probabilities related to the remaining events – E.g.: P(A1 ∩ (A2^c ∪ A3) | A5^c ∩ A6^c) = P(A1 ∩ (A2^c ∪ A3)) • Mathematical definition: Events A1, A2, ..., An are called independent if: P(Ai ∩ Aj ∩ ⋯ ∩ Aq) = P(Ai)P(Aj) ⋯ P(Aq) for any distinct indices i, j, ..., q, (chosen from {1, ..., n})",
@@ -1350,7 +1376,7 @@
       null
      ],
      "cite_match": [
-      0,
+      null,
       0
      ],
      "quote_status": [
@@ -1360,11 +1386,12 @@
      "context_tokens": 1024,
      "context_tokens_before": 1529,
      "prompt_tokens": 1608,
-     "latency": 0.07,
-     "uncited": 1,
+     "latency": 1.98,
+     "uncited": 2,
+     "cached": false,
      "ragas": {
-      "faithfulness": 0.833,
-      "answer_relevancy": 0.982,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.994,
       "context_precision": 0.583,
       "context_recall": 1.0
      }
@@ -1375,7 +1402,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "For three independent tosses of a biased coin with \\(P(H)=p\\) and \\(P(T)=1-p\\), the probability of the specific sequence **THT** is the product of the branch probabilities:\n\n\\[P(THT) = (1-p) \\times p \\times (1-p) = p(1-p)^2.\\]  \n\nThis follows directly from the probability tree shown in the course material, where each leaf’s probability is the product of the branch labels \\(p\\) or \\(1-p\\) for each toss [S1].",
+     "answer": "For three independent tosses of a biased coin with \\(P(H)=p\\) and \\(P(T)=1-p\\), the probability of the specific outcome **THT** is the product of the individual toss probabilities:\n\n\\[P(THT)=P(T)\\cdot P(H)\\cdot P(T)=(1-p)\\,p\\,(1-p)=p(1-p)^2.\\]\n\nThis follows directly from the probability tree shown for the three‑toss experiment, where each branch for a head carries a factor \\(p\\) and each branch for a tail carries a factor \\(1-p\\) [S1].",
      "reference": "P(THT) = (1-p) p (1-p) = p(1-p)^2.",
      "contexts": [
       "Models based on conditional probabilities\n• 3 tosses of a biased coin: P(H) = p, P(T) = 1 − p [Tree diagram: root splits with branches labeled p (upper) and 1 - p (lower); second level branches labeled p and 1 - p; third level branches labeled p and 1 - p; leaves from top to bottom:] p HHH 1 - p HHT p HTH 1 - p HTT p THH 1 - p THT p TTH 1 - p TTT\nP(THT) =\nP(1 head) =\nP(first toss is H | 1 head) =",
@@ -1417,11 +1444,12 @@
      "context_tokens": 998,
      "context_tokens_before": 1423,
      "prompt_tokens": 1781,
-     "latency": 0.09,
+     "latency": 1.92,
      "uncited": 1,
+     "cached": false,
      "ragas": {
-      "faithfulness": 0.889,
-      "answer_relevancy": 0.884,
+      "faithfulness": null,
+      "answer_relevancy": 0.879,
       "context_precision": 1.0,
       "context_recall": 1.0
      }
@@ -1432,7 +1460,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "Conditional independence given an event **C** means that, once we restrict our attention to the world where **C** has occurred, the events **A** and **B** behave as if they were independent. Formally, under the conditional probability law \\(P(\\cdot\\mid C)\\), we require\n\\[ P(A\\cap B\\mid C)=P(A\\mid C)\\,P(B\\mid C). \\]\nIn other words, knowing that **C** happened makes any information about **A** irrelevant for predicting **B**, and vice‑versa. This is exactly the same independence relationship as usual, but applied to the conditional probability measure that conditions on **C** [ S1 ].\n\nThe notion relies on the definition of conditional probability – the probability of an event **A** given that **B** has occurred – which is “the likelihood that an event will occur given that another event has already occurred” [ S4 ].",
+     "answer": "Conditional independence given an event **C** means that, once we condition on **C** having occurred, the events behave as if they were independent under the conditional probability measure. Formally, for events **A** and **B**\n\n$$P(A\\cap B\\mid C)=P(A\\mid C)\\,P(B\\mid C).$$\n\nIn other words, knowing that **C** happened makes the occurrence of **A** provide no information about the occurrence of **B**, and vice‑versa. This is exactly “independence under probability law \\(P(\\cdot\\mid C)\\)”[S1].",
      "reference": "A and B are conditionally independent given C if they are independent under the conditional probability law P( . | C).",
      "contexts": [
       "Conditioning may affect independence\n• Conditional independence, given C, is defined as independence under probability law P(· | C)\n• Assume A and B are independent\n[Diagram: rectangle containing three overlapping ellipses labeled A, B, and C]\n• If we are told that C occurred, are A and B independent?",
@@ -1465,15 +1493,20 @@
       null,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      0
+     ],
+     "quote_status": [
+      "exact"
+     ],
      "context_tokens": 1036,
      "context_tokens_before": 1527,
      "prompt_tokens": 1392,
-     "latency": 0.07,
-     "uncited": 6,
+     "latency": 1.94,
+     "uncited": 4,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
+      "faithfulness": 1.0,
       "answer_relevancy": 0.989,
       "context_precision": 1.0,
       "context_recall": 1.0
@@ -1485,7 +1518,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "For the unfair‑coin example, the probability of heads is **0.9** for coin A and **0.1** for coin B[S1].",
+     "answer": "For the unfair‑coin example, the probability of heads is 0.9 for coin A and 0.1 for coin B [S1].",
      "reference": "P(H | coin A) = 0.9 and P(H | coin B) = 0.1, and each coin is chosen with probability 0.5.",
      "contexts": [
       "Conditioning may affect independence • Two unfair coins, A and B: P(H | coin A)=0.9, P(H | coin B)=0.1 choose either coin with equal probability 0.9 0.9 0.1 Coin A 0.9 0.5 0.1 0.1 0.1 0.5 0.1 0.9 Coin B 0.1 0.9 0.9 • Once we know it is coin A, are tosses independent? • If we do not know which coin it is, are tosses independent? – Compare: P(toss 11 = H) P(toss 11 = H | first 10 tosses are heads)",
@@ -1527,11 +1560,12 @@
      "context_tokens": 1032,
      "context_tokens_before": 2577,
      "prompt_tokens": 1683,
-     "latency": 0.08,
+     "latency": 1.03,
      "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.988,
+      "answer_relevancy": 0.992,
       "context_precision": 1.0,
       "context_recall": 1.0
      }
@@ -1542,7 +1576,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "Bayes' rule computes the **posterior probability** of each hypothesis \\(A_i\\) after observing evidence \\(B\\); that is, it gives \\(P(A_i\\mid B)\\) — the revised belief about \\(A_i\\) once \\(B\\) has occurred[S1].  The rule does this by combining the **prior probabilities** \\(P(A_i)\\), which are the initial beliefs about how likely each scenario is before seeing \\(B\\), with the likelihoods \\(P(B\\mid A_i)\\)[S1][S4].\n\nThe formula is:\n\n\\[ P(A_i\\mid B) = \\frac{P(A_i)\\,P(B\\mid A_i)}{\\sum_j P(A_j)\\,P(B\\mid A_j)} \\]\n\nwhere the numerator uses the prior \\(P(A_i)\\) and the denominator normalizes over all possible hypotheses[S1].",
+     "answer": "Bayes’ rule is used to compute the **posterior probability** of each hypothesis \\(A_i\\) after observing evidence \\(B\\); that is, it gives \\(P(A_i\\mid B)\\) – the revised belief about \\(A_i\\) once \\(B\\) has occurred[S1].  The rule combines the **prior probabilities** \\(P(A_i)\\), which are the initial beliefs about how likely each scenario is before seeing the evidence, with the likelihoods \\(P(B\\mid A_i)\\) to produce the posterior[S1][S4].",
      "reference": "Bayes' rule computes P(Ai|B), the revised beliefs given that B occurred: P(Ai|B) = P(Ai)P(B|Ai) / sum_j P(Aj)P(B|Aj). The priors P(Ai) are the initial beliefs.",
      "contexts": [
       "Bayes' rule • \"Prior\" probabilities P(A_i) – initial \"beliefs\" • We know P(B | A_i) for each i • Wish to compute P(A_i | B) – revise \"beliefs\", given that B occurred\n[Diagram: rectangle with shaded ellipse B, regions A_1, A_2, A_3] P(A_i | B) = P(A_i ∩ B) / P(B) = P(A_i) P(B | A_i) / P(B) = P(A_i) P(B | A_i) / (Σ_j P(A_j) P(B | A_j))",
@@ -1580,17 +1614,18 @@
       2
      ],
      "quote_status": [
-      "exact",
+      "approx",
       "exact"
      ],
      "context_tokens": 956,
      "context_tokens_before": 1278,
      "prompt_tokens": 1495,
-     "latency": 0.07,
-     "uncited": 1,
+     "latency": 1.5,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.936,
+      "answer_relevancy": 0.926,
       "context_precision": 0.83,
       "context_recall": 1.0
      }
@@ -1601,7 +1636,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "The lecturer points out that an event can have probability 0 and still occur because in continuous probability models each single outcome (a point) carries zero measure, yet some outcome must happen. Thus a zero‑probability event is not *impossible*; it is just *extremely unlikely* in the sense of having no area or length, while the experiment will still produce a specific point that originally had probability 0 [S1][S2].",
+     "answer": "The lecturer’s point is that in a continuous probability model each single outcome (a point) has probability 0, yet that outcome can still be observed.  Because the probability measure assigns zero area to any individual point, the chance of that exact point is mathematically 0, but when the experiment is performed one of those points *does* occur – so a zero‑probability event is not impossible, it is just “extremely unlikely by itself” in the sense of the model [S1][S2].  This illustrates the difference between the mathematical notion of probability 0 and the everyday notion of impossibility.",
      "reference": "In continuous models every individual point has zero probability (zero area), yet some point always occurs; zero probability means extremely unlikely, not impossible.",
      "contexts": [
       "So one moral from this is that zero probability does not mean impossible. It just means extremely, extremely unlikely by itself. So zero probability things do happen. In such continuous models, actually, zero probability outcomes are everything that happens. And the bumper sticker version of this is to always expect the unexpected. Yes? Sorry about that. Well, probability is supposed to be a real number. So it's either 0 or it's a positive number. So you can think of the probability of things just close to that point. And those probabilities are tiny and close to 0. So that's how we're going to interpret probabilities in continuous models. But this is two chapters ahead. Yep.",
@@ -1640,16 +1675,17 @@
      ],
      "quote_status": [
       "exact",
-      "exact"
+      "approx"
      ],
      "context_tokens": 1066,
      "context_tokens_before": 1695,
      "prompt_tokens": 1393,
-     "latency": 0.07,
-     "uncited": 1,
+     "latency": 1.64,
+     "uncited": 2,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.776,
+      "answer_relevancy": 0.821,
       "context_precision": 1.0,
       "context_recall": 1.0
      }
@@ -1660,7 +1696,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "Even though the radar is very accurate when a plane is present (it detects a plane with 99% probability) and it is advertised as “correct 90‑99% of the time,” the chance that a blip actually means a plane is low because two other factors dominate the calculation:\n\n1. **Low prior probability of a plane** – only about 5 % of the time is there actually a plane in the sky[S5].\n2. **Relatively high false‑alarm rate** – even when there is no plane the radar still produces a blip about 10 % of the time[S1].\n\nWhen you combine a small prior (5 %) with a sizable false‑alarm probability (10 %), the posterior probability \\(P(\\text{plane}\\mid\\text{blip})\\) drops to roughly 30 % despite the radar’s good specifications[S2]. In other words, most blips are caused by noise, so a radar record is more likely to be a false alarm than a true detection.\n\n---\n**Key points**\n- Prior \\(P(\\text{plane}) = 0.05\\)[S5]\n- False‑alarm \\(P(\\text{blip}\\mid\\text{no plane}) = 0.10\\)[S1]\n- Detection \\(P(\\text{blip}\\mid\\text{plane}) = 0.99\\)[S5]\n- Resulting posterior \\(P(\\text{plane}\\mid\\text{blip}) \\approx 0.30\\)[S2]\n\nThus the surprisingly low probability is a consequence of Bayes’ theorem: the low base‑rate of planes and the non‑negligible false‑alarm rate outweigh the radar’s high true‑positive rate.",
+     "answer": "Even though the radar is highly reliable when a plane is present (it detects a plane with 99% probability) [S4], the situation is dominated by two other facts. First, a plane is actually present only about 5% of the time [S5][S1]. Second, the radar produces false alarms about 10% of the time [S1]. Because the prior chance of a plane is low and the false‑alarm rate is relatively high, the posterior probability that a detected blip corresponds to a real plane is much smaller than the radar’s “99 % correct” specification. In fact, given a radar blip the chance that there really is an airplane is only about 30 % [S2], which feels surprisingly low. This illustrates how conditional probabilities can be counter‑intuitive when the base‑rate (prior) of the event is small and false alarms are common.",
      "reference": "False alarms are common: most of the time there is no plane, and there is a 10% false alarm probability, so most blips are false alarms.",
      "contexts": [
       "So you cannot really rely on the measurements of your radar, even though the specs of the radar were really good. What's the reason for this? Well, the reason is that false alarms are pretty common. Most of the time there's nothing. And there's a 10% probability of false alarms. So there's roughly a 10% probability that in any given experiment you have a false alarm. And there's about a 5% probability that something is out there, and your radar gets it. So when your radar records something, it's actually more likely to be a false alarm rather than being an actual airplane. This has probability 10%, roughly. This has probability roughly 5%. So conditional probabilities are kind of sometimes counterintuitive in terms of the answers that they get. And you can make similar stories about doctors interpreting the results of tests.",
@@ -1695,10 +1731,12 @@
      ],
      "cite_match": [
       null,
+      null,
       0,
       0
      ],
      "quote_status": [
+      "exact",
       "exact",
       "exact",
       "exact"
@@ -1706,12 +1744,13 @@
      "context_tokens": 976,
      "context_tokens_before": 1741,
      "prompt_tokens": 1364,
-     "latency": 0.08,
+     "latency": 6.18,
      "uncited": 2,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.932,
-      "context_precision": 1.0,
+      "faithfulness": 0.909,
+      "answer_relevancy": 0.866,
+      "context_precision": 0.958,
       "context_recall": 1.0
      }
     },
@@ -1721,7 +1760,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "The lecturer explains conditional probability by using a long‑run frequency view.  To compute \\(P(A\\mid B)\\) you first restrict attention to the repetitions of the experiment in which the conditioning event \\(B\\) occurs, and then ask what fraction of those trials also show the event \\(A\\).  In other words, conditional probability is the relative frequency of \\(A\\) among the sub‑sample where \\(B\\) happened.  This interpretation follows from thinking of probabilities as frequencies over many repeated experiments[S2][S3].",
+     "answer": "The lecturer explains conditional probability by thinking of probabilities as long‑run frequencies.  He says that to find the conditional probability of an event A given that B has occurred, you look only at the subset of repeated experiments in which B happens and then ask what fraction of those experiments also produce A.  In other words, \\(P(A\\mid B)\\) is the proportion of trials with B that also have A, and the joint probability \\(P(A\\cap B)\\) is the overall fraction of trials in which both occur, which can be written as \\(P(B)\\times P(A\\mid B)\\)[S2].  This interpretation is reinforced by the statement that “think of probabilities as frequencies. If I do the experiment over and over, what fraction of the time, is it going to be the case that both A and B occur?”[S3]",
      "reference": "Look only at the experiments in which B occurs and ask in what fraction of those A also occurs.",
      "contexts": [
       "So in terms of frequencies, how often do all three things happen, A, B, and C? You first see how often does A occur? Out of the times that A occurs, how often does B occur? And out of the times where both A and B have occurred, how often does C occurs? And you can just multiply those three frequencies with each other. What is the formal proof of this? Well, the only thing we have in our hands is the definition of conditional probabilities. So let's just use this. And OK. Now the definition of conditional probabilities tells us that the probability of two things is the probability of one of them times a conditional probability.",
@@ -1760,17 +1799,18 @@
      ],
      "quote_status": [
       "exact",
-      "approx"
+      "exact"
      ],
      "context_tokens": 1019,
      "context_tokens_before": 2041,
      "prompt_tokens": 1324,
-     "latency": 0.09,
+     "latency": 1.91,
      "uncited": 3,
+     "cached": false,
      "ragas": {
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.87,
-      "context_precision": 0.917,
+      "faithfulness": null,
+      "answer_relevancy": 0.888,
+      "context_precision": 1.0,
       "context_recall": 1.0
      }
     },
@@ -1780,7 +1820,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "The event \\(B\\) consists of the five ordered pairs where the smaller roll is 2: \\((2,2),(2,3),(2,4),(3,2),(4,2)\\) [​S1][​S8].  Because each of the 16 possible outcomes is equally likely (probability \\(1/16\\)) [​S3], the conditional probability of any subset of \\(B\\) is the number of favorable outcomes divided by 5.\n\n* For \\(M=1\\) there are **no** outcomes in \\(B\\) with a maximum of 1 (the minimum is already 2), so\n  \\[P(M=1\\mid B)=0\\].\n* For \\(M=2\\) the only outcome in \\(B\\) with maximum 2 is \\((2,2)\\).  That is 1 of the 5 equally‑likely outcomes, so\n  \\[P(M=2\\mid B)=\\frac{1}{5}\\].\n\nThus:\n\n- \\(P(M=1\\mid B)=0\\)\n- \\(P(M=2\\mid B)=\\frac{1}{5}\\)​[​S8]",
+     "answer": "The sample space of two tetrahedral‑die rolls has 16 equally likely outcomes \\([S3]\\).  The event \\(B =\\{\\min(X,Y)=2\\}\\) consists of the five ordered pairs \\((2,2),(2,3),(2,4),(3,2),(4,2)\\) – each with probability \\(1/16\\) so \\(P(B)=5/16\\) \\([S8]\\).\n\n* **\\(P(M=1\\mid B)\\)**:  \\(M=\\max(X,Y)=1\\) can only occur for the outcome \\((1,1)\\), which is not in \\(B\\).  Hence the intersection \\(\\{M=1\\}\\cap B\\) is empty and\n  \\[P(M=1\\mid B)=0.\\] \\([S1]\\)\n\n* **\\(P(M=2\\mid B)\\)**:  \\(M=2\\) occurs when the largest roll is 2.  Within \\(B\\) this happens only for the outcome \\((2,2)\\).  Thus\n  \\[P(M=2\\mid B)=\\frac{P((2,2))}{P(B)}=\\frac{1/16}{5/16}=\\frac{1}{5}.\\] \\([S8]\\)\n\nSo, \\(P(M=1\\mid B)=0\\) and \\(P(M=2\\mid B)=\\frac{1}{5}\\).",
      "reference": "P(M = 1 | B) = 0 because the maximum cannot be 1 when the minimum is 2; P(M = 2 | B) = 1/5, since only (2,2) of the 5 equally likely outcomes in B has maximum 2.",
      "contexts": [
       "Die roll example\nY = Second roll\n4 3 2 1\n1  2  3  4\nX = First roll • Let B be the event: min(X, Y) = 2 • Let M = max(X, Y) • P(M = 1 | B) = • P(M = 2 | B) =",
@@ -1813,18 +1853,27 @@
       null,
       0
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      0,
+      0,
+      1
+     ],
+     "quote_status": [
+      "exact",
+      "exact",
+      "exact"
+     ],
      "context_tokens": 899,
      "context_tokens_before": 1351,
      "prompt_tokens": 1766,
-     "latency": 0.1,
-     "uncited": 7,
+     "latency": 3.71,
+     "uncited": 5,
+     "cached": false,
      "ragas": {
       "faithfulness": null,
-      "answer_relevancy": 0.887,
+      "answer_relevancy": 0.943,
       "context_precision": 0.877,
-      "context_recall": 0.5
+      "context_recall": 1.0
      }
     },
     {
@@ -1833,7 +1882,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "Bayes’ rule is named after **Thomas Bayes**, a British theologian from the 1700s.  The rule was introduced to answer the fundamental question of **how we can learn from experience or experimental data in a systematic way** – i.e., how to update prior beliefs when new evidence is observed[S1].",
+     "answer": "Bayes’ rule is named after **Thomas Bayes**, a British theologian from the 1700s [S1].  It tackles the fundamental question of **how we can learn from experience or experimental data in a systematic way – i.e., how to incorporate new knowledge into our existing beliefs** [S1].",
      "reference": "Thomas Bayes, a British theologian of the 1700s; it addresses how one can learn from experience or experimental data in a systematic way.",
      "contexts": [
       "So the name of the Bayes rule comes from Thomas Bayes, a British theologian, back in the 1700s. It actually, this calculation addresses a basic philosophical problem. how one can learn from experience or from experimental data in some systematic way. So the British at that time were preoccupied with this type of question. Is there a basic theory about how we can incorporate new knowledge to previous knowledge? And this calculation made an argument that yes, it is possible to do that in a systematic way. So the philosophical underpinnings of this have a very long history and a lot of discussion around them. But for our purposes, it's just an extremely useful tool. And it's the foundation of almost everything that gets done when you try to do inference based on partial observations. Very well. Till next time.",
@@ -1875,12 +1924,13 @@
      "context_tokens": 1041,
      "context_tokens_before": 1125,
      "prompt_tokens": 1612,
-     "latency": 0.06,
-     "uncited": 1,
+     "latency": 1.46,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.948,
-      "context_precision": 0.833,
+      "answer_relevancy": 0.953,
+      "context_precision": 1.0,
       "context_recall": 1.0
      }
     },
@@ -1890,7 +1940,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "Yes.  Conditional probabilities defined with respect to a given event B constitute a legitimate probability law.  They inherit the usual axioms – non‑negativity, total probability 1, and additivity for disjoint events – just as an ordinary probability model does [S1][S2].",
+     "answer": "Yes.  When we condition on an event B (with P(B)>0), the resulting conditional probabilities constitute a new probability model that satisfies all the usual axioms.  The lecture notes state that “Conditional probabilities, given a specific event b, just form a probability law on our sample space” [S1] and that “Our new model should still be a legitimate probability model… conditional probabilities also satisfy this kind of property” [S2].",
      "reference": "Yes. Conditional probabilities given B satisfy all the probability axioms (e.g. additivity for disjoint events), so they form a different but legitimate probability law.",
      "contexts": [
       "Conditional probabilities, given a specific event b, just form a probability law on our sample space. It's a different probability law, but it's still a probability law that has all the desired properties. OK, so where do conditional probabilities come up? They do come up in quizzes, and they do come in silly problems. So let's start with this.\n...\nSo all elements are equally likely. That's our original model. Then somebody comes and tells us that the minimum of the two roles is equal to zero. What's that event?",
@@ -1929,16 +1979,17 @@
      ],
      "quote_status": [
       "exact",
-      "exact"
+      "approx"
      ],
      "context_tokens": 1008,
      "context_tokens_before": 1809,
      "prompt_tokens": 1324,
-     "latency": 0.06,
+     "latency": 1.53,
      "uncited": 1,
+     "cached": false,
      "ragas": {
-      "faithfulness": 0.6,
-      "answer_relevancy": 0.979,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.873,
       "context_precision": 1.0,
       "context_recall": 1.0
      }
@@ -1949,7 +2000,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "The lecturer’s main point is that a positive test result does **not** guarantee that a person actually has the disease – even a well‑designed test can give a false positive, especially in cases where the disease is extremely rare or eradicated. This highlights that doctors can be wrong and that interpreting test results requires careful, subtle reasoning. [S1]",
+     "answer": "The lecturer emphasizes that a positive test result does **not** guarantee that a person actually has the disease; false‑positive results can occur, especially in cases where the disease is extremely rare or eradicated, making the reasoning subtle. [S1]",
      "reference": "Testing positive does not necessarily mean you have the disease: if the disease is rare, even a good test gives mostly false positives, as in the radar example.",
      "contexts": [
       "So you tested positive for a certain disease. Does it mean that you have the disease necessarily? Well, if that disease has been eradicated from the face of the earth, testing positive doesn't mean that you have the disease, even if the test was designed to be a pretty good one. So unfortunately, doctors do get it wrong also sometimes. And the reasoning that comes in such situations is pretty subtle. Now for the rest of the lecture, what we're going to do is to take this example where we did three things and abstract them. These three trivial calculations that we just did are three very important, very basic tools that you use to solve more general probability problems. So what's the first one? We find the probability of a composite event, two things happening by multiplying probabilities and conditional probabilities. More general version of this.",
@@ -1986,16 +2037,17 @@
       0
      ],
      "quote_status": [
-      "approx"
+      "exact"
      ],
      "context_tokens": 1050,
      "context_tokens_before": 1724,
      "prompt_tokens": 1492,
-     "latency": 0.06,
-     "uncited": 2,
+     "latency": 1.54,
+     "uncited": 1,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.938,
+      "answer_relevancy": 0.908,
       "context_precision": 1.0,
       "context_recall": 0.0
      }
@@ -2006,7 +2058,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The provided course material does not include a discussion of the central limit theorem, so I cannot give an explanation based on these sources.",
+     "answer": "The course material provided does not include an explanation of the central limit theorem.",
      "reference": "",
      "contexts": [
       "Diagram on 6.041 L2 slides · slide 7 (Total probability theorem): The diagram shows a rectangular sample space partitioned into three regions by two curved lines, labeled A1 (top), A2 (bottom left), and A3 (bottom right). A shaded gray ellipse labeled B overlaps all three regions, illustrating that event B is split across the partition. This visualizes the total probability theorem, where P(B) is computed as the sum of P(Ai)P(B | Ai) over the three partition elements.",
@@ -2035,8 +2087,9 @@
      "context_tokens": 997,
      "context_tokens_before": 1109,
      "prompt_tokens": 1489,
-     "latency": 0.17,
+     "latency": 0.89,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -2045,7 +2098,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The course material provided does not include a definition or discussion of the Poisson distribution or its applications.",
+     "answer": "The course material provided does not include a definition of the Poisson distribution or the contexts in which it is applied.",
      "reference": "",
      "contexts": [
       "So they remain equally likely afterwards. Because when we define conditional probabilities, we keep the same proportions inside the set. So the five red elements were equally likely. They remain equally likely in the conditional world. So conditional on b having happened, each one of these five elements has the same probability. So the probability that we actually get this point is going to be 1 fifth. And so that's the shortcut. More generally, whenever you have a uniform distribution on your initial sample space, when you condition on an event, your new distribution is still going to be uniform, but on the smaller event that we considered. So we started with a uniform distribution on the big square. And we ended up with a uniform distribution just on the red points. Now, besides silly problems, however, conditional probabilities show up in real and interesting situations.",
@@ -2074,8 +2127,9 @@
      "context_tokens": 1078,
      "context_tokens_before": 3413,
      "prompt_tokens": 1489,
-     "latency": 0.16,
+     "latency": 1.15,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -2084,7 +2138,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The provided course material does not include a formula or explanation for the variance of a binomial random variable.",
+     "answer": "The provided course material does not include the formula or method for computing the variance of a binomial random variable.",
      "reference": "",
      "contexts": [
       "Example 3.3 Table 3.1 describes the distribution of a random sample S of 100 individuals, organized by gender and whether they are right- or left-handed. Right-handed Left-handed Males 43 9 Females 44 4 Table 3.1 Let’s denote the events M = the subject is male, F = the subject is female, R = the subject is right-handed, L = the subject is left-handed. Compute the following probabilities: a. P(M) b. P(F) c. P(R) d. P(L) e. P(M AND R) f. P(F AND L) g. P(M OR F) h. P(M OR R) i. P(F OR L) j. P(M') k. P(R|M) l. P(F|L) m. P(L|F) Solution 3.3 a. P(M) = 0.52 b. P(F) = 0.48 c. P(R) = 0.87 d. P(L) = 0.13 e. P(M AND R) = 0.43 f. P(F AND L) = 0.04 g. P(M OR F) = 1 h. P(M OR R) = 0.96 i. P(F OR L) = 0.57 j. P(M') = 0.48 k. P(R|M) = 0.8269 (rounded to four decimal places) l. P(F|L) = 0.3077 (rounded to four decimal places) m. P(L|F) = 0.0833",
@@ -2113,8 +2167,9 @@
      "context_tokens": 964,
      "context_tokens_before": 1507,
      "prompt_tokens": 1791,
-     "latency": 0.07,
+     "latency": 2.26,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -2123,7 +2178,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The provided course material does not include a definition or discussion of p-values in hypothesis testing.",
+     "answer": "The course material does not cover the definition of a p‑value in hypothesis testing.",
      "reference": "",
      "contexts": [
       "the general population of women, the test for breast cancer is negative about 85% of the time. Let B = woman develops breast cancer and let N = tests negative. Suppose one woman is selected at random. a. What is the probability that the woman develops breast cancer? What is the probability that woman tests negative? Solution 3.18 a. P(B) = 0.143; P(N) = 0.85 b. Given that the woman has breast cancer, what is the probability that she tests negative? Solution 3.18 b. P(N|B) = 0.02 c. What is the probability that the woman has breast cancer AND tests negative? Solution 3.18 c. P(B AND N) = P(B)P(N|B) = (0.143)(0.02) = 0.0029 d. What is the probability that the woman has breast cancer or tests negative? Solution 3.18 d. P(B OR N) = P(B) + P(N) - P(B AND N) = 0.143 + 0.85 - 0.0029 = 0.9901 e. Are having breast cancer and testing negative independent events? Solution 3.18 e. No. P(N) = 0.85; P(N|B) = 0.02. So, P(N|B) does not equal P(N).",
@@ -2152,8 +2207,9 @@
      "context_tokens": 1055,
      "context_tokens_before": 1556,
      "prompt_tokens": 1741,
-     "latency": 0.06,
+     "latency": 1.07,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -2162,7 +2218,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The course material provided does not include information on how gradient descent trains a neural network.",
+     "answer": "The course material provided does not include any information about gradient descent or how it trains a neural network.",
      "reference": "",
      "contexts": [
       "4. Would this change (see part 3) cause the empirical probabilities and theoretical probabilities to be closer together or farther apart? How do you know? 5. Explain the differences in what P(G1 AND R2) and P(R1|G2) represent. Hint: Think about the sample space for each probability.",
@@ -2191,8 +2247,9 @@
      "context_tokens": 1030,
      "context_tokens_before": 1404,
      "prompt_tokens": 1539,
-     "latency": 0.05,
+     "latency": 1.3,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -2230,8 +2287,9 @@
      "context_tokens": 1064,
      "context_tokens_before": 1519,
      "prompt_tokens": null,
-     "latency": 0.06,
+     "latency": 0.03,
      "uncited": null,
+     "cached": false,
      "ragas": null
     },
     {
@@ -2240,7 +2298,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The provided course material does not include information on how a Markov chain reaches its stationary distribution.",
+     "answer": "The course material provided does not include information on how a Markov chain reaches its stationary distribution.",
      "reference": "",
      "contexts": [
       "So they remain equally likely afterwards. Because when we define conditional probabilities, we keep the same proportions inside the set. So the five red elements were equally likely. They remain equally likely in the conditional world. So conditional on b having happened, each one of these five elements has the same probability. So the probability that we actually get this point is going to be 1 fifth. And so that's the shortcut. More generally, whenever you have a uniform distribution on your initial sample space, when you condition on an event, your new distribution is still going to be uniform, but on the smaller event that we considered. So we started with a uniform distribution on the big square. And we ended up with a uniform distribution just on the red points. Now, besides silly problems, however, conditional probabilities show up in real and interesting situations.",
@@ -2269,8 +2327,9 @@
      "context_tokens": 1072,
      "context_tokens_before": 2048,
      "prompt_tokens": 1554,
-     "latency": 0.08,
+     "latency": 0.73,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -2308,8 +2367,9 @@
      "context_tokens": 898,
      "context_tokens_before": 2436,
      "prompt_tokens": null,
-     "latency": 0.06,
+     "latency": 0.04,
      "uncited": null,
+     "cached": false,
      "ragas": null
     },
     {
@@ -2347,8 +2407,9 @@
      "context_tokens": 1280,
      "context_tokens_before": 1951,
      "prompt_tokens": 1549,
-     "latency": 0.09,
+     "latency": 0.89,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -2388,6 +2449,7 @@
      "prompt_tokens": null,
      "latency": 0.07,
      "uncited": null,
+     "cached": false,
      "ragas": null
     }
    ]
@@ -2401,27 +2463,28 @@
     "mrr": 0.8775,
     "id_context_precision": 0.2868,
     "id_context_recall": 0.8971,
-    "citation_accuracy": 0.7647,
-    "citation_precision": 0.9519,
+    "citation_accuracy": 0.9412,
+    "citation_precision": 0.8823,
     "quote_verified": 1.0,
-    "quote_exact": 0.878,
+    "quote_exact": 0.8824,
     "refusal_rate": 1.0,
     "false_refusal_rate": 0.0,
     "context_tokens": 1658.1176,
     "context_tokens_before": 1658.1176,
     "prompt_tokens": 2258.3824,
-    "latency_p50": 1.49,
-    "uncited_sentences_mean": 2.3529,
-    "ragas_seconds": 599.0,
+    "latency_p50": 1.61,
+    "uncited_sentences_mean": 1.8235,
+    "ragas_seconds": 178.5,
     "ragas_n": 34,
-    "faithfulness": 0.9875,
-    "faithfulness_n": 20,
-    "answer_relevancy": 0.9078,
+    "faithfulness": 0.9833,
+    "faithfulness_n": 25,
+    "answer_relevancy": 0.9117,
     "answer_relevancy_n": 34,
-    "context_precision": 0.8029,
-    "context_precision_n": 33,
-    "context_recall": 0.9545,
-    "context_recall_n": 33
+    "context_precision": 0.824,
+    "context_precision_n": 34,
+    "context_recall": 0.9706,
+    "context_recall_n": 34,
+    "rescored": true
    },
    "rows": [
     {
@@ -2430,7 +2493,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The law of large numbers states that as the number of repetitions of an experiment increases, the relative frequency of an outcome approaches its theoretical probability. [S2]",
+     "answer": "The law of large numbers states that as the number of repetitions of an experiment increases, the relative frequency observed in the experiment approaches the theoretical probability of the event[S2].",
      "reference": "As the number of repetitions of an experiment is increased, the relative frequency obtained in the experiment tends to become closer and closer to the theoretical probability.",
      "contexts": [
       "Continuous uniform law\n\n• Two \"random\" numbers in [0,1].\n\n[Diagram: unit square with vertical axis labeled y marked 1 and horizontal axis labeled x marked 1]\n\n• Uniform law: Probability = Area\n  – P(X + Y ≤ 1/2) = ?\n  – P( (X,Y) = (0.5,0.3) )\n\nRemember!\n\n• Turn in recitation/tutorial scheduling form now\n• Tutorials start next week",
@@ -2472,10 +2535,11 @@
      "context_tokens": 2057,
      "context_tokens_before": 2057,
      "prompt_tokens": 2671,
-     "latency": 1.99,
-     "uncited": 1,
+     "latency": 1.56,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
+      "faithfulness": 1.0,
       "answer_relevancy": 1.0,
       "context_precision": 0.5,
       "context_recall": 1.0
@@ -2487,7 +2551,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "Sampling **with replacement** makes each draw independent because the card (or item) is put back and the deck’s composition does not change, so the probability of later picks is unchanged – the events are independent[S4].  \n\nSampling **without replacement** changes the population after each draw; the first card removed cannot appear again, so the probabilities for subsequent picks are affected by earlier outcomes, making the events dependent[S3].",
+     "answer": "Sampling **with replacement** makes each draw independent because the card (or other item) is put back and the deck is reshuffled, so the probability of any outcome on a later draw is unchanged – the events are considered independent[S4].  \n\nIn contrast, sampling **without replacement** makes the draws dependent: once a card is removed it cannot be drawn again, so the composition of the deck changes and the probability of subsequent draws is affected by the earlier results[S3].  \n\nThus, with replacement → independent events; without replacement → dependent events.",
      "reference": "With replacement, each member is put back and can be chosen again, so the picks are independent. Without replacement, each member can be chosen only once, so the probabilities for the second pick depend on the first pick and the events are dependent.",
      "contexts": [
       "b. Sampling without replacement: Suppose you pick three cards without replacement. The first card you pick out of the 52 cards is the K of hearts. You put this card aside and pick the second card from the 51 cards remaining in the deck. It is the three of diamonds. You put this card aside and pick the third card from the remaining 50 cards in the deck. The third card is the J of spades. Your picks are {K of hearts, three of diamonds, J of spades}. Because you have picked the cards without replacement, you cannot pick the same card twice. 3.4 You have a fair, well-shuffled deck of 52 cards. It consists of four suits. The suits are clubs, diamonds, hearts and spades. There are 13 cards in each suit consisting of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, J (jack), Q (queen), K (king) of that suit. Three cards are picked at random. a. Suppose you know that the picked cards are Q of spades, K of hearts and Q of spades. Can you decide if the sampling was with or without replacement?",
@@ -2531,12 +2595,13 @@
      "context_tokens": 2300,
      "context_tokens_before": 2300,
      "prompt_tokens": 2905,
-     "latency": 2.02,
-     "uncited": 0,
+     "latency": 2.09,
+     "uncited": 1,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.929,
-      "context_precision": 1.0,
+      "answer_relevancy": 0.943,
+      "context_precision": 0.717,
       "context_recall": 1.0
      }
     },
@@ -2546,7 +2611,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The addition rule states that for any two events \\(A\\) and \\(B\\),\n\n\\[ P(A \\text{ OR } B) = P(A) + P(B) - P(A \\text{ AND } B) \\] \\[S1\\]\n\nIf the events are **mutually exclusive** (they cannot occur together), then \\(P(A \\text{ AND } B)=0\\). Substituting this into the rule gives the simplified form\n\n\\[ P(A \\text{ OR } B) = P(A) + P(B) \\] \\[S1\\] \\[S2\\]\n\nThus, for mutually exclusive events the probability of either event occurring is just the sum of their individual probabilities.",
+     "answer": "The addition rule states that\n\n$$P(A\\;\\text{OR}\\;B)=P(A)+P(B)-P(A\\;\\text{AND}\\;B)$$[S1]\n\nIf the events are mutually exclusive, then $P(A\\;\\text{AND}\\;B)=0$, so the formula simplifies to\n\n$$P(A\\;\\text{OR}\\;B)=P(A)+P(B)$$[S2]",
      "reference": "P(A OR B) = P(A) + P(B) - P(A AND B). If A and B are mutually exclusive, P(A AND B) = 0, so P(A OR B) = P(A) + P(B).",
      "contexts": [
       "The Multiplication Rule If A and B are two events defined on a sample space, then: P(A AND B) = P(B)P(A|B). This rule may also be written as: P(A|B) = P(A AND B) P(B) (The probability of A given B equals the probability of A and B divided by the probability of B.) If A and B are independent, then P(A|B) = P(A). Then P(A AND B) = P(A|B)P(B) becomes P(A AND B) = P(A)P(B). The Addition Rule If A and B are defined on a sample space, then: P(A OR B) = P(A) + P(B) - P(A AND B). If A and B are mutually exclusive, then P(A AND B) = 0. Then P(A OR B) = P(A) + P(B) - P(A AND B) becomes P(A OR B) = P(A) + P(B). Example 3.14 Klaus is trying to choose where to go on vacation. His two choices are: A = New Zealand and B = Alaska • Klaus can only afford one vacation. The probability that he chooses A is P(A) = 0.6 and the probability that he chooses B is P(B) = 0.35.",
@@ -2579,16 +2644,23 @@
       null,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      0,
+      null
+     ],
+     "quote_status": [
+      "exact",
+      "approx"
+     ],
      "context_tokens": 1644,
      "context_tokens_before": 1644,
      "prompt_tokens": 2720,
-     "latency": 2.0,
-     "uncited": 6,
+     "latency": 2.79,
+     "uncited": 2,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.921,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.804,
       "context_precision": 1.0,
       "context_recall": 1.0
      }
@@ -2599,7 +2671,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The probability that Carlos makes both goals is\n\n$$P(A\\text{ and }B)=P(B|A)\\times P(A)=0.90\\times0.65=0.585.$$ \n\nSo the chance he scores on both attempts is **0.585** (or 58.5%).\n\n[S2] provides the calculation: \"P(B AND A) = (0.90)(0.65) = 0.585\" and [S1] confirms the same result.",
+     "answer": "The probability that Carlos makes both goals is\n\n$$P(A\\text{ and }B)=P(B|A)\\times P(A)=0.90\\times0.65=0.585.$$ \n\nSo there is a 58.5% chance he scores on both attempts. [S2]",
      "reference": "P(A AND B) = P(B|A)P(A) = (0.90)(0.65) = 0.585.",
      "contexts": [
       "b. What is the probability that Carlos makes either the first goal or the second goal? Solution 3.15 b. The problem is asking you to find P(A OR B). P(A OR B) = P(A) + P(B) - P(A AND B) = 0.65 + 0.65 - 0.585 = 0.715 Carlos makes either the first goal or the second goal with probability 0.715. c. Are A and B independent? Solution 3.15 c. No, they are not, because P(B AND A) = 0.585.",
@@ -2633,20 +2705,19 @@
       null
      ],
      "cite_match": [
-      0,
       0
      ],
      "quote_status": [
-      "approx",
-      "approx"
+      "exact"
      ],
      "context_tokens": 1844,
      "context_tokens_before": 1844,
      "prompt_tokens": 2541,
-     "latency": 1.45,
+     "latency": 1.58,
      "uncited": 3,
+     "cached": false,
      "ragas": {
-      "faithfulness": 0.75,
+      "faithfulness": 1.0,
       "answer_relevancy": 0.9,
       "context_precision": 0.839,
       "context_recall": 1.0
@@ -2700,10 +2771,11 @@
      "context_tokens": 1741,
      "context_tokens_before": 1741,
      "prompt_tokens": 2471,
-     "latency": 1.16,
+     "latency": 1.23,
      "uncited": 0,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
+      "faithfulness": 1.0,
       "answer_relevancy": 0.975,
       "context_precision": 1.0,
       "context_recall": 1.0
@@ -2715,7 +2787,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The contingency table contains **755 drivers** in total. The two row totals are **305** (drivers who use a cell phone while driving) and **450** (drivers who do not use a cell phone while driving)[S1].",
+     "answer": "The sample contains **755 drivers**. The two row totals are **305** (cell‑phone users) and **450** (non‑cell‑phone users)[S1].",
      "reference": "The sample has 755 people; the row totals are 305 (uses cell phone while driving) and 450 (does not).",
      "contexts": [
       "3.4 | Contingency Tables A contingency table provides a way of portraying data that can facilitate calculating probabilities. The table helps in determining conditional probabilities quite easily. The table displays sample values in relation to two different variables that may be dependent or contingent on one another. Later on, we will use contingency tables again, but in another manner. Example 3.20 Suppose a study of speeding violations and drivers who use cell phones produced the following fictional data: Speeding violation in the last year No speeding violation in the last year Total Uses cell phone while driving 25 280 305 Does not use cell phone while driving 45 405 450 Total 70 685 755 Table 3.2 The total number of people in the sample is 755. The row totals are 305 and 450. The column totals are 70 and 685. Notice that 305 + 450 = 755 and 70 + 685 = 755. Calculate the following probabilities using the table. a. Find P(Driver is a cell phone user). b. Find P(driver had no violation in the last year).",
@@ -2757,11 +2829,12 @@
      "context_tokens": 1847,
      "context_tokens_before": 1847,
      "prompt_tokens": 2601,
-     "latency": 1.25,
+     "latency": 1.17,
      "uncited": 1,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.869,
+      "answer_relevancy": 0.751,
       "context_precision": 0.833,
       "context_recall": 1.0
      }
@@ -2772,7 +2845,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "A **contingency table** is a table that displays the frequencies (or probabilities) of outcomes for two categorical variables, arranging the data in rows and columns so that the relationship between the variables can be seen[S1][S4].  It “provides a way of portraying data that can facilitate calculating probabilities” and “displays sample values in relation to two different variables that may be dependent or contingent on one another”[S1].  The table is useful because it “helps in determining conditional probabilities quite easily” and “provides an easy way to calculate conditional probabilities,” allowing us to see whether events are independent or dependent[S1][S4].",
+     "answer": "A **contingency table** is a tabular display that shows the frequency (or probability) of outcomes for two variables simultaneously. It “provides a way of portraying data that can facilitate calculating probabilities” and “helps in determining conditional probabilities quite easily”[S1]. By arranging the data in rows and columns, the table makes it straightforward to see how the variables relate and to compute conditional and joint probabilities, which is why it is a useful tool for probability problems[S4].",
      "reference": "A contingency table portrays data as rows and columns relating two variables that may be dependent (contingent) on one another; it makes calculating probabilities, especially conditional probabilities, easy.",
      "contexts": [
       "3.4 | Contingency Tables A contingency table provides a way of portraying data that can facilitate calculating probabilities. The table helps in determining conditional probabilities quite easily. The table displays sample values in relation to two different variables that may be dependent or contingent on one another. Later on, we will use contingency tables again, but in another manner. Example 3.20 Suppose a study of speeding violations and drivers who use cell phones produced the following fictional data: Speeding violation in the last year No speeding violation in the last year Total Uses cell phone while driving 25 280 305 Does not use cell phone while driving 45 405 450 Total 70 685 755 Table 3.2 The total number of people in the sample is 755. The row totals are 305 and 450. The column totals are 70 and 685. Notice that 305 + 450 = 755 and 70 + 685 = 755. Calculate the following probabilities using the table. a. Find P(Driver is a cell phone user). b. Find P(driver had no violation in the last year).",
@@ -2816,11 +2889,12 @@
      "context_tokens": 1906,
      "context_tokens_before": 1906,
      "prompt_tokens": 2686,
-     "latency": 2.18,
-     "uncited": 0,
+     "latency": 2.15,
+     "uncited": 1,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.959,
+      "answer_relevancy": 0.942,
       "context_precision": 0.958,
       "context_recall": 1.0
      }
@@ -2831,7 +2905,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "The sample space contains **121** possible outcomes, since with replacement each draw has 11 possibilities and \\(11 \\times 11 = 121\\) [S1].\n\nThe probability of drawing two red balls in a row is\n\\[P(RR)=\\frac{3}{11}\\times\\frac{3}{11}=\\frac{9}{121}\\] [S1].",
+     "answer": "The sample space contains **121** possible ordered outcomes, since with replacement each draw has 11 possibilities and \\(11 \\times 11 = 121\\) [​S1​].\n\nThe probability of drawing two red balls in a row is\n\\[P(RR)=\\frac{3}{11}\\times\\frac{3}{11}=\\frac{9}{121}\\] [​S1​].",
      "reference": "There are 11 x 11 = 121 outcomes; P(RR) = (3/11)(3/11) = 9/121.",
      "contexts": [
       "Figure 3.2 Total = 64 + 24 + 24 + 9 = 121 The first set of branches represents the first draw. The second set of branches represents the second draw. Each of the outcomes is distinct. In fact, we can list each red ball as R1, R2, and R3 and each blue ball as B1, B2, B3, B4, B5, B6, B7, and B8. Then the nine RR outcomes can be written as: R1R1; R1R2; R1R3; R2R1; R2R2; R2R3; R3R1; R3R2; R3R3 The other outcomes are similar. There are a total of 11 balls in the urn. Draw two balls, one at a time, with replacement. There are 11(11) = 121 outcomes, the size of the sample space. a. List the 24 BR outcomes: B1R1, B1R2, B1R3, ... Solution 3.24 a. B1R1; B1R2; B1R3; B2R1; B2R2; B2R3; B3R1; B3R2; B3R3; B4R1; B4R2; B4R3; B5R1; B5R2; B5R3; B6R1; B6R2; B6R3; B7R1; B7R2; B7R3; B8R1; B8R2; B8R3 b. Using the tree diagram, calculate P(RR). Solution 3.24 b. P(RR) = ⎛ ⎝ 3 11 ⎞ ⎠ ⎛ ⎝ 3 11 ⎞ ⎠ = 9 121",
@@ -2867,17 +2941,16 @@
      "cite_match": [
       0
      ],
-     "quote_status": [
-      "exact"
-     ],
+     "quote_status": [],
      "context_tokens": 1595,
      "context_tokens_before": 1595,
      "prompt_tokens": 2607,
-     "latency": 1.65,
-     "uncited": 1,
+     "latency": 1.64,
+     "uncited": 3,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.821,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.813,
       "context_precision": 0.587,
       "context_recall": 1.0
      }
@@ -2888,7 +2961,7 @@
      "off_material": false,
      "modality": "textbook-figure",
      "status": "answered",
-     "answer": "The probability that both selected kittens are tabby is\n\n$$P(\\text{TT}) = \\frac{4}{9}\\times\\frac{3}{8}=\\frac{12}{72}=\\frac{1}{6}.$$ \n\n- There are four tabby kittens and five black kittens in the litter [S1].\n- The first‑pick probability of a tabby is \\(4/9\\) [S3].\n- Given a tabby was chosen first, the second‑pick probability of another tabby is \\(3/8\\) [S3].\n- Multiplying these dependent probabilities gives \\(1/6\\).",
+     "answer": "The probability that both kittens are tabby is the product of the conditional probabilities for each draw:\n\n1. Probability the first kitten is tabby: \\(\\frac{4}{9}\\)[S3]\n2. After a tabby is taken, 3 tabbies remain out of 8 kittens total, so the probability the second kitten is tabby: \\(\\frac{3}{8}\\)[S3]\n3. Multiply the two probabilities (since the draws are without replacement):\n   \\[\\frac{4}{9}\\times\\frac{3}{8}=\\frac{12}{72}=\\frac{1}{6}\\approx0.1667\\]\n\nThus, the probability that both selected kittens are tabby is **1/6** (about 16.7%).",
      "reference": "(4/9)(3/8) = 12/72 = 1/6, about 0.167.",
      "contexts": [
       "Example 3.26 A litter of kittens available for adoption at the Humane Society has four tabby kittens and five black kittens. A family comes in and randomly selects two kittens (without replacement) for adoption. a. What is the probability that both kittens are tabby? a. ⎛ ⎝ 1 2 ⎞ ⎠ ⎛ ⎝ 1 2 ⎞ ⎠ b. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 4 9 ⎞ ⎠ c. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 3 8 ⎞ ⎠ d. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 9 ⎞ ⎠ b. What is the probability that one kitten of each coloring is selected? a. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 9 ⎞ ⎠ b. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 8 ⎞ ⎠ c. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 9 ⎞ ⎠ + ⎛ ⎝ 5 9 ⎞ ⎠ ⎛ ⎝ 4 9 ⎞ ⎠ d. ⎛ ⎝ 4 9 ⎞ ⎠ ⎛ ⎝ 5 8 ⎞ ⎠ + ⎛ ⎝ 5 9 ⎞ ⎠ ⎛ ⎝ 4 8 ⎞ ⎠",
@@ -2922,22 +2995,21 @@
       null
      ],
      "cite_match": [
-      0,
       0
      ],
      "quote_status": [
-      "exact",
       "exact"
      ],
      "context_tokens": 1897,
      "context_tokens_before": 1897,
      "prompt_tokens": 2887,
-     "latency": 2.44,
-     "uncited": 3,
+     "latency": 4.38,
+     "uncited": 2,
+     "cached": false,
      "ragas": {
       "faithfulness": null,
       "answer_relevancy": 0.92,
-      "context_precision": 0.712,
+      "context_precision": 0.667,
       "context_recall": 1.0
      }
     },
@@ -2947,7 +3019,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "A Venn diagram is a picture that represents the outcomes of an experiment. It generally consists of a box that represents the sample space **S** together with circles or ovals that represent events within that space. [S3]",
+     "answer": "A Venn diagram is a picture that represents the outcomes of an experiment; it typically shows a rectangular box for the sample space **S** with circles or ovals inside that represent the events of interest[S3].",
      "reference": "A picture that represents the outcomes of an experiment: a box represents the sample space S, and circles or ovals inside it represent events.",
      "contexts": [
       "a. Draw a Venn diagram representing the situation. b. Find the probability that the customer buys either a novel or anon-fiction book. c. In the Venn diagram, describe the overlapping area using a complete sentence. d. Suppose that some customers buy only compact disks. Draw an oval in your Venn diagram representing this event.",
@@ -2989,8 +3061,9 @@
      "context_tokens": 1412,
      "context_tokens_before": 1412,
      "prompt_tokens": 1975,
-     "latency": 1.33,
-     "uncited": 2,
+     "latency": 1.48,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 1.0,
@@ -3004,7 +3077,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "Two events are **mutually exclusive** when they cannot occur at the same time – they share no outcomes and the probability that both occur is zero. In symbols, this means \\(P(A \\text{ AND } B)=0\\) and the events have no common outcomes in the sample space. [S1][S3]",
+     "answer": "Two events are **mutually exclusive** when they cannot occur at the same time – they share no outcomes and the probability that both occur is zero \\(P(A \\text{ AND } B)=0\\) [S1][S3].",
      "reference": "A and B are mutually exclusive if they cannot occur at the same time: they share no outcomes and P(A AND B) = 0.",
      "contexts": [
       "a. QS, 1D, 1C, QD b. KH, 7D, 6D, KH c. QS, 7D, 6D, KS Mutually Exclusive Events A and B are mutually exclusive events if they cannot occur at the same time. This means that A and B do not share any outcomes and P(A AND B) = 0. For example, suppose the sample space S = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}. Let A = {1, 2, 3, 4, 5}, B = {4, 5, 6, 7, 8}, and C = {7, 9}. A AND B = {4, 5}. P(A AND B) = 2 10 and is not equal to zero. Therefore, A and B are not mutually exclusive. A and C do not have any numbers in common so P(A AND C) = 0. Therefore, A and C are mutually exclusive. If it is not known whether A and B are mutually exclusive, assume they are not until you can show otherwise. The following examples illustrate these definitions and terms. Example 3.6 Flip two fair coins. (This is an experiment.) The sample space is {HH, HT, TH, TT} where T = tails and H = heads. The outcomes are HH, HT, TH, and TT. The outcomes HT and TH are different. The HT means that the first coin showed heads and the second coin showed tails. The TH means that the first coin showed tails and the second coin showed heads.",
@@ -3048,12 +3121,13 @@
      "context_tokens": 1762,
      "context_tokens_before": 1762,
      "prompt_tokens": 2610,
-     "latency": 1.41,
-     "uncited": 2,
+     "latency": 1.33,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 0.958,
-      "context_precision": 1.0,
+      "context_precision": 0.943,
       "context_recall": 1.0
      }
     },
@@ -3063,7 +3137,7 @@
      "off_material": false,
      "modality": "textbook",
      "status": "answered",
-     "answer": "Two events are independent when **any one** of the following equivalent conditions is satisfied:\n\n1. The conditional probability of one event given the other equals its unconditional probability, e.g., \\(P(A\\mid B)=P(A)\\) (or symmetrically \\(P(B\\mid A)=P(B)\\)).\n2. The joint probability equals the product of the individual probabilities, \\(P(A\\,\\text{AND}\\,B)=P(A)\\,P(B)\\).\n\nIf any one of these holds, the events are independent; if none hold, the events are dependent.  \n\nThese three statements are listed as the defining criteria for independence in the textbook.  \n\n**Citations:**\n- The textbook lists the three conditions explicitly as the definition of independent events[S1].\n- It also notes that you need to show *one* of them to establish independence[S2].\n- The same three conditions appear in another summary of the definition[S4].\n- A general statement says events are independent if one of the following is true[S7].",
+     "answer": "Two events are independent when **any one** of the following equalities holds:\n\n- \\(P(A\\mid B) = P(A)\\)\n- \\(P(B\\mid A) = P(B)\\)\n- \\(P(A \\text{ AND } B) = P(A)\\,P(B)\\)\n\nShowing just one of these conditions is sufficient to establish independence[S1][S2][S4].",
      "reference": "Any one of: P(A|B) = P(A), P(B|A) = P(B), or P(A AND B) = P(A)P(B). Independence means knowing one occurred does not affect the chance of the other.",
      "contexts": [
       "3.2 | Independent and Mutually Exclusive Events Independent and mutually exclusive do not mean the same thing. Independent Events Two events are independent if the following are true: • P(A|B) = P(A) • P(B|A) = P(B) • P(A AND B) = P(A)P(B) Two events A and B are independent if the knowledge that one occurred does not affect the chance the other occurs. For example, the outcomes of two roles of a fair die are independent events. The outcome of the first roll does not change the probability for the outcome of the second roll. To show two events are independent, you must show only one of the above conditions. If two events are NOT independent, then we say that they are dependent. Sampling may be done with replacement or without replacement. • With replacement: If each member of a population is replaced after it is picked, then that member has the possibility of being chosen more than once. When sampling is done with replacement, then events are considered to be independent, meaning the result of the first pick will not change the probabilities for the second pick.",
@@ -3099,11 +3173,9 @@
      "cite_match": [
       0,
       null,
-      null,
       null
      ],
      "quote_status": [
-      "exact",
       "exact",
       "exact",
       "exact"
@@ -3111,12 +3183,13 @@
      "context_tokens": 1957,
      "context_tokens_before": 1957,
      "prompt_tokens": 2663,
-     "latency": 3.06,
-     "uncited": 4,
+     "latency": 1.79,
+     "uncited": 1,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.804,
-      "context_precision": 0.943,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.907,
+      "context_precision": 1.0,
       "context_recall": 1.0
      }
     },
@@ -3126,7 +3199,7 @@
      "off_material": false,
      "modality": "textbook-figure",
      "status": "answered",
-     "answer": "There are **64** outcomes where both draws are blue (BB) in the replacement tree diagram [S7][S1].",
+     "answer": "There are **64** BB outcomes in the tree diagram for two draws with replacement from 8 blue and 3 red balls[S7].",
      "reference": "64 BB outcomes (8 x 8).",
      "contexts": [
       "Figure 3.2 Total = 64 + 24 + 24 + 9 = 121 The first set of branches represents the first draw. The second set of branches represents the second draw. Each of the outcomes is distinct. In fact, we can list each red ball as R1, R2, and R3 and each blue ball as B1, B2, B3, B4, B5, B6, B7, and B8. Then the nine RR outcomes can be written as: R1R1; R1R2; R1R3; R2R1; R2R2; R2R3; R3R1; R3R2; R3R3 The other outcomes are similar. There are a total of 11 balls in the urn. Draw two balls, one at a time, with replacement. There are 11(11) = 121 outcomes, the size of the sample space. a. List the 24 BR outcomes: B1R1, B1R2, B1R3, ... Solution 3.24 a. B1R1; B1R2; B1R3; B2R1; B2R2; B2R3; B3R1; B3R2; B3R3; B4R1; B4R2; B4R3; B5R1; B5R2; B5R3; B6R1; B6R2; B6R3; B7R1; B7R2; B7R3; B8R1; B8R2; B8R3 b. Using the tree diagram, calculate P(RR). Solution 3.24 b. P(RR) = ⎛ ⎝ 3 11 ⎞ ⎠ ⎛ ⎝ 3 11 ⎞ ⎠ = 9 121",
@@ -3160,21 +3233,20 @@
       null
      ],
      "cite_match": [
-      0,
       0
      ],
      "quote_status": [
-      "exact",
       "exact"
      ],
      "context_tokens": 1586,
      "context_tokens_before": 1586,
      "prompt_tokens": 2547,
-     "latency": 1.29,
+     "latency": 1.37,
      "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.866,
+      "answer_relevancy": 0.976,
       "context_precision": 0.793,
       "context_recall": 1.0
      }
@@ -3185,7 +3257,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "The probability axioms are:\n\n1. **Nonnegativity** – For any event \\(A\\), the probability is never negative: \\(P(A) \\ge 0\\)[S1].\n2. **Normalization** – The probability of the entire sample space is 1: \\(P(\\Omega) = 1\\)[S1].\n3. **Additivity** – If two events are disjoint (\\(A \\cap B = \\emptyset\\)), the probability of their union is the sum of their probabilities: \\(P(A \\cup B) = P(A) + P(B)\\)[S1].\n\nThese three rules, together with the definition that an event is a subset of the sample space, form the foundation of probability theory.",
+     "answer": "The probability axioms are:\n\n1. **Non‑negativity** – For any event \\(A\\), \\(P(A) \\ge 0\\) [S1].\n2. **Normalization** – The probability of the whole sample space is 1, i.e., \\(P(\\Omega) = 1\\) [S1].\n3. **Additivity** – If two events are disjoint (\\(A \\cap B = \\emptyset\\)), then \\(P(A \\cup B) = P(A) + P(B)\\) [S1].",
      "reference": "Nonnegativity: P(A) >= 0; normalization: P(Omega) = 1; additivity: if A and B are disjoint, P(A union B) = P(A) + P(B) (and countable additivity for a sequence of disjoint events).",
      "contexts": [
       "Probability axioms\n\n- Event: a subset of the sample space\n- Probability is assigned to events\n\nAxioms:\n1. Nonnegativity: P(A) >= 0\n2. Normalization: P(Omega) = 1\n3. Additivity: If A ∩ B = Ø, then P(A ∪ B) = P(A) + P(B)\n\n- P({s1, s2, ..., sk}) = P({s1}) + ... + P({sk})\n  = P(s1) + ... + P(sk)\n\n- Axiom 3 needs strengthening\n- Do weird sets have probabilities?\n\nProbability law: Example with finite sample space\n\n[4x4 grid; vertical axis: Y = Second roll, values 1, 2, 3, 4; horizontal axis: X = First roll, values 1, 2, 3, 4]\n\n- Let every possible outcome have probability 1/16\n  - P((X,Y) is (1,1) or (1,2)) =\n  - P({X = 1}) =\n  - P(X + Y is odd) =\n  - P(min(X,Y) = 2) =\n\n2",
@@ -3227,12 +3299,13 @@
      "context_tokens": 1500,
      "context_tokens_before": 1500,
      "prompt_tokens": 1888,
-     "latency": 1.92,
-     "uncited": 1,
+     "latency": 2.6,
+     "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 0.991,
-      "context_precision": 0.7,
+      "context_precision": 1.0,
       "context_recall": 1.0
      }
     },
@@ -3242,7 +3315,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "Under the discrete uniform law, every outcome is equally likely, so the probability of an event \\(A\\) is computed by counting:\n\n\\[ P(A) = \\frac{\\text{number of elements of }A}{\\text{total number of sample points}} \\] \n\nThis follows directly from the definition of the discrete uniform distribution, where probabilities are obtained by simple counting of equally likely outcomes. [S1]",
+     "answer": "Under a discrete uniform distribution every outcome has the same chance, so the probability of an event \\(A\\) is just the count of outcomes in \\(A\\) divided by the total number of possible outcomes:\n\n\\[ P(A) = \\frac{\\text{number of elements of }A}{\\text{total number of sample points}} \\]  \nThis follows directly from the definition of the discrete uniform law.\n\n---\n**Citation**: [S1] – “Let all outcomes be equally likely … Then, P(A) = number of elements of A / total number of sample points.”",
      "reference": "P(A) = (number of elements of A) / (total number of sample points); computing probabilities reduces to counting.",
      "contexts": [
       "Discrete uniform law\n\n• Let all outcomes be equally likely\n\n• Then,\n\nP(A) = number of elements of A / total number of sample points\n\n• Computing probabilities ≡ counting\n\n• Defines fair coins, fair dice, well-shuffled decks",
@@ -3284,11 +3357,12 @@
      "context_tokens": 1274,
      "context_tokens_before": 1274,
      "prompt_tokens": 1848,
-     "latency": 1.17,
+     "latency": 3.55,
      "uncited": 2,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.987,
+      "answer_relevancy": 0.928,
       "context_precision": 0.587,
       "context_recall": 1.0
      }
@@ -3299,7 +3373,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "The conditional probability of **A given B** is defined as\n\n$$P(A\\mid B)=\\frac{P(A\\cap B)}{P(B)}$$\n\nprovided that \\(P(B)\\neq 0\\) [S2]. In words, it is the fraction of the probability mass of **B** that lies in the intersection with **A** – i.e., the portion of **B**’s “area” occupied by \\(A\\cap B\\) [S6].",
+     "answer": "The conditional probability of event **A** given that event **B** has occurred, written \\(P(A\\mid B)\\), is defined as\n\n\\[ P(A\\mid B) = \\frac{P(A \\cap B)}{P(B)} ,\\]\n\nprovided that \\(P(B) \\neq 0\\). In words, it is the fraction of the probability mass of **B** that is also in the intersection with **A** – i.e., the probability of both events happening divided by the probability of the conditioning event **B**. [S2]",
      "reference": "Assuming P(B) is not 0, P(A|B) = P(A and B) / P(B); B becomes the new universe. It is undefined if P(B) = 0.",
      "contexts": [
       "And apply your definition of conditional probabilities here. The probability of two things happening is the probability that the first happens times the conditional probability that the second happens given A and B, given that the first one happened. So this is just the definition of the conditional probability of an event given another event. That other event is a composite one, but that's not an issue, it's just an event. And then we use the definition of conditional probabilities once more to break this apart and make it p of a, p of b given a, and then finally the last term. OK, so this proves the formula that I have up there on the slide. And if you wish to calculate any other probability in this diagram, for example, if you want to calculate this probability, you would still multiply the conditional probabilities along the different branches of the tree.",
@@ -3333,20 +3407,19 @@
       null
      ],
      "cite_match": [
-      0,
       0
      ],
      "quote_status": [
-      "exact",
-      "exact"
+      "approx"
      ],
      "context_tokens": 1604,
      "context_tokens_before": 1604,
      "prompt_tokens": 1867,
-     "latency": 1.38,
-     "uncited": 2,
+     "latency": 2.46,
+     "uncited": 4,
+     "cached": false,
      "ragas": {
-      "faithfulness": 1.0,
+      "faithfulness": null,
       "answer_relevancy": 0.912,
       "context_precision": 0.71,
       "context_recall": 1.0
@@ -3358,7 +3431,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "The multiplication rule for three events \\(A, B, C\\) is\n\n\\[ P(A\\cap B\\cap C) = P(A)\\,P(B\\mid A)\\,P(C\\mid A\\cap B) \\]  \n\nThis expresses the joint probability as the product of the probability of the first event, the conditional probability of the second given the first, and the conditional probability of the third given the first two. [S2]",
+     "answer": "The multiplication rule for three events \\(A, B, C\\) is\n\n\\[ P(A\\cap B\\cap C) = P(A)\\,P(B\\mid A)\\,P(C\\mid A\\cap B) \\]\n\nThis expresses the joint probability as the product of the probability of the first event, the conditional probability of the second given the first, and the conditional probability of the third given the first two. [S2][S5]",
      "reference": "P(A and B and C) = P(A) P(B|A) P(C|A and B).",
      "contexts": [
       "LECTURE 3\n\n• Readings: Section 1.5\n• Review\n• Independence of two events\n• Independence of a collection of events\n\nReview\n\nP(A | B) = P(A ∩ B) / P(B), assuming P(B) > 0\n\n• Multiplication rule:\nP(A ∩ B) = P(B) · P(A | B) = P(A) · P(B | A)\n\n• Total probability theorem:\nP(B) = P(A)P(B | A) + P(A^c)P(B | A^c)\n\n• Bayes rule:\nP(A_i | B) = P(A_i)P(B | A_i) / P(B)",
@@ -3392,20 +3465,23 @@
       null
      ],
      "cite_match": [
+      0,
       0
      ],
      "quote_status": [
+      "exact",
       "exact"
      ],
      "context_tokens": 1244,
      "context_tokens_before": 1244,
      "prompt_tokens": 2061,
-     "latency": 1.4,
+     "latency": 1.35,
      "uncited": 3,
+     "cached": false,
      "ragas": {
-      "faithfulness": 1.0,
+      "faithfulness": null,
       "answer_relevancy": 0.923,
-      "context_precision": 0.467,
+      "context_precision": 0.817,
       "context_recall": 1.0
      }
     },
@@ -3415,7 +3491,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "For a partition \\(A_1, A_2, A_3\\) of the sample space and any event \\(B\\), the total probability theorem states\n\n\\[ P(B) = P(A_1)\\,P(B\\mid A_1) + P(A_2)\\,P(B\\mid A_2) + P(A_3)\\,P(B\\mid A_3) \\] \n\nThis expresses \\(P(B)\\) as the weighted sum of the conditional probabilities of \\(B\\) under each partition element, where the weights are the probabilities of the partition elements themselves. [S1]",
+     "answer": "For a partition \\(A_1, A_2, A_3\\) of the sample space and any event \\(B\\), the total probability theorem states that\n\n\\[ P(B) = P(A_1)\\,P(B\\mid A_1) + P(A_2)\\,P(B\\mid A_2) + P(A_3)\\,P(B\\mid A_3) \\] \n\nwhere the \\(A_i\\) are mutually exclusive and exhaustive (they form a partition) and the terms \\(P(B\\mid A_i)\\) are the conditional probabilities of \\(B\\) given each part of the partition. [S1]\n\nThis can be visualized as the event \\(B\\) overlapping each region of the partition, and the overall probability of \\(B\\) is the weighted sum of its probabilities within each region. [S2]",
      "reference": "P(B) = P(A1)P(B|A1) + P(A2)P(B|A2) + P(A3)P(B|A3): a weighted average of the conditional probabilities of B under each scenario.",
      "contexts": [
       "Total probability theorem\n\n• Divide and conquer\n• Partition of sample space into A1, A2, A3\n• Have P(B | Ai), for every i\n\n[Diagram: rectangle partitioned into regions labeled A1, A2, A3, with a shaded ellipse labeled B overlapping all three regions]\n\n• One way of computing P(B):\n\nP(B) = P(A1)P(B | A1)\n     + P(A2)P(B | A2)\n     + P(A3)P(B | A3)",
@@ -3449,19 +3525,22 @@
       null
      ],
      "cite_match": [
+      0,
       0
      ],
      "quote_status": [
+      "exact",
       "exact"
      ],
      "context_tokens": 1326,
      "context_tokens_before": 1326,
      "prompt_tokens": 1873,
-     "latency": 1.53,
-     "uncited": 3,
+     "latency": 1.67,
+     "uncited": 4,
+     "cached": false,
      "ragas": {
       "faithfulness": null,
-      "answer_relevancy": 0.921,
+      "answer_relevancy": 0.92,
       "context_precision": 0.796,
       "context_recall": 1.0
      }
@@ -3472,7 +3551,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "The joint probability that a plane is present **and** the radar registers a blip is the product of the prior probability of a plane (0.05) and the radar’s detection probability given a plane (0.99):\n\n$$P(A\\cap B)=0.05\\times0.99=0.0495.$$",
+     "answer": "The joint probability that a plane is present **and** the radar registers a blip is the product of the prior probability of a plane and the detection probability given a plane:\n\n\\[P(A\\cap B)=P(A)\\times P(B|A)=0.05\\times0.99=0.0495\\]\n\nSo \\(P(A\\text{ and }B)=0.0495\\) (about 4.95%).",
      "reference": "P(A and B) = P(A)P(B|A) = 0.05 x 0.99 = 0.0495.",
      "contexts": [
       "There is no plane, but the radar still registers something. So to find the probability of this event, we need to add the individual probabilities of the two outcomes, of these two outcomes. For the first outcome, we already calculated it. For the second outcome, the probability that this happens is going to be this probability, 95%, times 0.10, which is the conditional probability of taking this branch, given that there was no plane out there. So we just add the numbers, 0.05 times 0.99 plus 0.95 times 0.1. And the final answer is 0.1.445. OK. And now here's the interesting question. Given that your radar showed recorded something, how likely is it that there is an airplane up there?",
@@ -3510,12 +3589,13 @@
      "context_tokens": 1735,
      "context_tokens_before": 1735,
      "prompt_tokens": 1997,
-     "latency": 1.62,
-     "uncited": 1,
+     "latency": 1.85,
+     "uncited": 2,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 0.907,
-      "context_precision": 0.383,
+      "context_precision": 0.692,
       "context_recall": 1.0
      }
     },
@@ -3525,7 +3605,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "The overall probability that the radar registers something is the sum of the two ways this can happen:\n\n\\[P(B)=P(A)\\,P(B|A)+P(A^c)\\,P(B|A^c)\\]\n\nUsing the numbers from the model (\\(P(A)=0.05\\), \\(P(B|A)=0.99\\), \\(P(A^c)=0.95\\), \\(P(B|A^c)=0.10\\)) we get\n\n\\[P(B)=0.05\\times0.99+0.95\\times0.10=0.1445\\]\n\nSo the radar registers a blip with probability about **0.1445** (≈14.45%).\n\n[Source citations: S4, S5]",
+     "answer": "The overall probability that the radar registers something is\n\n$$P(B)=P(A)\\,P(B\\mid A)+P(A^c)\\,P(B\\mid A^c)$$\n\nUsing the numbers from the model (\\(P(A)=0.05\\), \\(P(B\\mid A)=0.99\\), \\(P(A^c)=0.95\\), \\(P(B\\mid A^c)=0.10\\)) we get\n\n$$P(B)=0.05\\times0.99+0.95\\times0.10=0.0495+0.095=0.1445\\approx0.145.$$[S4][S5]\n\nSo the radar registers a blip about **14.5 %** of the time.",
      "reference": "P(B) = 0.05 x 0.99 + 0.95 x 0.10 = 0.0495 + 0.095 = 0.1445.",
      "contexts": [
       "The radar registers something that can be caused by two things. Either there's a plane there and your radar did its job, or there was nothing, but your radar fired a false alarm. What's the probability that this is the case, as opposed to that being the case? OK. The intuitive shortcut would be that it should be the probability, you look at the relative odds of these two elements, and you use them to find out how much more likely it is to be there as opposed to being there. But instead of doing this, let's just write down the definition and just use it. It's the probability of A and B happening divided by the probability of B. This is just our definition of conditional probabilities. Now, we have already found the numerator. We have already calculated the denominator. So we take the ratio of these two numbers, and we find the final answer, which is 0.34.",
@@ -3558,17 +3638,24 @@
       null,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      0,
+      1
+     ],
+     "quote_status": [
+      "approx",
+      "approx"
+     ],
      "context_tokens": 1581,
      "context_tokens_before": 1581,
      "prompt_tokens": 1915,
-     "latency": 2.03,
-     "uncited": 5,
+     "latency": 2.29,
+     "uncited": 4,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
       "answer_relevancy": 0.932,
-      "context_precision": 0.383,
+      "context_precision": 0.567,
       "context_recall": 1.0
      }
     },
@@ -3578,7 +3665,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "Given that the radar registers a blip, the probability that a plane is actually present is **34 %**. This result comes from applying Bayes’ rule to the model: the joint probability of a plane and a detection (0.05 × 0.99) divided by the total probability of a detection (0.05 × 0.99 + 0.95 × 0.10) yields 0.34, i.e., 34 % [​S3][​S5].",
+     "answer": "Given that the radar registers a blip, the probability that a plane is actually present is **0.34 (34%)**. This is obtained by applying Bayes’ rule: \\(P(\\text{plane}\\mid\\text{radar blip}) = \\frac{P(\\text{plane})\\,P(\\text{blip}\\mid\\text{plane})}{P(\\text{radar blip})}\\). Using the numbers from the lecture (plane present 5%, radar detects it 99%, false‑alarm rate 10%) the calculation yields 0.34, as stated in the lecture.[S3][S5]",
      "reference": "P(A|B) = 0.0495 / 0.1445, about 0.34.",
      "contexts": [
       "There is no plane, but the radar still registers something. So to find the probability of this event, we need to add the individual probabilities of the two outcomes, of these two outcomes. For the first outcome, we already calculated it. For the second outcome, the probability that this happens is going to be this probability, 95%, times 0.10, which is the conditional probability of taking this branch, given that there was no plane out there. So we just add the numbers, 0.05 times 0.99 plus 0.95 times 0.1. And the final answer is 0.1.445. OK. And now here's the interesting question. Given that your radar showed recorded something, how likely is it that there is an airplane up there?",
@@ -3611,17 +3698,24 @@
       null,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      1,
+      null
+     ],
+     "quote_status": [
+      "exact",
+      "exact"
+     ],
      "context_tokens": 1735,
      "context_tokens_before": 1735,
      "prompt_tokens": 1995,
-     "latency": 1.87,
+     "latency": 3.03,
      "uncited": 2,
+     "cached": false,
      "ragas": {
       "faithfulness": null,
-      "answer_relevancy": 0.926,
-      "context_precision": 0.733,
+      "answer_relevancy": 0.907,
+      "context_precision": 0.71,
       "context_recall": 1.0
      }
     },
@@ -3631,7 +3725,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "Independence of two events is defined by the condition **P(B | A) = P(B)**, meaning that knowing that A occurred gives no information about the occurrence of B[S2]. Equivalently, the joint probability factorizes as **P(A ∩ B) = P(A)·P(B)**[S2].",
+     "answer": "In the 6.041 Lecture 3 slides, two events A and B are defined to be independent when the occurrence of one gives no information about the other. Formally this is expressed as **P(B | A) = P(B)** (and symmetrically **P(A | B) = P(A)**) [S2]. Equivalently, the joint probability factorises: **P(A ∩ B) = P(A)·P(B)** [S2].",
      "reference": "A and B are independent if P(A and B) = P(A)P(B). The definition is symmetric in A and B, applies even if P(A) = 0, and implies P(A|B) = P(A).",
      "contexts": [
       "LECTURE 3\n\n• Readings: Section 1.5\n• Review\n• Independence of two events\n• Independence of a collection of events\n\nReview\n\nP(A | B) = P(A ∩ B) / P(B), assuming P(B) > 0\n\n• Multiplication rule:\nP(A ∩ B) = P(B) · P(A | B) = P(A) · P(B | A)\n\n• Total probability theorem:\nP(B) = P(A)P(B | A) + P(A^c)P(B | A^c)\n\n• Bayes rule:\nP(A_i | B) = P(A_i)P(B | A_i) / P(B)",
@@ -3673,11 +3767,12 @@
      "context_tokens": 1009,
      "context_tokens_before": 1009,
      "prompt_tokens": 1595,
-     "latency": 1.09,
-     "uncited": 0,
+     "latency": 1.25,
+     "uncited": 1,
+     "cached": false,
      "ragas": {
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.892,
+      "faithfulness": 0.75,
+      "answer_relevancy": 0.941,
       "context_precision": 0.583,
       "context_recall": 1.0
      }
@@ -3688,7 +3783,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "No.  Pairwise independence of events does **not** guarantee that the whole collection is independent.  Full independence requires that *for every* subset of the events the joint probability equals the product of the individual probabilities, i.e.\n\n$$P(A_i\\cap A_j\\cap\\dots\\cap A_q)=P(A_i)P(A_j)\\dots P(A_q)$$\n\nfor any distinct indices \\(i,j,\\dots,q\\) [​S1]​.  The lecture slides illustrate a concrete counter‑example with two fair‑coin tosses: the events \\(A\\) (first toss H), \\(B\\) (second toss H) and \\(C\\) (both tosses equal) are pairwise independent but not jointly independent, demonstrating that *pairwise independence does not imply independence* [​S3]​.\n\nThus, while each pair of events may satisfy \\(P(A\\cap B)=P(A)P(B)\\), the collection as a whole can still fail the stronger condition required for full independence.",
+     "answer": "No.  Pairwise independence of events is **not** enough to guarantee that the whole collection is independent.  Full independence requires that for **any** subset of the events the joint probability equals the product of the individual probabilities (e.g., \\(P(A_i\\cap A_j\\cap\\dots\\cap A_q)=P(A_i)P(A_j)\\dots P(A_q)\\))[S1].  The lecture slides explicitly note that *\"Pairwise independence does not imply independence\"*[S3].",
      "reference": "No. With two independent fair coin tosses, A = first toss H, B = second toss H, C = both tosses give the same result are pairwise independent but not independent.",
      "contexts": [
       "Independence of a collection of events\n\n• Intuitive definition:\nInformation on some of the events tells us nothing about probabilities related to the remaining events\n– E.g.:\nP(A1 ∩ (A2^c ∪ A3) | A5^c ∩ A6^c) = P(A1 ∩ (A2^c ∪ A3))\n\n• Mathematical definition:\nEvents A1, A2, ..., An are called independent if:\nP(Ai ∩ Aj ∩ ⋯ ∩ Aq) = P(Ai)P(Aj) ⋯ P(Aq)\nfor any distinct indices i, j, ..., q, (chosen from {1, ..., n})",
@@ -3721,16 +3816,23 @@
       null,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      null,
+      0
+     ],
+     "quote_status": [
+      "exact",
+      "exact"
+     ],
      "context_tokens": 1529,
      "context_tokens_before": 1529,
      "prompt_tokens": 2184,
-     "latency": 2.04,
-     "uncited": 6,
+     "latency": 1.86,
+     "uncited": 1,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.971,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.892,
       "context_precision": 1.0,
       "context_recall": 1.0
      }
@@ -3741,7 +3843,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "For the outcome **THT** the first toss must be a tail, the second a head, and the third a tail. Since the tosses are independent, the probability is the product of the individual probabilities:\n\n\\[P(THT) = P(T)\\cdot P(H)\\cdot P(T) = (1-p)\\,p\\,(1-p) = p(1-p)^2.\\] [S1][S2]",
+     "answer": "For three independent tosses of a biased coin with \\(P(H)=p\\) (so \\(P(T)=1-p\\)), the probability of the specific sequence **THT** is\n\n\\[P(THT)=P(T)\\cdot P(H)\\cdot P(T)=(1-p)\\,p\\,(1-p)=p(1-p)^2.\\]  \n\nThis follows directly from the tree diagram where each branch for a head carries factor \\(p\\) and each branch for a tail carries factor \\(1-p\\) [S1].",
      "reference": "P(THT) = (1-p) p (1-p) = p(1-p)^2.",
      "contexts": [
       "Models based on conditional probabilities\n\n• 3 tosses of a biased coin:\nP(H) = p, P(T) = 1 − p\n\n[Tree diagram: root splits with branches labeled p (upper) and 1 - p (lower); second level branches labeled p and 1 - p; third level branches labeled p and 1 - p; leaves from top to bottom:]\np HHH\n1 - p HHT\np HTH\n1 - p HTT\np THH\n1 - p THT\np TTH\n1 - p TTT\n\nP(THT) =\n\nP(1 head) =\n\nP(first toss is H | 1 head) =",
@@ -3775,23 +3877,22 @@
       null
      ],
      "cite_match": [
-      0,
       0
      ],
      "quote_status": [
-      "exact",
       "exact"
      ],
      "context_tokens": 1423,
      "context_tokens_before": 1423,
      "prompt_tokens": 2333,
-     "latency": 2.0,
-     "uncited": 1,
+     "latency": 1.8,
+     "uncited": 2,
+     "cached": false,
      "ragas": {
       "faithfulness": null,
-      "answer_relevancy": 0.804,
+      "answer_relevancy": 0.924,
       "context_precision": 1.0,
-      "context_recall": null
+      "context_recall": 1.0
      }
     },
     {
@@ -3800,7 +3901,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "Conditional independence given an event C means that, when we restrict our probability space to the situation where C has occurred (i.e., we work with the conditional probability law P(· | C)), the events A and B behave as if they were independent.  Formally, this requires that\n\n$$P(A\\cap B\\mid C)=P(A\\mid C)\\,P(B\\mid C),$$\n\nor equivalently that knowing A provides no additional information about B once we already know C, so\n\n$$P(B\\mid A, C)=P(B\\mid C)\\quad\\text{and}\\quad P(A\\mid B, C)=P(A\\mid C).$$\n\nThis is exactly the definition of independence applied to the conditional probability law P(· | C) [**S1**].  It mirrors the ordinary independence condition $P(B\\mid A)=P(B)$ and $P(A\\cap B)=P(A)P(B)$, but with all probabilities conditioned on C [**S5**].",
+     "answer": "Conditional independence given an event C means that, when we restrict our probability space to the outcomes where C has occurred (i.e., use the conditional probability measure P(· | C)), the events A and B behave as independent events. Formally, this is expressed as\n\n\\[ P(A\\cap B\\mid C)=P(A\\mid C)\\,P(B\\mid C). \\]\n\nIn other words, knowing that C has happened provides a new “world” in which the occurrence of A gives no information about the occurrence of B, and vice‑versa. This is exactly the definition of independence applied to the conditional probability law P(· | C) [S1].\n\n(Recall that ordinary independence is defined by P(A∩B)=P(A)P(B) [S5].)",
      "reference": "A and B are conditionally independent given C if they are independent under the conditional probability law P( . | C).",
      "contexts": [
       "Conditioning may affect independence\n\n• Conditional independence, given C, is defined as independence under probability law P(· | C)\n\n• Assume A and B are independent\n\n[Diagram: rectangle containing three overlapping ellipses labeled A, B, and C]\n\n• If we are told that C occurred, are A and B independent?",
@@ -3833,15 +3934,22 @@
       null,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      0,
+      null
+     ],
+     "quote_status": [
+      "exact",
+      "exact"
+     ],
      "context_tokens": 1527,
      "context_tokens_before": 1527,
      "prompt_tokens": 1860,
-     "latency": 2.26,
-     "uncited": 7,
+     "latency": 1.9,
+     "uncited": 4,
+     "cached": false,
      "ragas": {
-      "faithfulness": 1.0,
+      "faithfulness": null,
       "answer_relevancy": 0.989,
       "context_precision": 1.0,
       "context_recall": 1.0
@@ -3853,7 +3961,7 @@
      "off_material": false,
      "modality": "slides-figure",
      "status": "answered",
-     "answer": "For the two unfair coins, the probability of getting heads on **coin A** is **0.9** and on **coin B** is **0.1**[S1].",
+     "answer": "For the unfair‑coin scenario, the probability of getting heads when using coin A is **0.9** and the probability of heads when using coin B is **0.1**[S1].",
      "reference": "P(H | coin A) = 0.9 and P(H | coin B) = 0.1, and each coin is chosen with probability 0.5.",
      "contexts": [
       "Conditioning may affect independence\n• Two unfair coins, A and B:\nP(H | coin A)=0.9, P(H | coin B)=0.1\nchoose either coin with equal probability\n0.9\n0.9 0.1\nCoin A\n0.9\n0.5 0.1 0.1\n0.1\n0.5 0.1\n0.9\nCoin B 0.1\n0.9\n0.9\n• Once we know it is coin A, are tosses\nindependent?\n• If we do not know which coin it is, are\ntosses independent?\n– Compare:\nP(toss 11 = H)\nP(toss 11 = H | first 10 tosses are heads)",
@@ -3895,11 +4003,12 @@
      "context_tokens": 2577,
      "context_tokens_before": 2577,
      "prompt_tokens": 3545,
-     "latency": 1.15,
+     "latency": 1.16,
      "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.918,
+      "answer_relevancy": 0.965,
       "context_precision": 1.0,
       "context_recall": 1.0
      }
@@ -3910,7 +4019,7 @@
      "off_material": false,
      "modality": "slides",
      "status": "answered",
-     "answer": "Bayes’ rule is used to compute the **posterior probability** of each hypothesis \\(A_i\\) after observing some evidence \\(B\\).  It gives the updated belief \\(P(A_i\\mid B)\\) by combining the **prior probability** of the hypothesis with the likelihood of the evidence under that hypothesis:\n\n\\[ P(A_i\\mid B) = \\frac{P(A_i)\\,P(B\\mid A_i)}{\\sum_j P(A_j)\\,P(B\\mid A_j)} \\]\n\n- The **prior probabilities** \\(P(A_i)\\) are the initial beliefs about how likely each scenario (or hypothesis) is before seeing the evidence \\(B\\) [​S1]​.\n- The rule therefore revises those initial beliefs in light of the new data to produce the posterior probabilities [​S1][​S4].",
+     "answer": "Bayes’ rule is used to compute the **posterior probability** of a hypothesis (or scenario) \\(A_i\\) after observing some evidence \\(B\\).  In formula form it gives\n\n\\[ P(A_i\\mid B) = \\frac{P(A_i)\\,P(B\\mid A_i)}{\\sum_j P(A_j)\\,P(B\\mid A_j)} \\]\n\nso it revises our belief about \\(A_i\\) in light of the new data \\(B\\) [S1].\n\nThe term \\(P(A_i)\\) in the numerator is called the **prior probability** – it represents our initial belief about how likely each scenario \\(A_i\\) is before we see the evidence \\(B\\) [S1][S4].  These priors are the starting point that Bayes’ rule updates to produce the posterior.\n\nIn short, Bayes’ rule turns **prior probabilities** (initial beliefs) and the likelihoods \\(P(B\\mid A_i)\\) into **posterior probabilities** \\(P(A_i\\mid B)\\), which quantify how plausible each hypothesis is after observing the evidence.",
      "reference": "Bayes' rule computes P(Ai|B), the revised beliefs given that B occurred: P(Ai|B) = P(Ai)P(B|Ai) / sum_j P(Aj)P(B|Aj). The priors P(Ai) are the initial beliefs.",
      "contexts": [
       "Bayes' rule\n\n• \"Prior\" probabilities P(A_i)\n  – initial \"beliefs\"\n• We know P(B | A_i) for each i\n• Wish to compute P(A_i | B)\n  – revise \"beliefs\", given that B occurred\n\n[Diagram: rectangle with shaded ellipse B, regions A_1, A_2, A_3]\n\nP(A_i | B) = P(A_i ∩ B) / P(B)\n           = P(A_i) P(B | A_i) / P(B)\n           = P(A_i) P(B | A_i) / (Σ_j P(A_j) P(B | A_j))",
@@ -3943,16 +4052,23 @@
       1,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      0,
+      2
+     ],
+     "quote_status": [
+      "exact",
+      "exact"
+     ],
      "context_tokens": 1278,
      "context_tokens_before": 1278,
      "prompt_tokens": 1762,
-     "latency": 2.35,
+     "latency": 2.03,
      "uncited": 4,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.855,
+      "answer_relevancy": 0.925,
       "context_precision": 0.83,
       "context_recall": 1.0
      }
@@ -3963,7 +4079,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "In a continuous probability model the sample space is made up of infinitely many individual points.  Each single point has *zero* area (or measure), so its probability is zero, yet when we run the experiment we will always observe one of those points.  Thus a zero‑probability event can still occur – it is just “infinitely unlikely” in the sense that its probability measure is zero, not that it is impossible.  The lecturer’s point is illustrated by the fact that *“every point on the unit square has zero area… after you do the experiment … it’s going to be an individual point… that initially you thought had zero probability of occurring”* [S2].  He also emphasizes that *“zero probability does not mean impossible… in such continuous models, actually, zero probability outcomes are everything that happens”* [S1].",
+     "answer": "The lecturer’s point is that in a continuous probability model each single outcome (a point) carries zero probability, yet some point must occur when the experiment is performed.  Because every point has zero area (or probability) but the collection of all points fills a region with positive total probability, the event that *some* point occurs is certain even though each individual point is assigned probability 0.  Thus a zero‑probability event is not “impossible”; it is simply an event that is so unlikely that its probability measure is zero, while still being able to happen in practice[S1].  This idea is illustrated by saying “Individual points have zero probability. After you do the experiment and you observe the outcome, it's going to be an individual point” – so the observed outcome was an event that initially had probability 0[S2].",
      "reference": "In continuous models every individual point has zero probability (zero area), yet some point always occurs; zero probability means extremely unlikely, not impossible.",
      "contexts": [
       "So one moral from this is that zero probability does not mean impossible. It just means extremely, extremely unlikely by itself. So zero probability things do happen. In such continuous models, actually, zero probability outcomes are everything that happens. And the bumper sticker version of this is to always expect the unexpected. Yes? Sorry about that. Well, probability is supposed to be a real number. So it's either 0 or it's a positive number. So you can think of the probability of things just close to that point. And those probabilities are tiny and close to 0. So that's how we're going to interpret probabilities in continuous models. But this is two chapters ahead. Yep.",
@@ -4001,17 +4117,18 @@
       0
      ],
      "quote_status": [
-      "approx",
+      "exact",
       "exact"
      ],
      "context_tokens": 1695,
      "context_tokens_before": 1695,
      "prompt_tokens": 1981,
-     "latency": 1.8,
+     "latency": 2.02,
      "uncited": 3,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
-      "answer_relevancy": 0.794,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.83,
       "context_precision": 1.0,
       "context_recall": 1.0
      }
@@ -4022,7 +4139,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "The radar’s specifications look good (99 % detection when a plane is present) but the *prior* chance that a plane is actually in the sector is very small – only 5 % [​S5]​. At the same time the radar produces a false alarm about 10 % of the time even when no plane is there [​S1]​.  \n\nBecause the false‑alarm rate is comparable to (and the prior for a real plane is much smaller than) the true‑detection rate, most blips are caused by noise.  \n\nWe can compute the overall probability of seeing a blip:\n\n\\[P(\\text{blip}) = 0.05\\times0.99 + 0.95\\times0.10\\] [​S6]​, which equals roughly 0.145 (14.5 %).\n\nThe probability that a plane is present *given* a blip is then\n\n\\[P(\\text{plane}\\mid\\text{blip}) = \\frac{0.05\\times0.99}{0.145}\\approx 0.34\\] (about 34 %).  \n\nBoth the lecture notes and the instructor’s comment note that this posterior is surprisingly low – around 30 %–34 % – despite the radar’s high true‑positive rate [​S2][​S8]​.  \n\nThus, the low posterior arises from the combination of a low prior probability of a plane and a relatively high false‑alarm rate, which together overwhelm the radar’s good detection capability.",
+     "answer": "Even though the radar is very accurate when a plane is present (it detects a plane with 99 % probability) the *prior* chance that a plane is actually in the sector is only about 5 % [S5].  At the same time the radar produces a false‑alarm blip 10 % of the time when no plane is there [S1].  Because the false‑alarm rate is much larger than the product of the prior and the detection rate (0.05·0.99 ≈ 0.05), most blips are caused by noise rather than a real plane.  Adding the two ways a blip can occur gives the overall probability of a blip:\n\n$$P(\\text{blip}) = 0.05\\times0.99 + 0.95\\times0.10 \\approx 0.1445\\,$$ [S6]\n\nApplying Bayes’ rule, the probability that a plane is present **given** a blip is\n\n$$P(\\text{plane}\\mid\\text{blip}) = \\frac{0.05\\times0.99}{0.1445} \\approx 0.34,$$\n\nor about 30–34 % [S2][S8].  Thus the posterior probability is surprisingly low because the low prior (5 %) and the relatively high false‑alarm rate (10 %) overwhelm the radar’s high detection capability.\n\n---\n**Key points**\n- Prior probability of a plane: 5 % [S5]\n- False‑alarm probability: 10 % [S1]\n- Radar detection when a plane is present: 99 % [S5]\n- Overall blip probability ≈ 0.1445 [S6]\n- Posterior probability of a plane given a blip ≈ 30–34 % [S2][S8]",
      "reference": "False alarms are common: most of the time there is no plane, and there is a 10% false alarm probability, so most blips are false alarms.",
      "contexts": [
       "So you cannot really rely on the measurements of your radar, even though the specs of the radar were really good. What's the reason for this? Well, the reason is that false alarms are pretty common. Most of the time there's nothing. And there's a 10% probability of false alarms. So there's roughly a 10% probability that in any given experiment you have a false alarm. And there's about a 5% probability that something is out there, and your radar gets it. So when your radar records something, it's actually more likely to be a false alarm rather than being an actual airplane. This has probability 10%, roughly. This has probability roughly 5%. So conditional probabilities are kind of sometimes counterintuitive in terms of the answers that they get. And you can make similar stories about doctors interpreting the results of tests.",
@@ -4055,17 +4172,30 @@
       null,
       null
      ],
-     "cite_match": [],
-     "quote_status": [],
+     "cite_match": [
+      null,
+      0,
+      null,
+      0,
+      null
+     ],
+     "quote_status": [
+      "exact",
+      "approx",
+      "exact",
+      "exact",
+      "exact"
+     ],
      "context_tokens": 1741,
      "context_tokens_before": 1741,
      "prompt_tokens": 1982,
-     "latency": 3.85,
-     "uncited": 8,
+     "latency": 3.24,
+     "uncited": 4,
+     "cached": false,
      "ragas": {
       "faithfulness": null,
-      "answer_relevancy": 0.855,
-      "context_precision": null,
+      "answer_relevancy": 0.869,
+      "context_precision": 0.854,
       "context_recall": 1.0
      }
     },
@@ -4075,7 +4205,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "The lecturer explains conditional probability by imagining the experiment being repeated many times. First you restrict attention to the subset of trials in which the conditioning event (say B) occurs, and then you ask what fraction of those trials also show the other event (say A). That fraction is the conditional probability P(A | B) – it is the frequency of A among the experiments where B is known to have happened. In other words, conditional probabilities are ordinary probabilities computed in a “new universe” consisting only of the B‑trials, and they can be read as the long‑run proportion of such trials that also satisfy A [S2][S3].",
+     "answer": "The lecturer explains conditional probability by **restricting the sample space to the trials where the conditioning event occurs** and then measuring the long‑run fraction of those trials in which the other event also occurs.  In other words, we look only at the experiments in which B happens and ask what proportion of those also have A (or C) happen – treating probabilities as frequencies over many repetitions of the experiment[S2][S3].",
      "reference": "Look only at the experiments in which B occurs and ask in what fraction of those A also occurs.",
      "contexts": [
       "So in terms of frequencies, how often do all three things happen, A, B, and C? You first see how often does A occur? Out of the times that A occurs, how often does B occur? And out of the times where both A and B have occurred, how often does C occurs? And you can just multiply those three frequencies with each other. What is the formal proof of this? Well, the only thing we have in our hands is the definition of conditional probabilities. So let's just use this. And OK. Now the definition of conditional probabilities tells us that the probability of two things is the probability of one of them times a conditional probability. Unfortunately, here we have the probability of three things. What can I do? Well, I can put a parenthesis in here and think of this as the probability of this and that.",
@@ -4119,10 +4249,11 @@
      "context_tokens": 2041,
      "context_tokens_before": 2041,
      "prompt_tokens": 2126,
-     "latency": 1.93,
-     "uncited": 3,
+     "latency": 2.32,
+     "uncited": 1,
+     "cached": false,
      "ragas": {
-      "faithfulness": null,
+      "faithfulness": 0.833,
       "answer_relevancy": 0.866,
       "context_precision": 1.0,
       "context_recall": 1.0
@@ -4134,7 +4265,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "The event \\(B\\) is defined as \\(\\min(X,Y)=2\\) and \\(M=\\max(X,Y)\\) [S1].  In the 4×4 grid of all 16 equally‑likely outcomes, the event \\(B\\) consists of the five points \\((2,2),(2,3),(2,4),(3,2),(4,2)\\) – i.e., the five outcomes whose minimum is 2 [S8].  None of these five points has a maximum of 1, so\n\n\\[P(M=1\\mid B)=0.\\]\n\nOnly the point \\((2,2)\\) has both minimum = 2 and maximum = 2, so the intersection of \\(B\\) with the event \\(M=2\\) contains a single outcome.  The conditional probability is therefore\n\n\\[P(M=2\\mid B)=\\frac{1/16}{5/16}=\\frac{1}{5}.\\]  (One favorable outcome out of the five in \\(B\\)) [S8].",
+     "answer": "The conditional probability that the maximum equals 1 given that the minimum is 2 is zero, because the maximum of two numbers cannot be less than their minimum. Hence\n\n$$P(M=1\\mid B)=0.$$ \n\nFor the maximum equal to 2, the intersection of the events \\(\\{M=2\\}\\) and \\(B\\) contains exactly one outcome out of the five outcomes that satisfy \\(B\\). Since each outcome in the original sample space has probability \\(1/16\\), the conditional probability is\n\n$$P(M=2\\mid B)=\\frac{1/16}{5/16}=\\frac{1}{5}.$$ \n\nThus:\n- \\(P(M=1\\mid B)=0\\) \n- \\(P(M=2\\mid B)=1/5\\).",
      "reference": "P(M = 1 | B) = 0 because the maximum cannot be 1 when the minimum is 2; P(M = 2 | B) = 1/5, since only (2,2) of the 5 equally likely outcomes in B has maximum 2.",
      "contexts": [
       "Die roll example\n\nY = Second roll\n\n4\n3\n2\n1\n\n1  2  3  4\n\nX = First roll\n\n• Let B be the event: min(X, Y) = 2\n• Let M = max(X, Y)\n• P(M = 1 | B) =\n• P(M = 2 | B) =",
@@ -4167,24 +4298,19 @@
       null,
       0
      ],
-     "cite_match": [
-      1,
-      0
-     ],
-     "quote_status": [
-      "exact",
-      "exact"
-     ],
+     "cite_match": [],
+     "quote_status": [],
      "context_tokens": 1351,
      "context_tokens_before": 1351,
      "prompt_tokens": 2187,
-     "latency": 3.87,
-     "uncited": 3,
+     "latency": 3.3,
+     "uncited": 4,
+     "cached": false,
      "ragas": {
       "faithfulness": null,
-      "answer_relevancy": 0.765,
+      "answer_relevancy": 0.75,
       "context_precision": 0.759,
-      "context_recall": 0.5
+      "context_recall": 1.0
      }
     },
     {
@@ -4193,7 +4319,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "Bayes’ rule is named after **Thomas Bayes**, a British theologian from the 1700s [S1].  It was introduced to answer the basic philosophical question of **how we can learn from experience or experimental data in a systematic way**, i.e., how to incorporate new knowledge into our existing beliefs [S1].",
+     "answer": "Bayes’ rule is named after **Thomas Bayes**, a British theologian from the 1700s[S1].  It was introduced to answer the fundamental philosophical question of **how we can learn from experience or experimental data in a systematic way**, i.e., how to incorporate new evidence into our existing beliefs[S1].",
      "reference": "Thomas Bayes, a British theologian of the 1700s; it addresses how one can learn from experience or experimental data in a systematic way.",
      "contexts": [
       "So the name of the Bayes rule comes from Thomas Bayes, a British theologian, back in the 1700s. It actually, this calculation addresses a basic philosophical problem. how one can learn from experience or from experimental data in some systematic way. So the British at that time were preoccupied with this type of question. Is there a basic theory about how we can incorporate new knowledge to previous knowledge? And this calculation made an argument that yes, it is possible to do that in a systematic way. So the philosophical underpinnings of this have a very long history and a lot of discussion around them. But for our purposes, it's just an extremely useful tool. And it's the foundation of almost everything that gets done when you try to do inference based on partial observations. Very well. Till next time.",
@@ -4235,11 +4361,12 @@
      "context_tokens": 1125,
      "context_tokens_before": 1125,
      "prompt_tokens": 1738,
-     "latency": 1.53,
+     "latency": 1.23,
      "uncited": 0,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.927,
+      "answer_relevancy": 0.948,
       "context_precision": 1.0,
       "context_recall": 1.0
      }
@@ -4250,7 +4377,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "Yes.  When we condition on an event B (with P(B)>0) the resulting conditional probabilities constitute a new, legitimate probability model.  They satisfy all the usual axioms – non‑negativity, total probability 1, and additivity for disjoint events – just like ordinary probabilities.  This is why we can treat the conditional probabilities as a “new universe” in which B has occurred and perform the same calculations as before[S1][S2].",
+     "answer": "Yes.  When we condition on an event B (with P(B)>0) the resulting conditional probabilities constitute a new, legitimate probability model.  The conditional probabilities still satisfy the usual axioms – for example, if A₁ and A₂ are disjoint then P(A₁∪A₂ | B)=P(A₁ | B)+P(A₂ | B) – so they form a proper probability law on the reduced sample space [B].  This is why we can treat the conditional world exactly like the original one, just with the updated probabilities [S1][S2].",
      "reference": "Yes. Conditional probabilities given B satisfy all the probability axioms (e.g. additivity for disjoint events), so they form a different but legitimate probability law.",
      "contexts": [
       "Conditional probabilities, given a specific event b, just form a probability law on our sample space. It's a different probability law, but it's still a probability law that has all the desired properties. OK, so where do conditional probabilities come up? They do come up in quizzes, and they do come in silly problems. So let's start with this. We have this example from last time, two rolls of a die. All possible pairs of rolls are equally likely, so every element in this square has probability of 1 over 16. So all elements are equally likely. That's our original model. Then somebody comes and tells us that the minimum of the two roles is equal to zero. What's that event? The minimum equal to zero can happen in many ways if we get two zeros or if we get a two and something larger.",
@@ -4289,17 +4416,18 @@
      ],
      "quote_status": [
       "exact",
-      "approx"
+      "exact"
      ],
      "context_tokens": 1809,
      "context_tokens_before": 1809,
      "prompt_tokens": 1963,
-     "latency": 1.43,
+     "latency": 1.45,
      "uncited": 2,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.884,
-      "context_precision": 1.0,
+      "answer_relevancy": 0.859,
+      "context_precision": 0.875,
       "context_recall": 1.0
      }
     },
@@ -4309,7 +4437,7 @@
      "off_material": false,
      "modality": "video",
      "status": "answered",
-     "answer": "The lecturer emphasizes that a positive test result does **not** guarantee that the person actually has the disease; even a well‑designed test can give a false positive, especially when the disease is extremely rare, so the inference is subtle. [S1]",
+     "answer": "The lecturer emphasizes that a positive test result does **not** guarantee that a person actually has the disease – even a well‑designed test can give false positives, especially if the disease is extremely rare or eradicated, so the reasoning in such cases is subtle. [S1]",
      "reference": "Testing positive does not necessarily mean you have the disease: if the disease is rare, even a good test gives mostly false positives, as in the radar example.",
      "contexts": [
       "So you tested positive for a certain disease. Does it mean that you have the disease necessarily? Well, if that disease has been eradicated from the face of the earth, testing positive doesn't mean that you have the disease, even if the test was designed to be a pretty good one. So unfortunately, doctors do get it wrong also sometimes. And the reasoning that comes in such situations is pretty subtle. Now for the rest of the lecture, what we're going to do is to take this example where we did three things and abstract them. These three trivial calculations that we just did are three very important, very basic tools that you use to solve more general probability problems. So what's the first one? We find the probability of a composite event, two things happening by multiplying probabilities and conditional probabilities. More general version of this.",
@@ -4351,11 +4479,12 @@
      "context_tokens": 1724,
      "context_tokens_before": 1724,
      "prompt_tokens": 2201,
-     "latency": 1.71,
+     "latency": 1.31,
      "uncited": 1,
+     "cached": false,
      "ragas": {
       "faithfulness": 1.0,
-      "answer_relevancy": 0.923,
+      "answer_relevancy": 0.931,
       "context_precision": 1.0,
       "context_recall": 0.0
      }
@@ -4366,7 +4495,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The provided course material does not include a discussion of the central limit theorem.",
+     "answer": "The course material provided does not include a discussion of the central limit theorem.",
      "reference": "",
      "contexts": [
       "Diagram on 6.041 L2 slides · slide 7 (Total probability theorem): The diagram shows a rectangular sample space partitioned into three regions by two curved lines, labeled A1 (top), A2 (bottom left), and A3 (bottom right). A shaded gray ellipse labeled B overlaps all three regions, illustrating that event B is split across the partition. This visualizes the total probability theorem, where P(B) is computed as the sum of P(Ai)P(B | Ai) over the three partition elements.",
@@ -4395,8 +4524,9 @@
      "context_tokens": 1109,
      "context_tokens_before": 1109,
      "prompt_tokens": 1598,
-     "latency": 1.1,
+     "latency": 0.78,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -4405,7 +4535,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The provided course material does not include information about the Poisson distribution or its applications.",
+     "answer": "The provided course material does not cover the Poisson distribution.",
      "reference": "",
      "contexts": [
       "So they remain equally likely afterwards. Because when we define conditional probabilities, we keep the same proportions inside the set. So the five red elements were equally likely. They remain equally likely in the conditional world. So conditional on b having happened, each one of these five elements has the same probability. So the probability that we actually get this point is going to be 1 fifth. And so that's the shortcut. More generally, whenever you have a uniform distribution on your initial sample space, when you condition on an event, your new distribution is still going to be uniform, but on the smaller event that we considered. So we started with a uniform distribution on the big square. And we ended up with a uniform distribution just on the red points. Now, besides silly problems, however, conditional probabilities show up in real and interesting situations.",
@@ -4434,8 +4564,9 @@
      "context_tokens": 3413,
      "context_tokens_before": 3413,
      "prompt_tokens": 3796,
-     "latency": 0.92,
+     "latency": 1.07,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -4444,7 +4575,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The course material provided does not include a formula or explanation for the variance of a binomial random variable.",
+     "answer": "The provided course material does not include information on how to compute the variance of a binomial random variable.",
      "reference": "",
      "contexts": [
       "Example 3.3 Table 3.1 describes the distribution of a random sample S of 100 individuals, organized by gender and whether they are right- or left-handed. Right-handed Left-handed Males 43 9 Females 44 4 Table 3.1 Let’s denote the events M = the subject is male, F = the subject is female, R = the subject is right-handed, L = the subject is left-handed. Compute the following probabilities: a. P(M) b. P(F) c. P(R) d. P(L) e. P(M AND R) f. P(F AND L) g. P(M OR F) h. P(M OR R) i. P(F OR L) j. P(M') k. P(R|M) l. P(F|L) m. P(L|F) Solution 3.3 a. P(M) = 0.52 b. P(F) = 0.48 c. P(R) = 0.87 d. P(L) = 0.13 e. P(M AND R) = 0.43 f. P(F AND L) = 0.04 g. P(M OR F) = 1 h. P(M OR R) = 0.96 i. P(F OR L) = 0.57 j. P(M') = 0.48 k. P(R|M) = 0.8269 (rounded to four decimal places) l. P(F|L) = 0.3077 (rounded to four decimal places) m. P(L|F) = 0.0833",
@@ -4473,8 +4604,9 @@
      "context_tokens": 1507,
      "context_tokens_before": 1507,
      "prompt_tokens": 2452,
-     "latency": 1.1,
+     "latency": 2.12,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -4483,7 +4615,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The provided course material does not include a definition or discussion of p‑values in hypothesis testing.",
+     "answer": "The provided course material does not include a definition or discussion of p-values in hypothesis testing.",
      "reference": "",
      "contexts": [
       "the general population of women, the test for breast cancer is negative about 85% of the time. Let B = woman develops breast cancer and let N = tests negative. Suppose one woman is selected at random. a. What is the probability that the woman develops breast cancer? What is the probability that woman tests negative? Solution 3.18 a. P(B) = 0.143; P(N) = 0.85 b. Given that the woman has breast cancer, what is the probability that she tests negative? Solution 3.18 b. P(N|B) = 0.02 c. What is the probability that the woman has breast cancer AND tests negative? Solution 3.18 c. P(B AND N) = P(B)P(N|B) = (0.143)(0.02) = 0.0029 d. What is the probability that the woman has breast cancer or tests negative? Solution 3.18 d. P(B OR N) = P(B) + P(N) - P(B AND N) = 0.143 + 0.85 - 0.0029 = 0.9901 e. Are having breast cancer and testing negative independent events? Solution 3.18 e. No. P(N) = 0.85; P(N|B) = 0.02. So, P(N|B) does not equal P(N).",
@@ -4512,8 +4644,9 @@
      "context_tokens": 1556,
      "context_tokens_before": 1556,
      "prompt_tokens": 2423,
-     "latency": 1.09,
+     "latency": 1.14,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -4551,8 +4684,9 @@
      "context_tokens": 1404,
      "context_tokens_before": 1404,
      "prompt_tokens": 1932,
-     "latency": 1.24,
+     "latency": 1.06,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -4592,6 +4726,7 @@
      "prompt_tokens": null,
      "latency": 0.02,
      "uncited": null,
+     "cached": false,
      "ragas": null
     },
     {
@@ -4629,8 +4764,9 @@
      "context_tokens": 2048,
      "context_tokens_before": 2048,
      "prompt_tokens": 2565,
-     "latency": 0.91,
+     "latency": 0.93,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -4668,8 +4804,9 @@
      "context_tokens": 2436,
      "context_tokens_before": 2436,
      "prompt_tokens": null,
-     "latency": 0.03,
+     "latency": 0.02,
      "uncited": null,
+     "cached": false,
      "ragas": null
     },
     {
@@ -4678,7 +4815,7 @@
      "off_material": true,
      "modality": "",
      "status": "not_covered",
-     "answer": "The course material provided does not include information about the mean of an exponential distribution.",
+     "answer": "The course material provided does not include information about the exponential distribution or its mean.",
      "reference": "",
      "contexts": [
       "So they remain equally likely afterwards. Because when we define conditional probabilities, we keep the same proportions inside the set. So the five red elements were equally likely. They remain equally likely in the conditional world. So conditional on b having happened, each one of these five elements has the same probability. So the probability that we actually get this point is going to be 1 fifth. And so that's the shortcut. More generally, whenever you have a uniform distribution on your initial sample space, when you condition on an event, your new distribution is still going to be uniform, but on the smaller event that we considered. So we started with a uniform distribution on the big square. And we ended up with a uniform distribution just on the red points. Now, besides silly problems, however, conditional probabilities show up in real and interesting situations.",
@@ -4707,8 +4844,9 @@
      "context_tokens": 1951,
      "context_tokens_before": 1951,
      "prompt_tokens": 2494,
-     "latency": 0.83,
+     "latency": 0.89,
      "uncited": 1,
+     "cached": false,
      "ragas": null
     },
     {
@@ -4748,6 +4886,7 @@
      "prompt_tokens": null,
      "latency": 0.02,
      "uncited": null,
+     "cached": false,
      "ragas": null
     }
    ]
@@ -4758,6 +4897,8 @@
   "RAGAS 0.4.3 metrics use deepseek-ai/DeepSeek-V4-Flash-0731 as the judge (a different model from the tutor, openai/gpt-oss-120b). Questions the tutor declined are excluded from RAGAS and counted in the false-refusal rate.",
   "ID-based context precision/recall count a retrieved unit as relevant only if it is at a gold location, so precision is a conservative lower bound (other pages can also be relevant).",
   "Evidence tokens are LLMSlim's character-based estimate; prompt tokens are reported by the provider and include the system prompt.",
-  "Single run, temperature 0.1; small test set, so differences of a few points between configurations are within noise."
+  "Single run per configuration at temperature 0.1 on a small test set: differences of a few points are within run-to-run noise. An earlier full run gave citation accuracy 0.85 (LLMSlim) vs 0.76 (full context) and faithfulness 0.91 (n=24) vs 0.99 (n=20).",
+  "Citation metrics were re-scored from the saved answers after fixing a parser bug (zero-width characters inside [S#] markers); no answers were regenerated.",
+  "RAGAS scores are means over the answers the judge could score (n shown); a few judge outputs failed to parse and are excluded rather than counted as zero."
  ]
 }

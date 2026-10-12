@@ -1,0 +1,67 @@
+/* StudyTwin palette (IIT Mandi: iris accent, lavender-dawn sky). Only --accent and the sky stops change. */
+:root {
+  --accent: #6e56cf;
+  --sky-top: #c9c2f0;
+  --sky-mid: #e2dcf1;
+  --sky-bottom: #f3e9df;
+}
+
+/* Rich answer text (markdown + KaTeX + citation chips) */
+.rich {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.rich p { margin: 0.45em 0; }
+.rich p:first-child { margin-top: 0; }
+.rich ul, .rich ol { margin: 0.4em 0 0.6em; padding-left: 1.3em; }
+.rich ul { list-style: disc; }
+.rich ol { list-style: decimal; }
+.rich li { margin: 0.2em 0; }
+.rich h1, .rich h2, .rich h3, .rich h4 { font-family: var(--font-display); font-weight: 600; font-size: 15.5px; margin: 0.9em 0 0.3em; letter-spacing: -0.01em; }
+.rich strong { font-weight: 600; }
+.rich code { font-family: var(--font-mono); font-size: 13px; background: var(--paper-2); padding: 1px 5px; border-radius: 6px; }
+.rich table { border-collapse: collapse; margin: 0.6em 0; font-size: 14px; display: block; overflow-x: auto; }
+.rich th, .rich td { border-bottom: 1px solid var(--hair); padding: 6px 10px; text-align: left; }
+.rich th { color: var(--muted); font-weight: 500; }
+.rich .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; margin: 0.5em 0; }
+.rich .katex { font-size: 1.04em; }
+.cite-chip {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  margin: 0 2px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font: 600 11.5px/1 var(--font-display);
+  vertical-align: 2px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.cite-chip.wide { font-size: 12px; height: 22px; vertical-align: 1px; }
+.cite-chip:hover { background: var(--accent); color: #fff; transform: translateY(-1px); }
+
+/* Highlight boxes over a rendered textbook page */
+.hl-box {
+  position: absolute;
+  background: color-mix(in oklab, var(--accent) 22%, transparent);
+  outline: 1.5px solid color-mix(in oklab, var(--accent) 70%, transparent);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+/* Skeleton shimmer for loading states */
+.skeleton {
+  background: linear-gradient(90deg, var(--paper-2) 0%, var(--paper-3) 50%, var(--paper-2) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 12px;
+}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+.scrollbar-thin { scrollbar-width: thin; }
+textarea { resize: none; }

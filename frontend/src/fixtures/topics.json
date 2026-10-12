@@ -1,0 +1,319 @@
+[
+ {
+  "id": "T1",
+  "name": "Probability Terminology and Sample Spaces",
+  "parent_id": null,
+  "description": "Introduces basic probability concepts and the sample space for experiments.",
+  "key_concepts": [
+   "experiment",
+   "outcome",
+   "sample space",
+   "event",
+   "probability",
+   "law of large numbers"
+  ],
+  "prerequisites": [],
+  "ord": 0,
+  "subtopics": [
+   {
+    "id": "T1.1",
+    "name": "Sample Space",
+    "description": "Defines sample space for discrete and continuous experiments.",
+    "key_concepts": [
+     "discrete sample space",
+     "continuous sample space",
+     "sequential description"
+    ],
+    "units": 6
+   },
+   {
+    "id": "T1.2",
+    "name": "Events and Probability Measure",
+    "description": "Defines events as subsets and probability as a measure.",
+    "key_concepts": [
+     "event",
+     "probability measure",
+     "equally likely outcomes"
+    ],
+    "units": 11
+   }
+  ],
+  "coverage": {
+   "slides": 4,
+   "textbook": 4,
+   "video": 9
+  }
+ },
+ {
+  "id": "T2",
+  "name": "Probability Axioms and Rules",
+  "parent_id": null,
+  "description": "Covers the axioms of probability and basic rules for calculating probabilities.",
+  "key_concepts": [
+   "nonnegativity",
+   "normalization",
+   "additivity",
+   "complement rule",
+   "addition rule",
+   "mutually exclusive"
+  ],
+  "prerequisites": [
+   "T1"
+  ],
+  "ord": 1,
+  "subtopics": [
+   {
+    "id": "T2.1",
+    "name": "Probability Axioms",
+    "description": "States the three axioms of probability.",
+    "key_concepts": [
+     "nonnegativity",
+     "normalization",
+     "additivity"
+    ],
+    "units": 4
+   },
+   {
+    "id": "T2.2",
+    "name": "Basic Probability Rules",
+    "description": "Applies axioms to derive complement and addition rules.",
+    "key_concepts": [
+     "complement rule",
+     "addition rule",
+     "mutually exclusive events"
+    ],
+    "units": 18
+   }
+  ],
+  "coverage": {
+   "slides": 1,
+   "video": 5,
+   "textbook": 16
+  }
+ },
+ {
+  "id": "T3",
+  "name": "Conditional Probability and Bayes' Rule",
+  "parent_id": null,
+  "description": "Introduces conditional probability and its use in inference via Bayes' rule.",
+  "key_concepts": [
+   "conditional probability",
+   "multiplication rule",
+   "total probability theorem",
+   "Bayes' rule",
+   "prior probability",
+   "posterior probability"
+  ],
+  "prerequisites": [
+   "T2"
+  ],
+  "ord": 2,
+  "subtopics": [
+   {
+    "id": "T3.1",
+    "name": "Conditional Probability",
+    "description": "Defines conditional probability and the multiplication rule.",
+    "key_concepts": [
+     "conditional probability",
+     "multiplication rule",
+     "conditioning"
+    ],
+    "units": 27
+   },
+   {
+    "id": "T3.2",
+    "name": "Total Probability and Bayes' Rule",
+    "description": "Uses partitions to compute total probability and update beliefs.",
+    "key_concepts": [
+     "total probability theorem",
+     "Bayes' rule",
+     "prior",
+     "posterior"
+    ],
+    "units": 17
+   }
+  ],
+  "coverage": {
+   "slides": 13,
+   "textbook": 5,
+   "video": 26
+  }
+ },
+ {
+  "id": "T4",
+  "name": "Independence",
+  "parent_id": null,
+  "description": "Explores independence of events and its implications.",
+  "key_concepts": [
+   "independent events",
+   "mutually exclusive",
+   "conditional independence",
+   "pairwise independence"
+  ],
+  "prerequisites": [
+   "T3"
+  ],
+  "ord": 3,
+  "subtopics": [
+   {
+    "id": "T4.1",
+    "name": "Independent Events",
+    "description": "Defines independence and its criteria.",
+    "key_concepts": [
+     "independent events",
+     "P(A|B)=P(A)",
+     "P(A∩B)=P(A)P(B)"
+    ],
+    "units": 17
+   },
+   {
+    "id": "T4.2",
+    "name": "Independence of Collections",
+    "description": "Extends independence to multiple events and distinguishes from pairwise.",
+    "key_concepts": [
+     "collection independence",
+     "pairwise independence",
+     "conditional independence"
+    ],
+    "units": 4
+   }
+  ],
+  "coverage": {
+   "slides": 4,
+   "textbook": 17
+  }
+ },
+ {
+  "id": "T5",
+  "name": "Counting and Uniform Probability Laws",
+  "parent_id": null,
+  "description": "Covers uniform probability laws and counting outcomes.",
+  "key_concepts": [
+   "discrete uniform law",
+   "continuous uniform law",
+   "counting",
+   "equally likely outcomes"
+  ],
+  "prerequisites": [
+   "T1"
+  ],
+  "ord": 4,
+  "subtopics": [
+   {
+    "id": "T5.1",
+    "name": "Discrete Uniform Law",
+    "description": "Probability as ratio of counts for equally likely outcomes.",
+    "key_concepts": [
+     "discrete uniform law",
+     "counting",
+     "equally likely outcomes"
+    ],
+    "units": 2
+   },
+   {
+    "id": "T5.2",
+    "name": "Continuous Uniform Law",
+    "description": "Probability as area for continuous sample spaces.",
+    "key_concepts": [
+     "continuous uniform law",
+     "area",
+     "unit square"
+    ],
+    "units": 11
+   }
+  ],
+  "coverage": {
+   "slides": 7,
+   "video": 6
+  }
+ },
+ {
+  "id": "T6",
+  "name": "Visualization Tools: Tree and Venn Diagrams",
+  "parent_id": null,
+  "description": "Uses tree and Venn diagrams to visualize probability problems.",
+  "key_concepts": [
+   "tree diagram",
+   "Venn diagram",
+   "conditional probability visualization"
+  ],
+  "prerequisites": [
+   "T3"
+  ],
+  "ord": 5,
+  "subtopics": [
+   {
+    "id": "T6.1",
+    "name": "Tree Diagrams",
+    "description": "Represents sequential experiments with branches and probabilities.",
+    "key_concepts": [
+     "tree diagram",
+     "branch probabilities",
+     "sequential events"
+    ],
+    "units": 21
+   },
+   {
+    "id": "T6.2",
+    "name": "Venn Diagrams",
+    "description": "Represents events as sets and their relationships.",
+    "key_concepts": [
+     "Venn diagram",
+     "set operations",
+     "overlapping events"
+    ],
+    "units": 10
+   }
+  ],
+  "coverage": {
+   "slides": 6,
+   "textbook": 24,
+   "video": 1
+  }
+ },
+ {
+  "id": "T7",
+  "name": "Contingency Tables and Empirical Probability",
+  "parent_id": null,
+  "description": "Uses contingency tables and empirical data to estimate probabilities.",
+  "key_concepts": [
+   "contingency table",
+   "empirical probability",
+   "theoretical probability",
+   "with/without replacement"
+  ],
+  "prerequisites": [
+   "T2"
+  ],
+  "ord": 6,
+  "subtopics": [
+   {
+    "id": "T7.1",
+    "name": "Contingency Tables",
+    "description": "Organizes data to calculate conditional and joint probabilities.",
+    "key_concepts": [
+     "contingency table",
+     "joint probability",
+     "conditional probability"
+    ],
+    "units": 13
+   },
+   {
+    "id": "T7.2",
+    "name": "Empirical vs Theoretical Probability",
+    "description": "Compares observed frequencies with theoretical probabilities.",
+    "key_concepts": [
+     "empirical probability",
+     "theoretical probability",
+     "law of large numbers"
+    ],
+    "units": 5
+   }
+  ],
+  "coverage": {
+   "slides": 1,
+   "textbook": 16,
+   "video": 1
+  }
+ }
+]
