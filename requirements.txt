@@ -1,0 +1,20 @@
+# Core runtime (Python 3.11-3.12). Install CPU-only PyTorch first to keep the download small:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+openai==3.3.0
+python-dotenv==1.2.4
+pypdfium2==5.14.0
+pypdf==6.20.0
+python-pptx==1.0.2
+pillow==12.3.0
+numpy==2.5.4
+sentence-transformers==6.1.0
+faster-whisper==1.2.1
+av==18.0.0
+youtube-transcript-api==1.2.4
+llmslim==0.8.1
+# tests
+pytest==9.1.1
+httpx==0.28.1

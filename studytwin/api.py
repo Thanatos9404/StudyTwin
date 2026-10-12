@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import re
+from contextlib import asynccontextmanager
 import threading
 import time
 from pathlib import Path
@@ -23,25 +24,30 @@ from .ingest.pdf import find_highlight
 from .ingest.pipeline import SUPPORTED, ingest_source
 
 settings.ensure_dirs()
-app = FastAPI(title="StudyTwin", version="1.0.0", description="Adaptive multimodal study companion (Track D)")
+
+
+def _warm() -> None:
+    """Load the embedder, index and LLMSlim in the background so the first question is fast."""
+    try:
+        retrieval.get_index()
+        tutor.retrieve("conditional probability", k=1)
+        from llmslim import compress
+
+        compress("Warm up the compressor. It has two sentences.", target_ratio=0.5, query="warm")
+    except Exception:  # noqa: BLE001
+        pass
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    threading.Thread(target=_warm, daemon=True).start()
+    yield
+
+
+app = FastAPI(title="StudyTwin", version="1.0.0", description="Adaptive multimodal study companion (Track D)", lifespan=lifespan)
 app.mount("/static", StaticFiles(directory=str(ROOT / "web")), name="static")
 app.mount("/media", StaticFiles(directory=str(settings.media_dir)), name="media")
 EVAL_DIR = ROOT / "eval" / "results"
-
-
-@app.on_event("startup")
-def _warm() -> None:
-    def warm() -> None:
-        try:
-            retrieval.get_index()
-            tutor.retrieve("conditional probability", k=1)
-            from llmslim import compress
-
-            compress("Warm up the compressor. It has two sentences.", target_ratio=0.5, query="warm")
-        except Exception:  # noqa: BLE001
-            pass
-
-    threading.Thread(target=warm, daemon=True).start()
 
 
 @app.get("/")

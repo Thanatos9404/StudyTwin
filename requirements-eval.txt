@@ -1,0 +1,4 @@
+# Only needed for the LLM-judged RAGAS metrics (python -m studytwin.eval.rag_eval)
+-r requirements.txt
+ragas==0.4.3
+langchain-openai==1.7.1
