@@ -393,18 +393,10 @@ def create_assessment(student_id: str, kind: str = "quiz", topic_ids: list[str] 
         for i in range(n):
             plan.append((scope[i % len(scope)], types[i % len(types)], (i % 3) + 1))
     else:
-        pri = learner.priorities({t: state[t] for t in scope}, learner.prerequisites())
-        total = sum(pri.values()) or 1.0
-        alloc = {t: pri[t] / total * n for t in scope}
-        counts = {t: int(alloc[t]) for t in scope}
-        for t in sorted(scope, key=lambda t: -(alloc[t] - int(alloc[t])))[: n - sum(counts.values())]:
-            counts[t] += 1
-        i = 0
-        for t in sorted(scope, key=lambda t: -pri[t]):
-            for _ in range(counts[t]):
-                qt = types[i % len(types)]
-                plan.append((t, qt, learner.pick_difficulty(state[t]["p"], qt)))
-                i += 1
+        slots = learner.allocate({t: state[t] for t in scope}, learner.prerequisites(), n, focus=min(3, len(scope)))
+        for i, t in enumerate(slots):
+            qt = types[i % len(types)]
+            plan.append((t, qt, learner.pick_difficulty(state[t]["p"], qt)))
     chosen: list[dict[str, Any]] = []
     repeats = 0
     exclude: set[str] = set()

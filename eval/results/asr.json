@@ -1,0 +1,10 @@
+{
+ "wer": 0.0464,
+ "ref_words": 7098,
+ "hyp_words": 7038,
+ "model": "faster-whisper small (int8, CPU)",
+ "duration_s": 3070.8,
+ "wall_time_s": 528.8,
+ "realtime_factor": 5.81,
+ "note": "Reference = official MIT OCW captions for 6.041 Lecture 2 (lower-cased, punctuation removed). Includes the OCW intro/outro, which both transcripts contain. Measured on a 12-thread laptop CPU."
+}

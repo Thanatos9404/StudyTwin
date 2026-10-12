@@ -157,6 +157,17 @@ def priorities(state: dict[str, dict[str, Any]], prereq: dict[str, list[str]], n
     return out
 
 
+def allocate(state: dict[str, dict[str, Any]], prereq: dict[str, list[str]], n: int, focus: int = 3,
+             now: float | None = None) -> list[str]:
+    """Topic for each of n quiz slots: concentrate on the `focus` highest-priority topics that are not yet
+    mastered (or are due for review), round-robin, so practice goes where the learner model expects gains."""
+    pri = priorities(state, prereq, now)
+    ranked = sorted(state, key=lambda t: -pri[t])
+    open_ = [t for t in ranked if state[t]["p"] < MASTERED or retention(state[t].get("last_ts"), state[t].get("half_life"), now) < 0.8]
+    chosen = (open_ or ranked)[: max(1, focus)]
+    return [chosen[i % len(chosen)] for i in range(n)]
+
+
 def pick_difficulty(p: float, qtype: str = "mcq", target: float = 0.7) -> int:
     """Choose the difficulty whose predicted success probability is closest to the target (~70%)."""
     return min((1, 2, 3), key=lambda d: (abs(p_correct(p, d, qtype) - target), d))

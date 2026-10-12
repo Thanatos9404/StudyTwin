@@ -1,6 +1,6 @@
 {
- "description": "4 simulated student profiles x 40 students x 6 sessions of 8 questions, drawn from the real verified bank (41 questions, 7 topics). Hidden knowledge follows a BKT-style process (learning from practice, halved when a prerequisite is unknown; 4% forgetting per session). Session 1 of the adaptive policy is the cold-start diagnostic.",
- "bank_size": 41,
+ "description": "4 simulated student profiles x 40 students x 6 sessions of 8 questions, drawn from the real verified bank (64 questions, 7 topics). Hidden knowledge follows a BKT-style process (learning from practice, halved when a prerequisite is unknown; 4% forgetting per session). Session 1 of the adaptive policy is the cold-start diagnostic.",
+ "bank_size": 64,
  "topics": 7,
  "sessions": 6,
  "per_session": 8,
@@ -11,19 +11,19 @@
    "profile_description": "knows little; average learner",
    "policy": "studytwin_adaptive",
    "true_start": 0.0964,
-   "true_end": 0.5214,
-   "gain": 0.425,
-   "bkt_mae_first": 0.3379,
-   "bkt_mae_last": 0.2143,
+   "true_end": 0.6393,
+   "gain": 0.5429,
+   "bkt_mae_first": 0.3488,
+   "bkt_mae_last": 0.2026,
    "bkt_mae_by_session": [
-    0.3379,
-    0.3247,
-    0.3219,
-    0.2709,
-    0.2117,
-    0.2143
+    0.3488,
+    0.3494,
+    0.3464,
+    0.3162,
+    0.2436,
+    0.2026
    ],
-   "repeat_rate": 0.1277,
+   "repeat_rate": 0.0,
    "n_students": 40
   },
   {
@@ -31,19 +31,19 @@
    "profile_description": "knows little; average learner",
    "policy": "random_no_repeat",
    "true_start": 0.0964,
-   "true_end": 0.5107,
-   "gain": 0.4143,
-   "bkt_mae_first": 0.3257,
-   "bkt_mae_last": 0.2163,
+   "true_end": 0.5679,
+   "gain": 0.4714,
+   "bkt_mae_first": 0.2937,
+   "bkt_mae_last": 0.1956,
    "bkt_mae_by_session": [
-    0.3257,
-    0.2606,
-    0.2528,
-    0.2449,
-    0.2145,
-    0.2163
+    0.2937,
+    0.2562,
+    0.2409,
+    0.2464,
+    0.2207,
+    0.1956
    ],
-   "repeat_rate": 0.1458,
+   "repeat_rate": 0.0,
    "n_students": 40
   },
   {
@@ -51,79 +51,79 @@
    "profile_description": "knows little; average learner",
    "policy": "random_with_repeats",
    "true_start": 0.0964,
-   "true_end": 0.5179,
-   "gain": 0.4214,
-   "bkt_mae_first": 0.3077,
-   "bkt_mae_last": 0.2043,
+   "true_end": 0.5429,
+   "gain": 0.4464,
+   "bkt_mae_first": 0.3187,
+   "bkt_mae_last": 0.2235,
    "bkt_mae_by_session": [
-    0.3077,
-    0.2892,
-    0.2678,
-    0.2446,
-    0.2314,
-    0.2043
+    0.3187,
+    0.2801,
+    0.2612,
+    0.2454,
+    0.2329,
+    0.2235
    ],
-   "repeat_rate": 0.4047,
+   "repeat_rate": 0.2917,
    "n_students": 40
   },
   {
    "profile": "uneven",
    "profile_description": "strong on early topics, weak on later ones",
    "policy": "studytwin_adaptive",
+   "true_start": 0.4071,
+   "true_end": 0.7643,
+   "gain": 0.3571,
+   "bkt_mae_first": 0.3709,
+   "bkt_mae_last": 0.1569,
+   "bkt_mae_by_session": [
+    0.3709,
+    0.3473,
+    0.2733,
+    0.2412,
+    0.1928,
+    0.1569
+   ],
+   "repeat_rate": 0.0,
+   "n_students": 40
+  },
+  {
+   "profile": "uneven",
+   "profile_description": "strong on early topics, weak on later ones",
+   "policy": "random_no_repeat",
+   "true_start": 0.4071,
+   "true_end": 0.7179,
+   "gain": 0.3107,
+   "bkt_mae_first": 0.3272,
+   "bkt_mae_last": 0.1515,
+   "bkt_mae_by_session": [
+    0.3272,
+    0.251,
+    0.2019,
+    0.1857,
+    0.1806,
+    0.1515
+   ],
+   "repeat_rate": 0.0,
+   "n_students": 40
+  },
+  {
+   "profile": "uneven",
+   "profile_description": "strong on early topics, weak on later ones",
+   "policy": "random_with_repeats",
    "true_start": 0.4071,
    "true_end": 0.6786,
    "gain": 0.2714,
-   "bkt_mae_first": 0.3282,
-   "bkt_mae_last": 0.1555,
+   "bkt_mae_first": 0.3213,
+   "bkt_mae_last": 0.1556,
    "bkt_mae_by_session": [
-    0.3282,
-    0.3141,
-    0.2293,
-    0.1925,
-    0.1573,
-    0.1555
+    0.3213,
+    0.2587,
+    0.2097,
+    0.1696,
+    0.1553,
+    0.1556
    ],
-   "repeat_rate": 0.1277,
-   "n_students": 40
-  },
-  {
-   "profile": "uneven",
-   "profile_description": "strong on early topics, weak on later ones",
-   "policy": "random_no_repeat",
-   "true_start": 0.4071,
-   "true_end": 0.7107,
-   "gain": 0.3036,
-   "bkt_mae_first": 0.32,
-   "bkt_mae_last": 0.1385,
-   "bkt_mae_by_session": [
-    0.32,
-    0.2437,
-    0.2108,
-    0.1663,
-    0.1592,
-    0.1385
-   ],
-   "repeat_rate": 0.1458,
-   "n_students": 40
-  },
-  {
-   "profile": "uneven",
-   "profile_description": "strong on early topics, weak on later ones",
-   "policy": "random_with_repeats",
-   "true_start": 0.4071,
-   "true_end": 0.625,
-   "gain": 0.2179,
-   "bkt_mae_first": 0.307,
-   "bkt_mae_last": 0.1588,
-   "bkt_mae_by_session": [
-    0.307,
-    0.2574,
-    0.2433,
-    0.1915,
-    0.1576,
-    0.1588
-   ],
-   "repeat_rate": 0.4042,
+   "repeat_rate": 0.3,
    "n_students": 40
   },
   {
@@ -131,19 +131,19 @@
    "profile_description": "knows most topics already",
    "policy": "studytwin_adaptive",
    "true_start": 0.6893,
-   "true_end": 0.7893,
-   "gain": 0.1,
-   "bkt_mae_first": 0.387,
-   "bkt_mae_last": 0.1619,
+   "true_end": 0.8071,
+   "gain": 0.1179,
+   "bkt_mae_first": 0.3792,
+   "bkt_mae_last": 0.1073,
    "bkt_mae_by_session": [
-    0.387,
-    0.2971,
-    0.2434,
-    0.1881,
-    0.1812,
-    0.1619
+    0.3792,
+    0.2919,
+    0.2196,
+    0.1683,
+    0.1216,
+    0.1073
    ],
-   "repeat_rate": 0.1277,
+   "repeat_rate": 0.0,
    "n_students": 40
   },
   {
@@ -151,19 +151,19 @@
    "profile_description": "knows most topics already",
    "policy": "random_no_repeat",
    "true_start": 0.6893,
-   "true_end": 0.7429,
-   "gain": 0.0536,
-   "bkt_mae_first": 0.3436,
-   "bkt_mae_last": 0.1847,
+   "true_end": 0.7964,
+   "gain": 0.1071,
+   "bkt_mae_first": 0.3352,
+   "bkt_mae_last": 0.126,
    "bkt_mae_by_session": [
-    0.3436,
-    0.2541,
-    0.2162,
-    0.1969,
-    0.2012,
-    0.1847
+    0.3352,
+    0.2237,
+    0.167,
+    0.1479,
+    0.1251,
+    0.126
    ],
-   "repeat_rate": 0.1458,
+   "repeat_rate": 0.0,
    "n_students": 40
   },
   {
@@ -171,19 +171,19 @@
    "profile_description": "knows most topics already",
    "policy": "random_with_repeats",
    "true_start": 0.6893,
-   "true_end": 0.7286,
-   "gain": 0.0393,
-   "bkt_mae_first": 0.3531,
-   "bkt_mae_last": 0.2048,
+   "true_end": 0.775,
+   "gain": 0.0857,
+   "bkt_mae_first": 0.3513,
+   "bkt_mae_last": 0.1063,
    "bkt_mae_by_session": [
-    0.3531,
-    0.2562,
-    0.2306,
-    0.2322,
-    0.2285,
-    0.2048
+    0.3513,
+    0.2321,
+    0.1682,
+    0.1227,
+    0.1098,
+    0.1063
    ],
-   "repeat_rate": 0.4036,
+   "repeat_rate": 0.2964,
    "n_students": 40
   },
   {
@@ -191,19 +191,19 @@
    "profile_description": "learns slowly from each question",
    "policy": "studytwin_adaptive",
    "true_start": 0.1643,
-   "true_end": 0.3857,
-   "gain": 0.2214,
-   "bkt_mae_first": 0.3237,
-   "bkt_mae_last": 0.236,
+   "true_end": 0.4393,
+   "gain": 0.275,
+   "bkt_mae_first": 0.3231,
+   "bkt_mae_last": 0.2464,
    "bkt_mae_by_session": [
-    0.3237,
-    0.3167,
-    0.3092,
-    0.2793,
-    0.2298,
-    0.236
+    0.3231,
+    0.328,
+    0.3308,
+    0.3428,
+    0.3009,
+    0.2464
    ],
-   "repeat_rate": 0.1277,
+   "repeat_rate": 0.0,
    "n_students": 40
   },
   {
@@ -213,17 +213,17 @@
    "true_start": 0.1643,
    "true_end": 0.3571,
    "gain": 0.1929,
-   "bkt_mae_first": 0.2957,
-   "bkt_mae_last": 0.2092,
+   "bkt_mae_first": 0.266,
+   "bkt_mae_last": 0.209,
    "bkt_mae_by_session": [
-    0.2957,
-    0.2807,
-    0.242,
-    0.2253,
-    0.2256,
-    0.2092
+    0.266,
+    0.2234,
+    0.2089,
+    0.1964,
+    0.2096,
+    0.209
    ],
-   "repeat_rate": 0.1458,
+   "repeat_rate": 0.0,
    "n_students": 40
   },
   {
@@ -231,69 +231,69 @@
    "profile_description": "learns slowly from each question",
    "policy": "random_with_repeats",
    "true_start": 0.1643,
-   "true_end": 0.3179,
-   "gain": 0.1536,
-   "bkt_mae_first": 0.2951,
-   "bkt_mae_last": 0.2347,
+   "true_end": 0.3143,
+   "gain": 0.15,
+   "bkt_mae_first": 0.2883,
+   "bkt_mae_last": 0.2154,
    "bkt_mae_by_session": [
-    0.2951,
-    0.2698,
-    0.2613,
-    0.2396,
-    0.2334,
-    0.2347
+    0.2883,
+    0.2624,
+    0.2376,
+    0.2074,
+    0.2114,
+    0.2154
    ],
-   "repeat_rate": 0.4062,
+   "repeat_rate": 0.2927,
    "n_students": 40
   }
  ],
  "summary": {
   "studytwin_adaptive": {
-   "gain": 0.2545,
-   "repeat_rate": 0.1277,
-   "bkt_mae_first": 0.3442,
-   "bkt_mae_last": 0.1919
+   "gain": 0.3232,
+   "repeat_rate": 0.0,
+   "bkt_mae_first": 0.3555,
+   "bkt_mae_last": 0.1783
   },
   "random_no_repeat": {
-   "gain": 0.2411,
-   "repeat_rate": 0.1458,
-   "bkt_mae_first": 0.3213,
-   "bkt_mae_last": 0.1872
+   "gain": 0.2705,
+   "repeat_rate": 0.0,
+   "bkt_mae_first": 0.3055,
+   "bkt_mae_last": 0.1705
   },
   "random_with_repeats": {
-   "gain": 0.2081,
-   "repeat_rate": 0.4047,
-   "bkt_mae_first": 0.3157,
-   "bkt_mae_last": 0.2006
+   "gain": 0.2384,
+   "repeat_rate": 0.2952,
+   "bkt_mae_first": 0.3199,
+   "bkt_mae_last": 0.1752
   }
  },
  "curve": {
   "studytwin_adaptive": [
    0.3393,
-   0.3821,
-   0.4598,
-   0.5098,
-   0.5393,
-   0.5518,
-   0.5938
+   0.392,
+   0.4759,
+   0.5321,
+   0.5982,
+   0.6375,
+   0.6625
   ],
   "random_no_repeat": [
    0.3393,
-   0.3955,
-   0.4545,
-   0.5036,
-   0.5437,
-   0.5652,
-   0.5804
+   0.4027,
+   0.4536,
+   0.483,
+   0.5241,
+   0.567,
+   0.6098
   ],
   "random_with_repeats": [
    0.3393,
-   0.3857,
-   0.4295,
-   0.4652,
-   0.4964,
-   0.5223,
-   0.5473
+   0.408,
+   0.4643,
+   0.5071,
+   0.525,
+   0.5518,
+   0.5777
   ]
  },
  "caveat": "Simulated learners follow the same family of model the tutor assumes (BKT), so these numbers show the policy works as designed, not real-student learning gains."

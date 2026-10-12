@@ -94,20 +94,9 @@ def simulate_student(policy: str, prof: Profile, bank: list[dict[str, Any]], top
                 plan = [(t, "mcq", 2) for t in topics][:PER_SESSION]
             else:
                 state = {t: {"p": est[t], "last_ts": None, "half_life": 1.0} for t in topics}
-                pri = learner.priorities(state, prereq)
-                order = sorted(topics, key=lambda t: -pri[t])
-                total = sum(pri.values()) or 1.0
-                counts = {t: int(pri[t] / total * PER_SESSION) for t in topics}
-                for t in order[: PER_SESSION - sum(counts.values())]:
-                    counts[t] += 1
+                slots = learner.allocate(state, prereq, PER_SESSION, focus=3)
                 types = ["mcq", "numerical", "short"]
-                plan = []
-                i = 0
-                for t in order:
-                    for _ in range(counts[t]):
-                        qt = types[i % 3]
-                        plan.append((t, qt, learner.pick_difficulty(est[t], qt)))
-                        i += 1
+                plan = [(t, types[i % 3], learner.pick_difficulty(est[t], types[i % 3])) for i, t in enumerate(slots)]
             for t, qt, d in plan:
                 q = _choose(by_topic, t, qt, d, seen, picks, topics, est, rng)
                 picks.append(q)

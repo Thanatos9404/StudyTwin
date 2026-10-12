@@ -1,0 +1,107 @@
+{
+ "generated": 66,
+ "verified": 64,
+ "rejected": 2,
+ "verified_rate": 0.9697,
+ "duplicates": 8,
+ "methods": {
+  "blind-solve": 51,
+  "key-check": 15
+ },
+ "by_topic": {
+  "T1": {
+   "verified": 8,
+   "types": {
+    "mcq": 3,
+    "numerical": 3,
+    "short": 2
+   },
+   "difficulty": {
+    "1": 4,
+    "2": 3,
+    "3": 1
+   }
+  },
+  "T2": {
+   "verified": 9,
+   "types": {
+    "mcq": 4,
+    "numerical": 3,
+    "short": 2
+   },
+   "difficulty": {
+    "1": 4,
+    "2": 3,
+    "3": 2
+   }
+  },
+  "T3": {
+   "verified": 8,
+   "types": {
+    "mcq": 4,
+    "numerical": 2,
+    "short": 2
+   },
+   "difficulty": {
+    "1": 2,
+    "2": 3,
+    "3": 3
+   }
+  },
+  "T4": {
+   "verified": 11,
+   "types": {
+    "mcq": 4,
+    "numerical": 5,
+    "short": 2
+   },
+   "difficulty": {
+    "1": 1,
+    "2": 4,
+    "3": 6
+   }
+  },
+  "T5": {
+   "verified": 8,
+   "types": {
+    "mcq": 3,
+    "short": 2,
+    "numerical": 3
+   },
+   "difficulty": {
+    "1": 4,
+    "3": 2,
+    "2": 2
+   }
+  },
+  "T6": {
+   "verified": 8,
+   "types": {
+    "mcq": 3,
+    "numerical": 3,
+    "short": 2
+   },
+   "difficulty": {
+    "1": 1,
+    "2": 5,
+    "3": 2
+   }
+  },
+  "T7": {
+   "verified": 12,
+   "types": {
+    "mcq": 4,
+    "numerical": 6,
+    "short": 2
+   },
+   "difficulty": {
+    "1": 5,
+    "2": 5,
+    "3": 2
+   }
+  }
+ },
+ "generator": "deepseek-ai/DeepSeek-V4-Flash-0731",
+ "verifier": "openai/gpt-oss-120b",
+ "note": "Stored questions only; near-duplicates (embedding cosine >= 0.90 to an existing stem) are dropped before storage. MCQ and numerical questions are solved blind by the verifier and must match the key (numbers within tolerance); short answers are checked against the sources. Agreement between two models is not proof of correctness."
+}

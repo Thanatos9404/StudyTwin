@@ -74,6 +74,7 @@ def run_config(questions: list[dict[str, Any]], use_llmslim: bool) -> list[dict[
             "context_tokens_before": (r.get("context_stats") or {}).get("tokens_before"),
             "prompt_tokens": (r.get("usage") or {}).get("prompt_tokens"),
             "latency": r.get("latency_s"), "uncited": r.get("uncited_sentences"),
+            "cached": bool((r.get("usage") or {}).get("cached")),
         })
         print(f"  {q['id']:6s} {r['status']:12s} support={r['support']:.2f} hit={any(m is not None for m in match)} "
               f"cited_gold={any(m is not None for m in cite_match)} {r.get('latency_s')}s", flush=True)
@@ -100,7 +101,7 @@ def location_metrics(rows: list[dict[str, Any]]) -> dict[str, Any]:
     cite_acc = [1.0 if any(m is not None for m in r["cite_match"]) else 0.0 for r in answered]
     cite_prec = [sum(m is not None for m in r["cite_match"]) / len(r["cite_match"]) for r in answered if r["cite_match"]]
     qs = [s for r in answered for s in r["quote_status"] if s]
-    lat = sorted(r["latency"] for r in rows if r["latency"] is not None)
+    lat = sorted(r["latency"] for r in rows if r["latency"] is not None and not r.get("cached"))
     return {
         "n_in_scope": len(ins), "n_off": len(off),
         "hit_at_k": mean(hit), "mrr": mean(mrr), "id_context_precision": mean(id_prec), "id_context_recall": mean(id_rec),
@@ -145,7 +146,7 @@ def _ragas_imports():
             return get_embedder().encode([text])[0].tolist()
 
     judge = ChatOpenAI(model=settings.judge_model.id, base_url=settings.nebius_base_url, api_key=settings.nebius_api_key,
-                       temperature=0, max_tokens=4096, timeout=240, max_retries=3)
+                       temperature=0, max_tokens=8192, timeout=300, max_retries=3)
     return dict(EvaluationDataset=EvaluationDataset, RunConfig=RunConfig, evaluate=evaluate,
                 llm=LangchainLLMWrapper(judge), emb=LangchainEmbeddingsWrapper(LocalEmb()),
                 metrics=[Faithfulness(), ResponseRelevancy(strictness=1), LLMContextPrecisionWithReference(), LLMContextRecall()])

@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import base64
+import os
 import hashlib
 import json
 import re
@@ -182,7 +183,8 @@ def chat(
     client, cache = _get()
     key_src = json.dumps([spec.id, messages, max_tokens, temperature, json_mode, cache_salt], sort_keys=True, ensure_ascii=False)
     key = hashlib.sha256(key_src.encode()).hexdigest()
-    if use_cache and cache is not None:
+    read_cache = use_cache and os.getenv("STUDYTWIN_NO_CACHE_READ", "0") != "1"  # eval: force fresh calls
+    if read_cache and cache is not None:
         hit = cache.get(key)
         if hit:
             meter.add(spec, hit[1], hit[2], 0.0, cached=True)
