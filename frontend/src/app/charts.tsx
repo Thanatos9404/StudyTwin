@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { EASE } from "../kit/lib/motion";
 import type { Topic } from "../lib/api";
 
-function wrap(text: string, max = 22): string[] {
+function wrap(text: string, max = 24): string[] {
   const words = text.split(/\s+/);
   const lines: string[] = [];
   let cur = "";
@@ -31,32 +31,34 @@ export function CourseMap({ topics, mastery, onSelect }: { topics: Topic[]; mast
       return depth[id];
     };
     topics.forEach((t) => d(t.id));
-    const cols: string[][] = [];
-    topics.forEach((t) => (cols[depth[t.id]] ??= []).push(t.id));
-    const W = 200, H = 74, GX = 64, GY = 22;
-    const rows = Math.max(...cols.map((c) => c.length), 1);
+    const rowsByDepth: string[][] = [];
+    topics.forEach((t) => (rowsByDepth[depth[t.id]] ??= []).push(t.id));
+    // Vertical layout: prerequisite depth runs top to bottom, so the map fits narrow panels.
+    const W = 196, H = 68, GX = 18, GY = 40;
+    const perRow = Math.max(...rowsByDepth.map((r) => r.length), 1);
+    const width = 24 + perRow * W + (perRow - 1) * GX;
     const pos: Record<string, { x: number; y: number }> = {};
-    cols.forEach((c, ci) => {
-      const off = ((rows - c.length) * (H + GY)) / 2;
-      c.forEach((id, ri) => (pos[id] = { x: 12 + ci * (W + GX), y: 12 + off + ri * (H + GY) }));
+    rowsByDepth.forEach((r, ri) => {
+      const off = (width - (r.length * W + (r.length - 1) * GX)) / 2;
+      r.forEach((id, ci) => (pos[id] = { x: off + ci * (W + GX), y: 12 + ri * (H + GY) }));
     });
-    return { pos, W, H, width: 24 + cols.length * W + (cols.length - 1) * GX, height: 24 + rows * H + (rows - 1) * GY };
+    return { pos, W, H, width, height: 24 + rowsByDepth.length * H + (rowsByDepth.length - 1) * GY };
   }, [topics]);
   const [hover, setHover] = useState<string | null>(null);
   if (!topics.length) return null;
   const { pos, W, H } = layout;
   return (
     <div className="overflow-x-auto">
-      <svg viewBox={`0 0 ${layout.width} ${layout.height}`} className="h-auto w-full min-w-[640px]" role="img" aria-label="Course flow map of topics and prerequisites">
+      <svg viewBox={`0 0 ${layout.width} ${layout.height}`} className="mx-auto h-auto w-full" style={{ maxWidth: layout.width, minWidth: Math.min(layout.width, 420) }} role="img" aria-label="Course flow map of topics and prerequisites">
         {topics.flatMap((t) =>
           (t.prerequisites || []).filter((p) => pos[p]).map((p) => {
             const a = pos[p], b = pos[t.id];
-            const x1 = a.x + W, y1 = a.y + H / 2, x2 = b.x, y2 = b.y + H / 2;
+            const x1 = a.x + W / 2, y1 = a.y + H, x2 = b.x + W / 2, y2 = b.y;
             const on = hover === t.id || hover === p;
             return (
               <path
                 key={p + t.id}
-                d={`M${x1},${y1} C${x1 + 36},${y1} ${x2 - 36},${y2} ${x2},${y2}`}
+                d={`M${x1},${y1} C${x1},${y1 + 24} ${x2},${y2 - 24} ${x2},${y2 - 2}`}
                 fill="none"
                 stroke={on ? "var(--accent)" : "var(--hair-strong)"}
                 strokeWidth={on ? 2 : 1.4}
@@ -90,7 +92,7 @@ export function CourseMap({ topics, mastery, onSelect }: { topics: Topic[]; mast
                 {m != null ? ` · ${Math.round(m * 100)}%` : ""}
               </text>
               {lines.map((l, i) => (
-                <text key={i} x={14} y={38 + i * 15} fontSize={13} fontWeight={600} fill="var(--ink)" fontFamily="var(--font-display)">
+                <text key={i} x={14} y={36 + i * 15} fontSize={13} fontWeight={600} fill="var(--ink)" fontFamily="var(--font-display)">
                   {l}
                 </text>
               ))}
@@ -121,7 +123,7 @@ export function LineChart({
   guide?: { y: number; label: string };
 }) {
   const [hx, setHx] = useState<number | null>(null);
-  const W = 640, P = 28;
+  const W = 640, P = 40;
   const n = Math.max(...series.map((s) => s.values.length), 2);
   const x = (i: number) => P + (i / (n - 1)) * (W - 2 * P);
   const y = (v: number) => height - P - (v / yMax) * (height - 2 * P);
@@ -221,8 +223,7 @@ export function BarCompare({ rows, labels, format = (v: number) => v.toFixed(2) 
                   key={i}
                   title={`${labels[i]}: ${v == null ? "–" : format(v)}`}
                   initial={{ height: 0 }}
-                  whileInView={{ height: `${((v ?? 0) / max) * 100}%` }}
-                  viewport={{ once: true }}
+                  animate={{ height: `${((v ?? 0) / max) * 100}%` }}
                   transition={{ duration: 0.9, ease: EASE, delay: i * 0.08 }}
                   className="relative w-[38%] max-w-9 rounded-t-lg"
                   style={{ background: i === 0 ? "var(--accent)" : "color-mix(in oklab, var(--accent) 28%, var(--paper-3))" }}

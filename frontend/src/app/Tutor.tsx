@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowUp, BookOpenCheck, Clapperboard, Languages, Layers, Search } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { Badge, Panel, Segmented } from "../kit";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Panel, Segmented } from "../kit";
 import { EASE } from "../kit/lib/motion";
 import { api, type ChatAnswer } from "../lib/api";
 import { AnswerCard } from "./AnswerCard";
@@ -163,8 +163,8 @@ export function Tutor() {
               "LLMSlim compresses the evidence to a token budget; [S#] markers are re-attached after compression.",
               "The model must cite a source for every claim and quote it; quotes are checked against the original text.",
             ].map((s, i) => (
-              <li key={i} className="flex gap-2.5">
-                <Badge tone="neutral">{i + 1}</Badge>
+              <li key={i} className="flex items-start gap-2.5">
+                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-paper-3 text-[11px] font-semibold text-ink-2">{i + 1}</span>
                 <span>{s}</span>
               </li>
             ))}
@@ -175,7 +175,7 @@ export function Tutor() {
   );
 }
 
-function Row({ icon, k, v }: { icon: React.ReactNode; k: string; v: string }) {
+function Row({ icon, k, v }: { icon: ReactNode; k: string; v: string }) {
   return (
     <li className="flex items-start gap-2.5">
       <span className="mt-0.5 text-muted">{icon}</span>

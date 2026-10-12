@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ChartNoAxesColumn, FlaskConical, Gauge, Library as LibraryIcon, ListChecks, MessageSquareText, Plus, RefreshCw } from "lucide-react";
+import { ChevronDown, FlaskConical, Gauge, Library as LibraryIcon, ListChecks, MessageSquareText, Plus, RefreshCw } from "lucide-react";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { AppShell, Button, IconButton, Wordmark } from "../kit";
 import { cn } from "../kit/lib/cn";
@@ -170,7 +170,7 @@ function StudentPicker({ students, value, onChange }: { students: Student[]; val
           </option>
         ))}
       </select>
-      <ChartNoAxesColumn size={14} strokeWidth={1.7} className="pointer-events-none absolute right-3 text-muted" />
+      <ChevronDown size={14} strokeWidth={1.7} className="pointer-events-none absolute right-3 text-muted" />
     </label>
   );
 }

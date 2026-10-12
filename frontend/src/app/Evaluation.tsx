@@ -117,13 +117,12 @@ export function Evaluation() {
           <Panel className="xl:col-span-5" title="Per profile" description="True mastery gain over 6 sessions, BKT estimate error, repeated questions.">
             <ul className="divide-y divide-[var(--hair)] text-[13.5px]">
               {(sim.rows as { profile: string; policy: string; gain: number; bkt_mae_first: number; bkt_mae_last: number; repeat_rate: number }[])
-                .filter((x) => x.policy !== "random_with_repeats" || true)
                 .map((x) => (
                   <li key={x.profile + x.policy} className="grid grid-cols-[1fr_auto] gap-x-3 py-2">
                     <span className="text-ink">
                       {x.profile.replace("_", " ")} <span className="text-muted">· {POLICY[x.policy]}</span>
                     </span>
-                    <b className={x.policy === "studytwin_adaptive" ? "text-accent" : "text-ink-2"}>+{pct(x.gain)}</b>
+                    <b className={x.policy === "studytwin_adaptive" ? "text-accent" : "text-ink-2"}>+{Math.round(x.gain * 100)} pts</b>
                     <span className="col-span-2 text-[12px] text-muted">
                       BKT error {f2(x.bkt_mae_first)} → {f2(x.bkt_mae_last)} · repeats {pct(x.repeat_rate)}
                     </span>

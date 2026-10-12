@@ -1,6 +1,6 @@
-"""FastAPI backend + static web UI.
+"""FastAPI backend; also serves the built React app (frontend/dist).
 
-Run:  uvicorn studytwin.api:app --port 8000   (then open http://localhost:8000)
+Run:  uvicorn studytwin.api:app --port 8765   (then open http://localhost:8765)
 """
 
 from __future__ import annotations
@@ -45,14 +45,26 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(title="StudyTwin", version="1.0.0", description="Adaptive multimodal study companion (Track D)", lifespan=lifespan)
-app.mount("/static", StaticFiles(directory=str(ROOT / "web")), name="static")
+FRONTEND = ROOT / "frontend" / "dist"  # React app (npm run build); committed so no Node is needed to run
+if (FRONTEND / "assets").exists():
+    app.mount("/assets", StaticFiles(directory=str(FRONTEND / "assets")), name="assets")
+if (FRONTEND / "demo").exists():
+    app.mount("/demo", StaticFiles(directory=str(FRONTEND / "demo")), name="demo")
 app.mount("/media", StaticFiles(directory=str(settings.media_dir)), name="media")
 EVAL_DIR = ROOT / "eval" / "results"
 
 
 @app.get("/")
-def index() -> FileResponse:
-    return FileResponse(ROOT / "web" / "index.html")
+def index():
+    page = FRONTEND / "index.html"
+    if page.exists():
+        return FileResponse(page)
+    return JSONResponse({"detail": "Frontend not built. Run: cd frontend && npm install && npm run build"}, status_code=503)
+
+
+@app.get("/favicon.svg")
+def favicon() -> FileResponse:
+    return FileResponse(FRONTEND / "favicon.svg", media_type="image/svg+xml")
 
 
 # ---- system ------------------------------------------------------------------------------
