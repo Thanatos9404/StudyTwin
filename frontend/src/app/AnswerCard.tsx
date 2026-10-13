@@ -1,8 +1,10 @@
-import { CircleSlash, Globe2, Info, ShieldCheck, Sparkles, TrendingDown, TrendingUp, Zap } from "lucide-react";
+import { CircleSlash, Globe2, Info, ShieldCheck, Sparkles, Square, TrendingDown, TrendingUp, Volume2, Zap } from "lucide-react";
+import { useState } from "react";
 import { Badge } from "../kit";
 import type { ChatAnswer, Citation } from "../lib/api";
 import { pct } from "../lib/api";
 import { Rich } from "../lib/rich";
+import { canSpeak, speak, stopSpeaking } from "../lib/speech";
 import { SourceList } from "./ui";
 
 const STATUS = {
@@ -28,12 +30,33 @@ export function AnswerCard({
   const st = STATUS[a.status] ?? STATUS.answered;
   const cs = a.context_stats;
   const openCite = (c: Citation) => onCite(c.unit_id, c.quote);
+  const [speaking, setSpeaking] = useState(false);
   return (
-    <div className="surface p-5 text-left md:p-6">
-      <Badge tone={st.tone}>
-        {st.icon}
-        {st.label}
-      </Badge>
+    <div className="surface min-w-0 overflow-hidden p-5 text-left md:p-6">
+      <div className="flex items-center justify-between gap-3">
+        <Badge tone={st.tone}>
+          {st.icon}
+          {st.label}
+        </Badge>
+        {!compact && canSpeak() && (
+          <button
+            onClick={() => {
+              if (speaking) {
+                stopSpeaking();
+                setSpeaking(false);
+              } else {
+                setSpeaking(true);
+                speak(a.answer, () => setSpeaking(false));
+              }
+            }}
+            className="inline-flex items-center gap-1.5 rounded-full border border-hair px-3 py-1 text-[12.5px] font-medium text-ink-2 transition hover:text-ink"
+            aria-label={speaking ? "Stop reading aloud" : "Read the answer aloud"}
+          >
+            {speaking ? <Square size={13} strokeWidth={1.8} /> : <Volume2 size={14} strokeWidth={1.8} />}
+            {speaking ? "Stop" : "Listen"}
+          </button>
+        )}
+      </div>
       <Rich text={a.answer} cites={a.citations} onCite={onCite} className="mt-3" />
       {a.outside_knowledge && (
         <div className="mt-4 flex gap-3 rounded-2xl border border-hair bg-paper-2 p-4 text-[14px]">

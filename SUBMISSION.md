@@ -52,7 +52,8 @@ Then it teaches:
 
 * **Grounded tutor.** Every claim carries a citation that opens the textbook page with the quote highlighted,
   the slide, or the lecture video at the right second. Off-material questions are declined; optional general
-  knowledge is shown separately with a warning. Answers can be in Hindi with the same citations.
+  knowledge is shown separately with a warning. Answers can be in Hindi with the same citations, read aloud,
+  and questions can be asked by voice.
 * **Adaptive assessment.** Multiple-choice, numerical and short-answer questions, written from the material by
   one model and solved blind by a second model family before they enter the bank. Quizzes, mock exams and a
   cold-start diagnostic; no question is repeated while unseen ones remain. Each answer gets cited feedback and

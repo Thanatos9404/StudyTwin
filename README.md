@@ -13,7 +13,7 @@ Built for **Track D: Personalized Tutoring & Adaptive Learning** of the Multimod
 | Models | Nebius Token Factory (open-weight models), local BGE-small embeddings, local faster-whisper |
 | Context layer | [LLMSlim](https://pypi.org/project/llmslim/) (query-aware extractive compression with citations preserved) |
 | Runs on | a laptop CPU; FastAPI + SQLite backend, React frontend (prebuilt, no Node needed to run) |
-| Tests | 18 offline tests, no API key or network needed |
+| Tests | 19 offline tests, no API key or network needed |
 
 ![StudyTwin tutor: a cited answer with the cited slide open](docs/screenshots/app-source-viewer-1440.png)
 
@@ -46,7 +46,7 @@ cover a question, and (3) aim practice at what the student has not learned yet.
 | **4b** New students | Intake self-rating per topic sets the BKT priors, then a diagnostic quiz with one question per topic. |
 | **5a/b** RAG evaluation with a standard framework on a team-built test set | RAGAS 0.4 (faithfulness, answer relevancy, context precision, context recall) plus source-location metrics on 34 questions with known page/slide/timestamp and 10 off-material questions. |
 | **5c** Personalization with simulated students | 4 student profiles x 40 students x 6 sessions using the real question bank: mastery gains, BKT tracking error and question repetition rate, vs two random baselines. |
-| **6** Optional | Course flow map, flashcards for weak topics, study schedule to exam day with forgetting curves, Hindi answers (Devanagari, citations unchanged). |
+| **6** Optional | Course flow map, flashcards for weak topics, study schedule to exam day with forgetting curves, Hindi answers (Devanagari, citations unchanged; Devanagari questions are translated for retrieval), audio tutoring in the browser (answers read aloud, voice questions in English or Hindi via the Web Speech API). |
 
 ## Architecture
 
@@ -239,7 +239,7 @@ Frontend development (optional): `cd frontend && npm install && npm run dev` (pr
 ## Tests and evaluation
 
 ```bash
-python -m pytest -q                         # 18 offline tests (no key, no network), ~20 s
+python -m pytest -q                         # 19 offline tests (no key, no network), ~30 s
 pip install -r requirements-eval.txt        # RAGAS + LangChain OpenAI-compatible client
 python -m studytwin.eval.rag_eval           # RAGAS + location metrics (uses Nebius credits)
 python -m studytwin.eval.rag_eval --no-ragas  # location + refusal metrics only

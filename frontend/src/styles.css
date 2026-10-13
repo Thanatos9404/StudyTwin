@@ -12,6 +12,7 @@
   line-height: 1.65;
   color: var(--ink);
   overflow-wrap: anywhere;
+  overflow-x: auto; /* long inline math scrolls inside the card instead of widening the page */
 }
 .rich p { margin: 0.45em 0; }
 .rich p:first-child { margin-top: 0; }

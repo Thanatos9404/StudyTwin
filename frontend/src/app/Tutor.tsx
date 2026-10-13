@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
-import { ArrowUp, BookOpenCheck, Clapperboard, Languages, Layers, Search } from "lucide-react";
+import { ArrowUp, BookOpenCheck, Clapperboard, Languages, Layers, Mic, MicOff, Search } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Panel, Segmented } from "../kit";
 import { EASE } from "../kit/lib/motion";
 import { api, type ChatAnswer } from "../lib/api";
+import { recognizer } from "../lib/speech";
 import { AnswerCard } from "./AnswerCard";
 import { useSource } from "./SourceViewer";
 import { useApp } from "./StudyApp";
@@ -32,6 +33,19 @@ export function Tutor() {
   const [lang, setLang] = useState<"en" | "hi">("en");
   const [outside, setOutside] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [listening, setListening] = useState(false);
+  const voice = typeof window !== "undefined" && !!recognizer();
+  function dictate() {
+    const r = recognizer();
+    if (!r) return;
+    r.lang = lang === "hi" ? "hi-IN" : "en-IN";
+    r.interimResults = false;
+    r.onresult = (e) => setText((t) => (t ? t + " " : "") + e.results[0][0].transcript);
+    r.onend = () => setListening(false);
+    r.onerror = () => setListening(false);
+    setListening(true);
+    r.start();
+  }
   const endRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => setMsgs(threads.get(key) ?? []), [key]);
@@ -68,7 +82,7 @@ export function Tutor() {
 
   return (
     <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_320px]">
-      <div className="flex min-h-[calc(100dvh-170px)] flex-col">
+      <div className="flex min-h-[calc(100dvh-170px)] min-w-0 flex-col">
         <div className="flex-1 space-y-4">
           {msgs.length === 0 && (
             <Panel title="Ask your course anything" description="Answers come only from the lecture video, slides and textbook in your library. If the material does not cover a question, StudyTwin says so instead of guessing.">
@@ -127,6 +141,18 @@ export function Tutor() {
               aria-label="Your question"
               className="min-h-[52px] flex-1 bg-transparent px-2 py-1.5 text-[15px] text-ink outline-none placeholder:text-muted"
             />
+            {voice && (
+              <button
+                type="button"
+                onClick={dictate}
+                disabled={listening}
+                title="Voice input uses your browser's speech service"
+                aria-label={listening ? "Listening" : "Ask by voice"}
+                className="grid size-11 shrink-0 place-items-center rounded-full border border-hair text-ink-2 transition hover:text-ink disabled:text-accent"
+              >
+                {listening ? <MicOff size={18} strokeWidth={1.8} className="animate-pulse" /> : <Mic size={18} strokeWidth={1.8} />}
+              </button>
+            )}
             <button
               type="submit"
               disabled={busy || !text.trim()}
