@@ -15,6 +15,11 @@ Built for **Track D: Personalized Tutoring & Adaptive Learning** of the Multimod
 | Runs on | a laptop CPU; FastAPI + SQLite backend, React frontend (prebuilt, no Node needed to run) |
 | Tests | 18 offline tests, no API key or network needed |
 
+![StudyTwin tutor: a cited answer with the cited slide open](docs/screenshots/app-source-viewer-1440.png)
+
+More screenshots (landing page, progress, practice, library, evaluation; desktop and 375px mobile) are in
+[docs/screenshots](docs/screenshots).
+
 ---
 
 ## The problem
@@ -222,6 +227,9 @@ python scripts/seed_demo.py --fresh        # ~5 min ingestion (incl. vision) + ~
 uvicorn studytwin.api:app --port 8765
 # open http://localhost:8765 (landing page) -> "Open the app"
 ```
+
+The first question after a restart takes longer while the embedding model loads (the server warms it up in
+the background at start-up). Typical answers take 2-10 s, most of it the model call.
 
 Use **Library** to add your own material (any PDF, PPTX, video/audio, captions, or a YouTube link).
 
